@@ -1,0 +1,2347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Architecture Hub | Contact Professionals</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <style>
+@media (max-width: 767px) {
+    footer {
+        padding: 1.5rem 1rem 1rem;
+    }
+    
+    .footer-grid {
+        gap: 1.5rem;
+    }
+    
+    .footer-logo-text {
+        font-size: 1.2rem;
+    }
+    
+    .footer-logo-icon {
+        font-size: 1.5rem;
+        padding: 6px;
+    }
+    
+    .footer-title {
+        font-size: 1rem;
+    }
+    
+    .footer-link {
+        font-size: 0.85rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .footer-about-text {
+        font-size: 0.85rem;
+    }
+    
+    .footer-contact p {
+        font-size: 0.85rem;
+    }
+    
+    .social-link {
+        width: 32px;
+        height: 32px;
+    }
+    
+    .social-link svg {
+        width: 16px;
+        height: 16px;
+    }
+}
+footer {
+    background: #0A0A0A;
+    border-top: 1px solid rgba(212, 175, 55, 0.3);
+    margin-top: auto;
+    padding: 2rem 1rem 1rem;
+    position: relative;
+    width: 100%;
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+    padding: 0 1rem;
+}
+
+@media (min-width: 768px) {
+    .footer-grid {
+        grid-template-columns: 1.5fr 1fr 1fr;
+        gap: 2rem;
+    }
+}
+
+/* FOOTER ABOUT - COMPACT */
+.footer-about {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.footer-logo {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    margin-bottom: 0.5rem;
+}
+
+.footer-logo-icon {
+    font-size: 1.8rem;
+    color: #D4AF37;
+    background: rgba(212, 175, 55, 0.1);
+    padding: 8px;
+    border-radius: 8px;
+    border: 1px solid rgba(212, 175, 55, 0.2);
+}
+
+.footer-logo-text {
+    font-family: 'Poppins', 'Montserrat', sans-serif;
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: #FFFFFF;
+    letter-spacing: 0.5px;
+}
+
+.footer-about-text {
+    font-family: 'Open Sans', 'Roboto', sans-serif;
+    color: #A0A0A0;
+    font-size: 0.9rem;
+    line-height: 1.6;
+    max-width: 300px;
+}
+
+/* FOOTER COLUMNS - COMPACT */
+.footer-column {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.footer-title {
+    font-family: 'Montserrat', 'Lato', sans-serif;
+    color: #FFFFFF;
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid rgba(212, 175, 55, 0.3);
+}
+
+.footer-links {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+}
+
+.footer-link {
+    font-family: 'Open Sans', 'Roboto', sans-serif;
+    color: #B0B0B0;
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: all 0.2s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.footer-link:hover {
+    color: #D4AF37;
+    transform: translateX(5px);
+}
+
+.footer-contact p {
+    font-family: 'Open Sans', 'Roboto', sans-serif;
+    color: #B0B0B0;
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+    line-height: 1.5;
+}
+
+.footer-contact .footer-link {
+    color: #D4AF37;
+    font-size: 0.9rem;
+}
+
+.footer-contact .footer-link:hover {
+    color: #FFFFFF;
+    text-decoration: underline;
+}
+
+/* FOOTER BOTTOM - COMPACT */
+.footer-bottom {
+    margin-top: 2rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    text-align: center;
+}
+
+@media (min-width: 640px) {
+    .footer-bottom {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+}
+
+.copyright {
+    font-family: 'Open Sans', 'Roboto', sans-serif;
+    color: #808080;
+    font-size: 0.85rem;
+    order: 2;
+}
+
+@media (min-width: 640px) {
+    .copyright {
+        order: 1;
+    }
+}
+
+.social-links {
+    display: flex;
+    gap: 0.8rem;
+    order: 1;
+}
+
+@media (min-width: 640px) {
+    .social-links {
+        order: 2;
+    }
+}
+
+.social-link {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.05);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #B0B0B0;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.social-link:hover {
+    background: rgba(212, 175, 55, 0.1);
+    color: #D4AF37;
+    border-color: #D4AF37;
+    transform: translateY(-2px);
+}
+
+.social-link svg {
+    width: 18px;
+    height: 18px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+header {
+    position: fixed;
+    top: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 1.5rem;
+    border-bottom: 1px solid var(--border-gray);
+    white-space: nowrap;
+    opacity: 0;
+    transform: translateY(-20px);
+    animation: slideDownHeader 0.8s ease-out 0.3s forwards;
+    background-color: var(--background-dark);
+    z-index: 1000;
+    width: 100%;
+}
+
+@keyframes slideDownHeader {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    animation: logoPulse 2s ease-in-out infinite;
+}
+
+@keyframes logoPulse {
+
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.02);
+    }
+}
+
+.logo-icon {
+    color: var(--text-white);
+    font-size: 1.5rem;
+}
+
+.logo-text {
+    font-family: 'Poppins', 'Montserrat', sans-serif;
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--text-white);
+}
+
+.nav-desktop {
+    display: none;
+    flex: 1;
+    justify-content: center;
+    align-items: center;
+}
+
+@media (min-width: 1024px) {
+    .nav-desktop {
+        display: flex;
+    }
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 2.25rem;
+}
+
+.nav-link {
+    font-family: 'Montserrat', 'Lato', sans-serif;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--text-white);
+    text-decoration: none;
+    transition: color 0.2s;
+    position: relative;
+}
+
+.nav-link:hover {
+    color: var(--primary);
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--primary);
+    transition: width 0.3s ease;
+}
+
+.nav-link:hover::after {
+    width: 100%;
+}
+
+/* زر السلة في النافبار */
+.nav-cart {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: none;
+    border: none;
+    color: var(--text-white);
+    cursor: pointer;
+    padding: 0.5rem 1rem;
+    border-radius: 0.375rem;
+    transition: all 0.2s;
+    position: relative;
+    margin-left: 1rem;
+}
+
+.nav-cart:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: var(--primary);
+    transform: translateY(-2px);
+}
+
+.cart-badge {
+    position: absolute;
+    top: -0.25rem;
+    right: -0.25rem;
+    background-color: #ef4444;
+    color: white;
+    font-size: 0.7rem;
+    width: 1.25rem;
+    height: 1.25rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    animation: badgePulse 2s infinite;
+}
+
+@keyframes badgePulse {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.1);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+.mobile-menu-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: none;
+    border: none;
+    color: var(--text-white);
+    cursor: pointer;
+}
+
+@media (min-width: 1024px) {
+    .mobile-menu-btn {
+        display: none;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        :root {
+            --background-dark: #0A0A0A;
+            --border-dark: #2A2A2A;
+            --primary: #C9A86A;
+            --text-white: #FFFFFF;
+            --primary-black: #0A0A0A;
+            --secondary-black: #1A1A1A;
+            --primary-white: #FFFFFF;
+            --secondary-white: #F5F5F5;
+            --gold: #C9A86A;
+            --light-gold: #E4D4B4;
+            --dark-gold: #A8873D;
+            --accent-gold: #FFD700;
+            --transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            --box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+            --box-shadow-hover: 0 20px 60px rgba(201, 168, 106, 0.15);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--primary-black);
+            color: var(--primary-white);
+            line-height: 1.7;
+            overflow-x: hidden;
+            position: relative;
+            padding-top: 80px;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 20% 80%, rgba(201, 168, 106, 0.05) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(201, 168, 106, 0.03) 0%, transparent 50%),
+                radial-gradient(circle at 40% 40%, rgba(10, 10, 10, 0.8) 0%, transparent 50%);
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 30px;
+        }
+
+        /* ========== HEADER STYLES ========== */
+        
+        /* القائمة المتنقلة */
+        .mobile-nav {
+            position: fixed !important;
+            top: 70px !important;
+            left: 0 !important;
+            width: 100% !important;
+            background-color: var(--background-dark) !important;
+            border-top: 1px solid var(--border-dark) !important;
+            padding: 20px !important;
+            display: none !important;
+            flex-direction: column !important;
+            gap: 15px !important;
+            z-index: 9999 !important;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5) !important;
+        }
+
+        .mobile-nav.active {
+            display: flex !important;
+        }
+
+        .mobile-nav .nav-link {
+            padding: 15px 20px !important;
+            background: rgba(255, 255, 255, 0.05) !important;
+            border-radius: 10px !important;
+            border: 1px solid rgba(255, 255, 255, 0.1) !important;
+            text-align: center !important;
+            font-size: 16px !important;
+        }
+
+        .mobile-nav .nav-link:hover {
+            background: rgba(201, 168, 106, 0.1) !important;
+            border-color: var(--primary) !important;
+        }
+
+        .mobile-nav .nav-cart {
+            justify-content: center !important;
+            margin: 10px 0 !important;
+            padding: 15px !important;
+        }
+
+        /* ========== CART MODAL ========== */
+        .cart-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            z-index: 10000;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .cart-modal.active {
+            display: flex;
+        }
+
+        .cart-modal-content {
+            background-color: var(--secondary-black);
+            width: 90%;
+            max-width: 800px;
+            max-height: 80vh;
+            border-radius: 20px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            animation: slideIn 0.3s ease-out;
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translateY(-50px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .cart-modal-header {
+            padding: 20px 30px;
+            background-color: var(--primary-black);
+            border-bottom: 1px solid var(--border-dark);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .cart-modal-header h3 {
+            font-size: 24px;
+            color: var(--gold);
+            font-family: 'Playfair Display', serif;
+        }
+
+        .close-cart {
+            background: none;
+            border: none;
+            color: var(--text-white);
+            font-size: 24px;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+
+        .close-cart:hover {
+            color: var(--gold);
+        }
+
+        .cart-modal-body {
+            padding: 30px;
+            overflow-y: auto;
+            flex-grow: 1;
+        }
+
+        .cart-empty {
+            text-align: center;
+            padding: 40px 20px;
+            color: var(--secondary-white);
+        }
+
+        .cart-empty .material-symbols-outlined {
+            font-size: 64px;
+            color: var(--gold);
+            margin-bottom: 20px;
+            opacity: 0.5;
+        }
+
+        .cart-items {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .cart-item {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .cart-item-image {
+            width: 80px;
+            height: 80px;
+            background-color: var(--primary-black);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 32px;
+            color: var(--gold);
+        }
+
+        .cart-item-details {
+            flex-grow: 1;
+        }
+
+        .cart-item-name {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 5px;
+            color: var(--text-white);
+        }
+
+        .cart-item-price {
+            color: var(--gold);
+            font-weight: 500;
+        }
+
+        .cart-item-controls {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .quantity-controls {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .quantity-btn {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background-color: var(--primary-black);
+            border: 1px solid var(--gold);
+            color: var(--gold);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .quantity-btn:hover {
+            background-color: var(--gold);
+            color: var(--primary-black);
+        }
+
+        .cart-item-quantity {
+            font-size: 18px;
+            font-weight: 600;
+            min-width: 30px;
+            text-align: center;
+        }
+
+        .remove-item {
+            background: none;
+            border: none;
+            color: #ff4757;
+            cursor: pointer;
+            font-size: 20px;
+            transition: color 0.3s ease;
+        }
+
+        .remove-item:hover {
+            color: #ff6b81;
+        }
+
+        .cart-modal-footer {
+            padding: 20px 30px;
+            background-color: var(--primary-black);
+            border-top: 1px solid var(--border-dark);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .cart-total {
+            font-size: 20px;
+            font-weight: 600;
+            color: var(--text-white);
+        }
+
+        .cart-total span {
+            color: var(--gold);
+        }
+
+        .cart-actions {
+            display: flex;
+            gap: 15px;
+        }
+
+        .cart-btn {
+            padding: 12px 30px;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .clear-cart-btn {
+            background-color: transparent;
+            border-color: #ff4757;
+            color: #ff4757;
+        }
+
+        .clear-cart-btn:hover {
+            background-color: rgba(255, 71, 87, 0.1);
+        }
+
+        .checkout-btn {
+            background: linear-gradient(135deg, var(--gold), var(--dark-gold));
+            color: var(--primary-black);
+            border: none;
+        }
+
+        .checkout-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(201, 168, 106, 0.3);
+        }
+
+        .checkout-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            transform: none !important;
+            box-shadow: none !important;
+        }
+
+        /* بقية الأنماط كما هي من الكود الأصلي */
+        /* Hero Section */
+        .hero {
+            padding: 120px 0 80px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                linear-gradient(135deg, rgba(10, 10, 10, 0.9) 0%, rgba(26, 26, 26, 0.7) 100%);
+            z-index: -2;
+        }
+
+        .hero-content {
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: center;
+            position: relative;
+        }
+
+        .hero-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 48px;
+            font-weight: 700;
+            margin-bottom: 25px;
+            line-height: 1.2;
+        }
+
+        .hero-subtitle {
+            font-size: 18px;
+            margin-bottom: 50px;
+            color: var(--light-gold);
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .highlight {
+            color: var(--gold);
+            position: relative;
+            display: inline-block;
+        }
+
+        .highlight::after {
+            content: '';
+            position: absolute;
+            bottom: 5px;
+            left: 0;
+            width: 100%;
+            height: 8px;
+            background-color: rgba(201, 168, 106, 0.2);
+            z-index: -1;
+        }
+
+        /* Contact Options Section */
+        .contact-section {
+            padding: 80px 0;
+            position: relative;
+        }
+
+        .section-title {
+            text-align: center;
+            font-family: 'Playfair Display', serif;
+            font-size: 36px;
+            margin-bottom: 50px;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--gold), var(--accent-gold));
+        }
+
+        .contact-options {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+
+        .contact-card {
+            background-color: var(--secondary-black);
+            border-radius: 20px;
+            padding: 40px 30px;
+            text-align: center;
+            transition: var(--transition);
+            box-shadow: var(--box-shadow);
+            border: 1px solid rgba(201, 168, 106, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .contact-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, var(--gold), var(--accent-gold));
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.6s ease;
+        }
+
+        .contact-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .contact-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--box-shadow-hover);
+            border-color: rgba(201, 168, 106, 0.3);
+        }
+
+        .contact-icon-container {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, rgba(201, 168, 106, 0.1), rgba(255, 215, 0, 0.05));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 25px;
+            transition: var(--transition);
+        }
+
+        .contact-card:hover .contact-icon-container {
+            transform: scale(1.1) rotate(5deg);
+            background: linear-gradient(135deg, rgba(201, 168, 106, 0.2), rgba(255, 215, 0, 0.1));
+        }
+
+        .contact-icon {
+            font-size: 36px;
+            color: var(--gold);
+        }
+
+        .contact-card h3 {
+            font-size: 22px;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .contact-card p {
+            color: var(--secondary-white);
+            margin-bottom: 25px;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        .contact-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            background: linear-gradient(135deg, var(--gold), var(--dark-gold));
+            color: var(--primary-black);
+            padding: 14px 28px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 15px;
+            transition: var(--transition);
+            border: 2px solid transparent;
+        }
+
+        .contact-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(201, 168, 106, 0.3);
+        }
+
+        /* Calendar Booking Section */
+        .calendar-section {
+            padding: 80px 0;
+            background-color: var(--primary-black);
+            position: relative;
+        }
+
+        .calendar-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            background-color: var(--secondary-black);
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: var(--box-shadow);
+            border: 1px solid rgba(201, 168, 106, 0.1);
+        }
+
+        .calendar-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .calendar-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 28px;
+            color: var(--gold);
+        }
+
+        .calendar-subtitle {
+            color: var(--secondary-white);
+            font-size: 16px;
+            max-width: 600px;
+        }
+
+        .calendar-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+        }
+
+        @media (max-width: 992px) {
+            .calendar-content {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .calendar-widget {
+            background-color: var(--primary-black);
+            border-radius: 15px;
+            padding: 30px;
+            border: 1px solid rgba(201, 168, 106, 0.1);
+        }
+
+        #calendar {
+            width: 100%;
+            min-height: 350px;
+        }
+
+        .booking-form {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-group label {
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: var(--light-gold);
+        }
+
+        .form-group input,
+        .form-group select {
+            padding: 14px 18px;
+            background-color: rgba(10, 10, 10, 0.7);
+            border: 1px solid rgba(201, 168, 106, 0.2);
+            border-radius: 8px;
+            color: var(--primary-white);
+            font-family: 'Poppins', sans-serif;
+            font-size: 15px;
+            transition: var(--transition);
+        }
+
+        .form-group input:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: var(--gold);
+            box-shadow: 0 0 0 3px rgba(201, 168, 106, 0.1);
+        }
+
+        .time-slots {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 8px;
+            margin-top: 8px;
+        }
+
+        .time-slot {
+            padding: 10px;
+            background-color: rgba(10, 10, 10, 0.7);
+            border: 1px solid rgba(201, 168, 106, 0.2);
+            border-radius: 6px;
+            text-align: center;
+            cursor: pointer;
+            transition: var(--transition);
+            font-size: 14px;
+        }
+
+        .time-slot:hover {
+            background-color: rgba(201, 168, 106, 0.1);
+            border-color: var(--gold);
+        }
+
+        .time-slot.selected {
+            background-color: var(--gold);
+            color: var(--primary-black);
+            border-color: var(--gold);
+            font-weight: 600;
+        }
+
+        .book-btn {
+            background: linear-gradient(135deg, var(--gold), var(--dark-gold));
+            color: var(--primary-black);
+            border: none;
+            padding: 16px;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            margin-top: 15px;
+        }
+
+        .book-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(201, 168, 106, 0.3);
+        }
+
+        /* Email Form Section */
+        .email-section {
+            padding: 80px 0;
+            position: relative;
+        }
+
+        .email-form-container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: var(--secondary-black);
+            border-radius: 20px;
+            padding: 50px 40px;
+            box-shadow: var(--box-shadow);
+            border: 1px solid rgba(201, 168, 106, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .email-form-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 30% 30%, rgba(201, 168, 106, 0.03) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .form-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 32px;
+            margin-bottom: 40px;
+            text-align: center;
+            color: var(--gold);
+        }
+
+        .email-form {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .email-form .form-group.full-width {
+            grid-column: 1 / -1;
+        }
+
+        .email-form textarea {
+            min-height: 150px;
+            resize: vertical;
+            padding: 16px;
+            background-color: rgba(10, 10, 10, 0.7);
+            border: 1px solid rgba(201, 168, 106, 0.2);
+            border-radius: 8px;
+            color: var(--primary-white);
+            font-family: 'Poppins', sans-serif;
+            font-size: 15px;
+            transition: var(--transition);
+            width: 100%;
+        }
+
+        .email-form textarea:focus {
+            outline: none;
+            border-color: var(--gold);
+            box-shadow: 0 0 0 3px rgba(201, 168, 106, 0.1);
+        }
+
+        .submit-btn {
+            grid-column: 1 / -1;
+            background: linear-gradient(135deg, var(--gold), var(--dark-gold));
+            color: var(--primary-black);
+            border: none;
+            padding: 16px;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(201, 168, 106, 0.3);
+        }
+
+        .submit-btn i {
+            transition: var(--transition);
+        }
+
+        .submit-btn:hover i {
+            transform: translateX(3px);
+        }
+
+        /* Success Message */
+        .success-message {
+            display: none;
+            background-color: rgba(76, 175, 80, 0.1);
+            border: 1px solid #4CAF50;
+            border-radius: 10px;
+            padding: 20px;
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .success-message i {
+            font-size: 36px;
+            color: #4CAF50;
+            margin-bottom: 10px;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--primary-black);
+            padding: 60px 0 30px;
+            border-top: 1px solid rgba(201, 168, 106, 0.1);
+            position: relative;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-column h3 {
+            font-size: 18px;
+            margin-bottom: 20px;
+            color: var(--gold);
+            font-weight: 600;
+        }
+
+        .footer-column p {
+            color: var(--secondary-white);
+            margin-bottom: 20px;
+            line-height: 1.6;
+            font-size: 14px;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links a {
+            color: var(--secondary-white);
+            text-decoration: none;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 14px;
+        }
+
+        .footer-links a:hover {
+            color: var(--gold);
+            transform: translateX(3px);
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: var(--secondary-black);
+            color: var(--gold);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            transition: var(--transition);
+            text-decoration: none;
+        }
+
+        .social-icon:hover {
+            background-color: var(--gold);
+            color: var(--primary-black);
+            transform: translateY(-3px);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 14px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1200px) {
+            .hero-title {
+                font-size: 40px;
+            }
+            
+            .section-title {
+                font-size: 32px;
+            }
+        }
+
+        @media (max-width: 992px) {
+            .hero {
+                padding: 100px 0 60px;
+            }
+            
+            .hero-title {
+                font-size: 36px;
+            }
+            
+            .hero-subtitle {
+                font-size: 16px;
+            }
+            
+            .contact-options {
+                grid-template-columns: 1fr;
+                max-width: 500px;
+                margin-left: auto;
+                margin-right: auto;
+            }
+            
+            .email-form {
+                grid-template-columns: 1fr;
+            }
+            
+            .calendar-container,
+            .email-form-container {
+                padding: 30px 25px;
+            }
+            
+            .contact-card {
+                padding: 30px 25px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 32px;
+            }
+            
+            .section-title {
+                font-size: 28px;
+            }
+            
+            .calendar-container,
+            .email-form-container {
+                padding: 25px 20px;
+            }
+            
+            .contact-card {
+                padding: 25px 20px;
+            }
+            
+            .time-slots {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 576px) {
+            .hero-title {
+                font-size: 28px;
+            }
+            
+            .container {
+                padding: 0 20px;
+            }
+            
+            .calendar-container,
+            .email-form-container {
+                padding: 20px 15px;
+            }
+            
+            .contact-card {
+                padding: 20px 15px;
+            }
+            
+            .time-slots {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Floating Particles */
+        .particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .particle {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background-color: var(--gold);
+            border-radius: 50%;
+            opacity: 0.3;
+            animation: float 20s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0); opacity: 0.2; }
+            25% { transform: translate(10px, -10px); opacity: 0.4; }
+            50% { transform: translate(-5px, 5px); opacity: 0.3; }
+            75% { transform: translate(-10px, -5px); opacity: 0.5; }
+        }
+
+        /* Notification */
+        .notification {
+            position: fixed;
+            top: 100px;
+            right: 20px;
+            padding: 15px 20px;
+            background: linear-gradient(135deg, var(--gold), var(--dark-gold));
+            color: var(--primary-black);
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+            z-index: 10001;
+            animation: slideInRight 0.3s ease-out;
+            display: none;
+            align-items: center;
+            gap: 10px;
+            font-weight: 500;
+            max-width: 300px;
+        }
+
+        .notification.active {
+            display: flex;
+        }
+
+        @keyframes slideInRight {
+            from {
+                transform: translateX(100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        .close-notification {
+            cursor: pointer;
+            font-size: 18px;
+            opacity: 0.7;
+            transition: opacity 0.3s ease;
+        }
+
+        .close-notification:hover {
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+    <!-- Floating Particles Background -->
+    <div class="particles" id="particles"></div>
+    
+    <!-- Header -->
+    <header id="mainHeader">
+        <div class="logo">
+            <h2 class="logo-text">Architectural → CMA</h2>
+        </div>
+
+        <!-- شريط التنقل للديسكتوب -->
+        <nav class="nav-desktop">
+            <div class="nav-links">
+                <a class="nav-link" href="Home.html">Home</a>
+                <a class="nav-link" href="Services.html">Services</a>
+                <a class="nav-link" href="Shop.html">Shop</a>
+                <a class="nav-link" href="portofolio.html">Portfolio</a>
+                <a class="nav-link" href="About.html">About Us</a>
+                <a class="nav-link" href="Contact.html">Contact</a>
+                
+                <!-- زر السلة للديسكتوب -->
+                <button class="nav-cart" id="desktopCartBtn">
+                    <span class="material-symbols-outlined">shopping_cart</span>
+                    <span class="cart-badge" id="desktopCartCount">0</span>
+                </button>
+                
+                <a class="nav-link" onclick="toggleAuth()" id="desktopAuthLink">
+                    <span id="desktopAuthText">Login</span>
+                </a>
+            </div>
+        </nav>
+
+        <!-- زر القائمة المتنقلة -->
+        <button class="mobile-menu-btn" id="mobileMenuBtn">
+            <span class="material-symbols-outlined" id="menuIcon">menu</span>
+        </button>
+    </header>
+
+    <!-- Cart Modal -->
+    <div class="cart-modal" id="cartModal">
+        <div class="cart-modal-content">
+            <div class="cart-modal-header">
+                <h3>Shopping Cart</h3>
+                <button class="close-cart" id="closeCart">
+                    <span class="material-symbols-outlined">close</span>
+                </button>
+            </div>
+            <div class="cart-modal-body" id="cartModalBody">
+                <!-- Cart items will be loaded here -->
+            </div>
+            <div class="cart-modal-footer">
+                <div class="cart-total">
+                    Total: <span id="cartTotalPrice">$0.00</span>
+                </div>
+                <div class="cart-actions">
+                    <button class="cart-btn clear-cart-btn" id="clearCartBtn">Clear Cart</button>
+                    <button class="cart-btn checkout-btn" id="checkoutBtn" disabled>Checkout</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Notification -->
+    <div class="notification" id="notification">
+        <span id="notificationMessage"></span>
+        <span class="material-symbols-outlined close-notification" id="closeNotification">close</span>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-bg"></div>
+        <div class="container hero-content">
+            <h1 class="hero-title">Connect With <span class="highlight">Architecture Experts</span></h1>
+            <p class="hero-subtitle">Let’s Build Something Exceptional Together. Whether you need help with renders, diagrams, 3D modelling, portfolio development, or full project support—I'm here to assist you with professional, high-quality guidance delivered fast and affordably.</p>
+        </div>
+    </section>
+
+    <!-- Contact Options Section -->
+    <section class="contact-section" id="contact">
+        <div class="container">
+            <h2 class="section-title">Contact Our Experts</h2>
+            
+            <div class="contact-options">
+                <!-- WhatsApp Card -->
+                <div class="contact-card" id="whatsapp-card">
+                    <div class="contact-icon-container">
+                        <div class="contact-icon">
+                            <i class="fab fa-whatsapp"></i>
+                        </div>
+                    </div>
+                    <h3>WhatsApp Direct</h3>
+                    <p>Get instant responses to your queries via WhatsApp. Our support team is available Monday to Friday, 9 AM to 6 PM.</p>
+                   <a href="https://wa.me/447470631885?text=Hi%20ArchitectureHub%2C%20I%20need%20assistance%20with%20an%20architectural%20project" target="_blank" class="contact-btn" id="whatsapp-btn">
+                        <i class="fab fa-whatsapp"></i> Start Chat Now
+                    </a>
+                </div>
+                
+                <!-- Calendar Booking Card -->
+                <div class="contact-card" id="calendar-card">
+                    <div class="contact-icon-container">
+                        <div class="contact-icon">
+                            <i class="far fa-calendar-alt"></i>
+                        </div>
+                    </div>
+                    <h3>Schedule Appointment</h3>
+                    <p>Book a one-on-one consultation with our architecture experts. Choose a time that works best for your schedule.</p>
+                    <a href="#calendar-booking" class="contact-btn" id="schedule-btn">
+                        <i class="far fa-calendar-check"></i> Book Appointment
+                    </a>
+                </div>
+                
+                <!-- Email Card -->
+                <div class="contact-card" id="email-card">
+                    <div class="contact-icon-container">
+                        <div class="contact-icon">
+                            <i class="far fa-envelope"></i>
+                        </div>
+                    </div>
+                    <h3>Email Support</h3>
+                    <p>Send us detailed project inquiries or technical questions. We respond within 24 hours with comprehensive solutions.</p>
+                    <a href="#email-form" class="contact-btn" id="email-link-btn">
+                        <i class="far fa-paper-plane"></i> Send Message
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Calendar Booking Section -->
+    <section class="calendar-section" id="calendar-booking">
+        <div class="container">
+            <div class="calendar-container">
+                <div class="calendar-header">
+                    <div>
+                        <h3 class="calendar-title">Schedule Your Consultation</h3>
+                        <p class="calendar-subtitle">Select a date and time for your architectural consultation session with our experts.</p>
+                    </div>
+                    <div id="selected-date-display">
+                        <strong>Selected:</strong> <span id="display-date">No date selected</span>
+                    </div>
+                </div>
+                
+                <div class="calendar-content">
+                    <div class="calendar-widget">
+                        <input type="text" id="calendar-input" placeholder="Select a date" style="display: none;">
+                        <div id="calendar"></div>
+                    </div>
+                    
+                    <div class="booking-form">
+                        <div class="form-group">
+                            <label for="consultant">Select Consultant</label>
+                            <select id="consultant">
+                                <option value="">Choose an expert</option>
+                                <option value="john">John Anderson - Structural Design</option>
+                                <option value="sarah">Sarah Mitchell - Sustainable Architecture</option>
+                                <option value="michael">Michael Chen - Urban Planning</option>
+                                <option value="elena">Elena Rodriguez - Interior Design</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="meeting-type">Meeting Type</label>
+                            <select id="meeting-type">
+                                <option value="">Select meeting type</option>
+                                <option value="initial">Initial Consultation (30 min)</option>
+                                <option value="design">Design Review (60 min)</option>
+                                <option value="technical">Technical Consultation (45 min)</option>
+                                <option value="project">Project Planning (90 min)</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label>Available Time Slots</label>
+                            <div class="time-slots" id="time-slots">
+                                <!-- Time slots will be generated by JavaScript -->
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="name">Full Name</label>
+                            <input type="text" id="booking-name" placeholder="Enter your full name">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="booking-email" placeholder="Enter your email">
+                        </div>
+                        
+                        <button class="book-btn" id="confirm-booking">
+                            <i class="far fa-calendar-check"></i> Confirm Appointment
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Email Form Section -->
+    <section class="email-section" id="email-form">
+        <div class="container">
+            <div class="email-form-container">
+                <h3 class="form-title">Send Us a Message</h3>
+                <form id="contactForm" class="email-form">
+                    <div class="form-group">
+                        <label for="name">Full Name *</label>
+                        <input type="text" id="form-name" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">Email Address *</label>
+                        <input type="email" id="form-email" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="phone">Phone Number</label>
+                        <input type="tel" id="form-phone">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="subject">Subject *</label>
+                        <input type="text" id="form-subject" required>
+                    </div>
+                    
+                    <div class="form-group full-width">
+                        <label for="message">Your Message *</label>
+                        <textarea id="form-message" required placeholder="Please provide details about your architectural project or inquiry..."></textarea>
+                    </div>
+                    
+                    <button type="submit" class="submit-btn">
+                        Send Message <i class="far fa-paper-plane"></i>
+                    </button>
+                </form>
+                
+                <div class="success-message" id="success-message">
+                    <i class="fas fa-check-circle"></i>
+                    <h3>Message Sent Successfully!</h3>
+                    <p>Thank you for contacting ArchitectureHub. We will respond to your inquiry within 24 hours.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    
+        <footer>
+            <div class="footer-grid">
+                <div class="footer-about">
+                    <div class="footer-logo">
+                        <span class="material-symbols-outlined footer-logo-icon">architecture</span>
+                        <h2 class="footer-logo-text">Architectural → CMA</h2>
+                    </div>
+                    <p class="footer-about-text">
+                        Crafting spaces that inspire. We are an award-winning architectural firm dedicated to
+                        innovative and sustainable design.
+                    </p>
+                </div>
+
+                <div class="footer-column">
+                    <h3 class="footer-title">Sitemap</h3>
+                    <div class="footer-links">
+                        <a class="footer-link" href="Services.html">Services</a>
+                        <a class="footer-link" href="Shop.html">Shop</a>
+                        <a class="footer-link" href="About.html">About Us</a>
+                        <a class="footer-link" href="Contact.html">Contact</a>
+                        <a class="footer-link" href="portofolio.html">portofolio</a>
+                    </div>
+                </div>
+
+                <div class="footer-column footer-contact">
+                    <h3 class="footer-title">Contact Us</h3>
+                    <div class="footer-links">
+                        <p>Address: 10 Downing Street, London, UK</p>
+                        <a class="footer-link" href="mailto:contact@archstone.com">contact@archstone.com</a>
+                        <a class="footer-link" href="tel:+447470631885">+44 7470 631885</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p class="copyright">© 2024 Architectural → CMA. All Rights Reserved.</p>
+                <div class="social-links">
+                    <a class="social-link" href="#" onclick="showNotification('Opening Facebook...')">
+                        <svg aria-hidden="true" class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
+                            <path clip-rule="evenodd"
+                                d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z"
+                                fill-rule="evenodd"></path>
+                        </svg>
+                    </a>
+                    <a class="social-link" href="#" onclick="showNotification('Opening Twitter...')">
+                        <svg aria-hidden="true" class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
+                            <path
+                                d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.71v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84">
+                            </path>
+                        </svg>
+                    </a>
+                    <a class="social-link" href="#" onclick="showNotification('Opening Instagram...')">
+                        <svg aria-hidden="true" class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
+                            <path
+                                d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zM5.838 12a6.162 6.162 0 1112.324 0 6.162 6.162 0 01-12.324 0zM12 16a4 4 0 110-8 4 4 0 010 8zm4.965-10.405a1.44 1.44 0 112.881.001 1.44 1.44 0 01-2.881-.001z">
+                            </path>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </footer>
+
+    <!-- External Libraries -->
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    
+    <script>
+        // ========== MAIN APPLICATION ==========
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize all components
+            initializeCartSystem();
+            initializeMobileMenu();
+            initializeParticles();
+            initializeCalendar();
+            initializeEmailForm();
+            initializeSmoothScroll();
+            updateAuthStatus();
+            
+            // Add some test products for demonstration
+            if (getCartItems().length === 0) {
+                addSampleProducts();
+            }
+        });
+
+        // ========== CART SYSTEM ==========
+        let cart = JSON.parse(localStorage.getItem('shoppingCart')) || [];
+
+        function initializeCartSystem() {
+            // Load cart from localStorage
+            cart = JSON.parse(localStorage.getItem('shoppingCart')) || [];
+            
+            // Update cart count
+            updateCartCount();
+            
+            // Cart buttons event listeners
+            document.getElementById('desktopCartBtn')?.addEventListener('click', openCart);
+            document.getElementById('closeCart')?.addEventListener('click', closeCart);
+            document.getElementById('clearCartBtn')?.addEventListener('click', clearCart);
+            document.getElementById('checkoutBtn')?.addEventListener('click', checkout);
+            document.getElementById('closeNotification')?.addEventListener('click', hideNotification);
+            
+            // Close cart when clicking outside
+            document.getElementById('cartModal')?.addEventListener('click', function(e) {
+                if (e.target === this) {
+                    closeCart();
+                }
+            });
+        }
+
+        function updateCartCount() {
+            const totalItems = cart.reduce((total, item) => total + item.quantity, 0);
+            const desktopCount = document.getElementById('desktopCartCount');
+            const mobileCount = document.getElementById('mobileCartCount');
+            
+            if (desktopCount) {
+                desktopCount.textContent = totalItems;
+                desktopCount.style.display = totalItems > 0 ? 'flex' : 'none';
+            }
+            
+            if (mobileCount) {
+                mobileCount.textContent = totalItems;
+                mobileCount.style.display = totalItems > 0 ? 'flex' : 'none';
+            }
+        }
+
+        function openCart() {
+            renderCartItems();
+            document.getElementById('cartModal').classList.add('active');
+        }
+
+        function closeCart() {
+            document.getElementById('cartModal').classList.remove('active');
+        }
+
+        function renderCartItems() {
+            const cartModalBody = document.getElementById('cartModalBody');
+            const cartTotalPrice = document.getElementById('cartTotalPrice');
+            const checkoutBtn = document.getElementById('checkoutBtn');
+            
+            if (cart.length === 0) {
+                cartModalBody.innerHTML = `
+                    <div class="cart-empty">
+                        <span class="material-symbols-outlined">shopping_cart</span>
+                        <h3>Your cart is empty</h3>
+                        <p>Add some products to get started!</p>
+                    </div>
+                `;
+                cartTotalPrice.textContent = '$0.00';
+                checkoutBtn.disabled = true;
+                return;
+            }
+            
+            let totalPrice = 0;
+            let cartHTML = '<div class="cart-items">';
+            
+            cart.forEach((item, index) => {
+                const itemTotal = item.price * item.quantity;
+                totalPrice += itemTotal;
+                
+                cartHTML += `
+                    <div class="cart-item" data-index="${index}">
+                        <div class="cart-item-image">
+                            <span class="material-symbols-outlined">${item.icon || 'architecture'}</span>
+                        </div>
+                        <div class="cart-item-details">
+                            <div class="cart-item-name">${item.name}</div>
+                            <div class="cart-item-price">$${item.price.toFixed(2)}</div>
+                        </div>
+                        <div class="cart-item-controls">
+                            <div class="quantity-controls">
+                                <button class="quantity-btn decrease-btn" onclick="decreaseQuantity(${index})">-</button>
+                                <span class="cart-item-quantity">${item.quantity}</span>
+                                <button class="quantity-btn increase-btn" onclick="increaseQuantity(${index})">+</button>
+                            </div>
+                            <button class="remove-item" onclick="removeFromCart(${index})">
+                                <span class="material-symbols-outlined">delete</span>
+                            </button>
+                        </div>
+                    </div>
+                `;
+            });
+            
+            cartHTML += '</div>';
+            cartModalBody.innerHTML = cartHTML;
+            cartTotalPrice.textContent = `$${totalPrice.toFixed(2)}`;
+            checkoutBtn.disabled = false;
+        }
+
+        function addToCart(product) {
+            const existingItem = cart.find(item => item.id === product.id);
+            
+            if (existingItem) {
+                existingItem.quantity++;
+            } else {
+                product.quantity = 1;
+                cart.push(product);
+            }
+            
+            saveCart();
+            updateCartCount();
+            showNotification(`${product.name} added to cart!`);
+            
+            // Update cart if it's open
+            if (document.getElementById('cartModal').classList.contains('active')) {
+                renderCartItems();
+            }
+        }
+
+        function removeFromCart(index) {
+            if (index >= 0 && index < cart.length) {
+                cart.splice(index, 1);
+                saveCart();
+                updateCartCount();
+                renderCartItems();
+                showNotification('Item removed from cart');
+            }
+        }
+
+        function increaseQuantity(index) {
+            if (index >= 0 && index < cart.length) {
+                cart[index].quantity++;
+                saveCart();
+                renderCartItems();
+            }
+        }
+
+        function decreaseQuantity(index) {
+            if (index >= 0 && index < cart.length) {
+                if (cart[index].quantity > 1) {
+                    cart[index].quantity--;
+                } else {
+                    cart.splice(index, 1);
+                }
+                saveCart();
+                updateCartCount();
+                renderCartItems();
+            }
+        }
+
+        function clearCart() {
+            if (cart.length > 0) {
+                if (confirm('Are you sure you want to clear your cart?')) {
+                    cart = [];
+                    saveCart();
+                    updateCartCount();
+                    renderCartItems();
+                    showNotification('Cart cleared');
+                }
+            }
+        }
+
+        function checkout() {
+            if (cart.length === 0) return;
+            
+            // In a real app, this would redirect to checkout page
+            // For demo, we'll just show a message
+            showNotification(`Proceeding to checkout with ${cart.length} items. Total: $${getCartTotal().toFixed(2)}`);
+            
+            // Simulate checkout process
+            setTimeout(() => {
+                showNotification('Checkout complete! Thank you for your purchase.');
+                cart = [];
+                saveCart();
+                updateCartCount();
+                renderCartItems();
+                closeCart();
+            }, 2000);
+        }
+
+        function saveCart() {
+            localStorage.setItem('shoppingCart', JSON.stringify(cart));
+        }
+
+        function getCartItems() {
+            return cart;
+        }
+
+        function getCartTotal() {
+            return cart.reduce((total, item) => total + (item.price * item.quantity), 0);
+        }
+
+        function addSampleProducts() {
+            const sampleProducts = [
+                {
+                    id: 1,
+                    name: 'Architectural Consultation',
+                    price: 299.99,
+                    icon: 'design_services',
+                    description: 'One-hour professional consultation'
+                },
+                {
+                    id: 2,
+                    name: '3D Model Package',
+                    price: 499.99,
+                    icon: '3d_rotation',
+                    description: 'Complete 3D modeling service'
+                },
+                {
+                    id: 3,
+                    name: 'Portfolio Review',
+                    price: 199.99,
+                    icon: 'folder_open',
+                    description: 'Professional portfolio assessment'
+                }
+            ];
+            
+            // Add one sample product to demonstrate
+            if (cart.length === 0) {
+                addToCart(sampleProducts[0]);
+            }
+        }
+
+        // ========== MOBILE MENU ==========
+        function initializeMobileMenu() {
+            const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+            const menuIcon = document.getElementById('menuIcon');
+            
+            // Create mobile navigation
+            const mobileNav = document.createElement('div');
+            mobileNav.className = 'mobile-nav';
+            mobileNav.id = 'mobileNav';
+            mobileNav.innerHTML = `
+                <a class="nav-link" href="Home.html">Home</a>
+                <a class="nav-link" href="Services.html">Services</a>
+                <a class="nav-link" href="Shop.html">Shop</a>
+                <a class="nav-link" href="portofolio.html">Portfolio</a>
+                <a class="nav-link" href="About.html">About Us</a>
+                <a class="nav-link" href="Contact.html">Contact</a>
+                
+                <button class="nav-cart" id="mobileCartBtn">
+                    <span class="material-symbols-outlined">shopping_cart</span>
+                    <span class="cart-badge" id="mobileCartCount">0</span>
+                </button>
+                
+                <a class="nav-link" onclick="toggleAuth()" id="mobileAuthLink">
+                    <span id="mobileAuthText">Login</span>
+                </a>
+            `;
+            
+            document.body.appendChild(mobileNav);
+            
+            // Mobile menu toggle
+            mobileMenuBtn.addEventListener('click', function() {
+                mobileNav.classList.toggle('active');
+                menuIcon.textContent = mobileNav.classList.contains('active') ? 'close' : 'menu';
+            });
+            
+            // Close mobile menu when clicking links
+            mobileNav.querySelectorAll('.nav-link').forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileNav.classList.remove('active');
+                    menuIcon.textContent = 'menu';
+                });
+            });
+            
+            // Mobile cart button
+            document.getElementById('mobileCartBtn')?.addEventListener('click', openCart);
+            
+            // Update mobile cart count
+            updateMobileCartCount();
+        }
+
+        function updateMobileCartCount() {
+            const mobileCartCount = document.getElementById('mobileCartCount');
+            if (mobileCartCount) {
+                const totalItems = cart.reduce((total, item) => total + item.quantity, 0);
+                mobileCartCount.textContent = totalItems;
+                mobileCartCount.style.display = totalItems > 0 ? 'flex' : 'none';
+            }
+        }
+
+        // ========== NOTIFICATION SYSTEM ==========
+        function showNotification(message) {
+            const notification = document.getElementById('notification');
+            const notificationMessage = document.getElementById('notificationMessage');
+            
+            notificationMessage.textContent = message;
+            notification.classList.add('active');
+            
+            setTimeout(() => {
+                hideNotification();
+            }, 3000);
+        }
+
+        function hideNotification() {
+            document.getElementById('notification').classList.remove('active');
+        }
+
+        // ========== AUTH SYSTEM ==========
+        function updateAuthStatus() {
+            const desktopAuthText = document.getElementById('desktopAuthText');
+            const mobileAuthText = document.getElementById('mobileAuthText');
+            
+            const isLoggedIn = localStorage.getItem('currentUser') ? true : false;
+            const authText = isLoggedIn ? 'Logout' : 'Login';
+            
+            if (desktopAuthText) desktopAuthText.textContent = authText;
+            if (mobileAuthText) mobileAuthText.textContent = authText;
+        }
+
+        function toggleAuth() {
+            const isLoggedIn = localStorage.getItem('currentUser') ? true : false;
+            
+            if (isLoggedIn) {
+                localStorage.removeItem('currentUser');
+                showNotification('Logged out successfully!');
+            } else {
+                window.location.href = 'registar.html';
+            }
+            
+            updateAuthStatus();
+        }
+
+        // ========== OTHER INITIALIZATIONS ==========
+        function initializeParticles() {
+            const particlesContainer = document.getElementById('particles');
+            const particleCount = 30;
+            
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.classList.add('particle');
+                
+                particle.style.left = `${Math.random() * 100}%`;
+                particle.style.top = `${Math.random() * 100}%`;
+                particle.style.width = `${Math.random() * 3 + 1}px`;
+                particle.style.height = particle.style.width;
+                particle.style.animationDuration = `${Math.random() * 20 + 10}s`;
+                particle.style.animationDelay = `${Math.random() * 5}s`;
+                
+                particlesContainer.appendChild(particle);
+            }
+        }
+
+        function initializeCalendar() {
+            const calendar = flatpickr("#calendar-input", {
+                inline: true,
+                minDate: "today",
+                dateFormat: "Y-m-d",
+                onChange: function(selectedDates, dateStr) {
+                    updateSelectedDate(dateStr);
+                    generateTimeSlots();
+                }
+            });
+            
+            document.getElementById('calendar').appendChild(calendar.calendarContainer);
+            
+            function updateSelectedDate(dateStr) {
+                const displayDate = document.getElementById('display-date');
+                if (dateStr) {
+                    const date = new Date(dateStr);
+                    const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+                    displayDate.textContent = date.toLocaleDateString('en-US', options);
+                } else {
+                    displayDate.textContent = 'No date selected';
+                }
+            }
+            
+            function generateTimeSlots() {
+                const timeSlotsContainer = document.getElementById('time-slots');
+                timeSlotsContainer.innerHTML = '';
+                
+                const slots = ['09:00 AM', '10:30 AM', '12:00 PM', '01:30 PM', '03:00 PM', '04:30 PM'];
+                
+                slots.forEach(slot => {
+                    const slotElement = document.createElement('div');
+                    slotElement.className = 'time-slot';
+                    slotElement.textContent = slot;
+                    slotElement.addEventListener('click', function() {
+                        document.querySelectorAll('.time-slot').forEach(s => {
+                            s.classList.remove('selected');
+                        });
+                        this.classList.add('selected');
+                    });
+                    timeSlotsContainer.appendChild(slotElement);
+                });
+            }
+            
+            generateTimeSlots();
+            
+            document.getElementById('confirm-booking').addEventListener('click', function() {
+                const date = document.getElementById('display-date').textContent;
+                const consultant = document.getElementById('consultant').value;
+                const meetingType = document.getElementById('meeting-type').value;
+                const name = document.getElementById('booking-name').value;
+                const email = document.getElementById('booking-email').value;
+                const selectedTimeSlot = document.querySelector('.time-slot.selected');
+                
+                if (!date || date === 'No date selected') {
+                    alert('Please select a date for your appointment.');
+                    return;
+                }
+                
+                if (!consultant) {
+                    alert('Please select a consultant.');
+                    return;
+                }
+                
+                if (!meetingType) {
+                    alert('Please select a meeting type.');
+                    return;
+                }
+                
+                if (!selectedTimeSlot) {
+                    alert('Please select a time slot.');
+                    return;
+                }
+                
+                if (!name || !email) {
+                    alert('Please enter your name and email.');
+                    return;
+                }
+                
+                // Add booking to cart as a service
+                const bookingProduct = {
+                    id: Date.now(),
+                    name: `${meetingType} Consultation`,
+                    price: meetingType === 'project' ? 399.99 : 
+                           meetingType === 'design' ? 299.99 : 
+                           meetingType === 'technical' ? 249.99 : 199.99,
+                    icon: 'calendar_month',
+                    description: `Consultation with ${consultant} on ${date} at ${selectedTimeSlot.textContent}`
+                };
+                
+                addToCart(bookingProduct);
+                showNotification('Appointment added to cart! Please complete checkout to confirm.');
+                
+                // Reset form
+                document.getElementById('booking-name').value = '';
+                document.getElementById('booking-email').value = '';
+                document.getElementById('consultant').selectedIndex = 0;
+                document.getElementById('meeting-type').selectedIndex = 0;
+                document.querySelectorAll('.time-slot').forEach(s => s.classList.remove('selected'));
+                calendar.clear();
+                updateSelectedDate('');
+            });
+        }
+
+        function initializeEmailForm() {
+            document.getElementById('contactForm').addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                const name = document.getElementById('form-name').value;
+                const email = document.getElementById('form-email').value;
+                const subject = document.getElementById('form-subject').value;
+                const message = document.getElementById('form-message').value;
+                
+                if (!name || !email || !subject || !message) {
+                    alert('Please fill in all required fields.');
+                    return;
+                }
+                
+                const submitBtn = document.querySelector('.submit-btn');
+                const originalText = submitBtn.innerHTML;
+                submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+                submitBtn.disabled = true;
+                
+                setTimeout(() => {
+                    document.getElementById('success-message').style.display = 'block';
+                    document.getElementById('contactForm').reset();
+                    
+                    submitBtn.innerHTML = originalText;
+                    submitBtn.disabled = false;
+                    
+                    setTimeout(() => {
+                        document.getElementById('success-message').style.display = 'none';
+                    }, 5000);
+                }, 1500);
+            });
+        }
+
+        function initializeSmoothScroll() {
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    const href = this.getAttribute('href');
+                    
+                    if (href === '#') return;
+                    
+                    e.preventDefault();
+                    const targetElement = document.querySelector(href);
+                    
+                    if (targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 80,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+        }
+
+        // Make functions available globally for HTML onclick
+        window.openCart = openCart;
+        window.closeCart = closeCart;
+        window.toggleAuth = toggleAuth;
+        window.addToCart = addToCart;
+        window.removeFromCart = removeFromCart;
+        window.increaseQuantity = increaseQuantity;
+        window.decreaseQuantity = decreaseQuantity;
+    </script>
+</body>
+</html>

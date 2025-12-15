@@ -1,0 +1,2489 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <!-- <script>
+    // لو المستخدم مش مسجل
+    if (!localStorage.getItem('currentUser')) {
+        // تحويله مباشرة لصفحة التسجيل
+        window.location.href = 'registar.html'; // اسم ملف الريجستر اللي انت عاملها
+    }
+</script> -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Montserrat:wght@400;600;700&family=Lato:wght@400;700&family=Open+Sans:wght@400;600&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services - Architectural Studio</title>
+   <link rel="stylesheet" href="./css/master.css">
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400..900&family=Inter:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+    
+    <style>
+
+  @keyframes ringRotate {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+    }
+    
+    .testimonial-card:hover {
+        transform: translateY(-5px);
+        border-color: rgba(212, 175, 55, 0.3);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    }
+    
+    .testimonial-card:hover .card-hover {
+        opacity: 1;
+    }
+    
+    .testimonial-card {
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    /* إضافة الخطوط المستوردة في الأعلى */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap');
+
+/* الخطوط الحالية في الكود - سأعدلها فقط */
+
+/* تعديل الخط الأساسي للجسم */
+body {
+    font-family: 'Open Sans', 'Roboto', sans-serif; /* الخط الأساسي */
+    /* background-color: var(--background-dark); */
+    background-color: #000;
+    color: var(--text-dark);
+}
+
+/* العناوين الرئيسية */
+h1, h2, h3, h4 {
+    font-family: 'Poppins', 'Montserrat', 'Lato', sans-serif;
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+header {
+    position: sticky;
+    top: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 1.5rem;
+    border-bottom: 1px solid var(--border-gray);
+    white-space: nowrap;
+    opacity: 0;
+    transform: translateY(-20px);
+    animation: slideDownHeader 0.8s ease-out 0.3s forwards;
+    /* background-color: var(--background-dark); */
+    background-color: #000;
+    z-index: 1000;
+    width: 100%;
+}
+
+@keyframes slideDownHeader {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    animation: logoPulse 2s ease-in-out infinite;
+}
+
+@keyframes logoPulse {
+
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.02);
+    }
+}
+
+.logo-icon {
+    color: var(--text-white);
+    font-size: 1.5rem;
+}
+
+.logo-text {
+    font-family: 'Montserrat', 'Poppins', sans-serif; /* خط العناوين */
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--text-white);
+}
+
+.nav-desktop {
+    display: none;
+    flex: 1;
+    justify-content: center;
+    align-items: center;
+}
+
+@media (min-width: 1024px) {
+    .nav-desktop {
+        display: flex;
+    }
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 2.25rem;
+}
+
+.nav-link {
+    font-family: 'Open Sans', 'Roboto', sans-serif; /* خط النص الأساسي */
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--text-white);
+    text-decoration: none;
+    transition: color 0.2s;
+    position: relative;
+}
+
+.nav-link:hover {
+    color: var(--primary);
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--primary);
+    transition: width 0.3s ease;
+}
+
+.nav-link:hover::after {
+    width: 100%;
+}
+
+/* زر السلة في النافبار */
+.nav-cart {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: none;
+    border: none;
+    color: var(--text-white);
+    cursor: pointer;
+    padding: 0.5rem 1rem;
+    border-radius: 0.375rem;
+    transition: all 0.2s;
+    position: relative;
+    margin-left: 1rem;
+}
+
+.nav-cart:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: var(--primary);
+    transform: translateY(-2px);
+}
+
+.cart-badge {
+    position: absolute;
+    top: -0.25rem;
+    right: -0.25rem;
+    background-color: #ef4444;
+    color: white;
+    font-size: 0.7rem;
+    width: 1.25rem;
+    height: 1.25rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    animation: badgePulse 2s infinite;
+}
+
+@keyframes badgePulse {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.1);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+
+
+@media (min-width: 1024px) {
+    .mobile-menu-btn {
+        display: none;
+    }
+}
+
+/* CSS Variables - تم دمجها في تعريف واحد */
+:root {
+    --primary: #d2b48c;
+    --primary-dark: #b8945c;
+    --primary-light: #4a7dad;
+    --secondary: #ff9a3d;
+    --secondary-dark: #e68a35;
+    --background-light: #ffffff;
+    --background-dark: #111111;
+    --text-light: #111111;
+    --text-dark: #ffffff;
+    --text-muted-light: #6b7280;
+    --text-muted-dark: #9ca3af;
+    --border-light: #e5e7eb;
+    --border-dark: #374151;
+    --card-bg-light: #f9fafb;
+    --card-bg-dark: #1f2937;
+    --success: #10b981;
+    --danger: #ef4444;
+    --light: #f8f9fa;
+    --dark: #212529;
+    --gray: #6c757d;
+    --light-gray: #e9ecef;
+    --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    --shadow-hover: 0 15px 40px rgba(0, 0, 0, 0.15);
+    --radius: 12px;
+    --section-padding: 100px 0;
+    --transition: all 0.3s ease;
+}
+
+.material-symbols-outlined {
+    font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+}
+
+/* Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Open Sans', 'Roboto', sans-serif;
+    background-color: var(--background-dark);
+    /* background-color: #000; */
+    color: var(--text-dark);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+}
+
+/* العناوين الرئيسية */
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Poppins', 'Montserrat', 'Lato', sans-serif;
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+}
+
+/* Scroll Indicator */
+.scroll-indicator {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background-color: rgba(210, 180, 140, 0.2);
+    z-index: 1001;
+}
+
+.scroll-progress {
+    height: 100%;
+    background-color: var(--primary);
+    width: 0%;
+    transition: width 0.1s ease;
+}
+
+
+.container {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 1rem;
+    width: 100%;
+}
+
+@media (min-width: 640px) {
+    .container {
+        padding: 0 1.5rem;
+    }
+}
+
+@media (min-width: 1024px) {
+    .container {
+        padding: 0 2rem;
+    }
+}
+
+/* Main Content */
+main {
+    flex: 1;
+}
+
+/* Hero Section */
+.hero-section {
+    font-family: 'Montserrat', 'Poppins', 'Lato', sans-serif;
+    position: relative;
+    min-height: 90vh;
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
+                url('./img/getCroppedImage\(10\).jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    display: flex;
+    align-items: center;
+    padding: 100px 0;
+    color: white;
+    overflow: hidden;
+    margin-top: 0;
+}
+
+.hero-content-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 60px;
+}
+
+.hero-text-container {
+    flex: 1;
+    min-width: 300px;
+    max-width: 600px;
+    animation: fadeInUp 1s ease both;
+}
+
+.page-title {
+    font-family: 'Montserrat', 'Poppins', 'Lato', sans-serif;
+    font-size: 3.5rem;
+    margin-bottom: 1.5rem;
+    position: relative;
+    display: inline-block;
+    animation: fadeInUp 1s ease 0.2s both;
+    letter-spacing: -0.03em;
+}
+
+.page-title::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    width: 80px;
+    height: 4px;
+    background-color: var(--secondary);
+    border-radius: 2px;
+}
+
+.page-description {
+    font-family: 'Open Sans', 'Roboto', sans-serif;
+    font-size: 1.2rem;
+    margin-bottom: 2.5rem;
+    max-width: 90%;
+    opacity: 0.9;
+    line-height: 1.8;
+    animation: fadeInUp 1s ease 0.4s both;
+}
+
+.hero-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-top: 2.5rem;
+    animation: fadeInUp 1s ease 0.6s both;
+}
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 15px 30px;
+    border-radius: var(--radius);
+    font-weight: 600;
+    font-size: 1rem;
+    text-decoration: none;
+    cursor: pointer;
+    transition: var(--transition);
+    border: none;
+    outline: none;
+    gap: 10px;
+    box-shadow: var(--shadow);
+    font-family: 'Roboto', 'Open Sans', sans-serif;
+}
+
+.btn-primary {
+    background-color: var(--secondary);
+    color: white;
+}
+
+.btn-primary:hover {
+    background-color: var(--secondary-dark);
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-hover);
+}
+
+.btn-outline {
+    background-color: transparent;
+    color: white;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+}
+
+.btn-outline:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-color: white;
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-hover);
+}
+
+.hero-stats-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: var(--radius);
+    padding: 40px 30px;
+    max-width: 500px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    animation: fadeInUp 1s ease 0.5s both;
+}
+
+.hero-stat {
+    text-align: center;
+    flex: 1;
+    min-width: 120px;
+    padding: 15px;
+    transition: var(--transition);
+    border-radius: 8px;
+}
+
+.hero-stat:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    transform: translateY(-5px);
+}
+
+.stat-number {
+    display: block;
+    font-family: 'Montserrat', 'Poppins', sans-serif; /* خط للأرقام */
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: var(--secondary);
+    margin-bottom: 5px;
+}
+
+.stat-label {
+    font-family: 'Open Sans', 'Roboto', sans-serif;
+    font-size: 0.9rem;
+    opacity: 0.9;
+    font-weight: 500;
+}
+
+.scroll-indicator-bottom {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 3;
+    animation: bounce 2s infinite;
+}
+
+.scroll-indicator-bottom span {
+    display: block;
+    width: 30px;
+    height: 50px;
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    border-radius: 15px;
+    position: relative;
+}
+
+.scroll-indicator-bottom span::before {
+    content: '';
+    position: absolute;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 4px;
+    height: 10px;
+    background-color: white;
+    border-radius: 2px;
+    animation: scroll 2s infinite;
+}
+
+/* Animations */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateX(-50%) translateY(0);
+    }
+    40% {
+        transform: translateX(-50%) translateY(-10px);
+    }
+    60% {
+        transform: translateX(-50%) translateY(-5px);
+    }
+}
+
+@keyframes scroll {
+    0% {
+        opacity: 1;
+        top: 10px;
+    }
+    100% {
+        opacity: 0;
+        top: 30px;
+    }
+}
+
+@keyframes countUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.stat-number.animated {
+    animation: countUp 2s ease-out forwards;
+}
+
+/* Services Grid */
+.services-grid {
+    padding: 3rem 0 5rem;
+}
+
+.services-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+}
+
+@media (min-width: 768px) {
+    .services-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 1024px) {
+    .services-container {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+/* Service Card - Enhanced Design */
+.service-card {
+    background-color: var(--card-bg-dark);
+    border: 1px solid var(--border-dark);
+    border-radius: 1rem;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    box-shadow: var(--shadow);
+    opacity: 0;
+    transform: translateY(30px);
+    cursor: pointer;
+}
+
+.service-card.visible {
+    opacity: 1;
+    transform: translateY(0);
+    transition: all 0.6s ease;
+}
+
+.service-card:hover {
+    transform: translateY(-0.5rem);
+    box-shadow: var(--shadow-xl);
+    border-color: var(--primary);
+}
+
+.service-card.featured {
+    border: 2px solid var(--primary);
+    position: relative;
+}
+
+.service-card.featured::before {
+    content: 'Most Popular';
+    position: absolute;
+    top: 0.75rem;
+    right: 0.75rem;
+    background-color: var(--primary);
+    color: var(--background-dark);
+    font-size: 0.75rem;
+    font-weight: 700;
+    padding: 0.25rem 0.75rem;
+    border-radius: 9999px;
+    z-index: 10;
+    font-family: 'Roboto', 'Open Sans', sans-serif;
+}
+
+.service-image-container {
+    position: relative;
+    overflow: hidden;
+    height: 18rem;
+}
+
+.service-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.service-card:hover .service-image {
+    transform: scale(1.05);
+}
+
+.service-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.7) 0%, transparent 50%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    display: flex;
+    align-items: flex-end;
+    padding: 1.5rem;
+}
+
+.service-card:hover .service-overlay {
+    opacity: 1;
+}
+
+.quick-view-btn {
+    background-color: var(--primary);
+    color: var(--background-dark);
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 0.375rem;
+    font-weight: 600;
+    cursor: pointer;
+    opacity: 0;
+    transform: translateY(1rem);
+    transition: all 0.3s ease;
+    font-family: 'Roboto', 'Open Sans', sans-serif;
+}
+
+.service-card:hover .quick-view-btn {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.service-content {
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.service-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 0.75rem;
+}
+
+.service-title {
+    font-family: 'Poppins', 'Montserrat', 'Lato', sans-serif; /* خط العناوين */
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--text-dark);
+    margin: 0;
+}
+
+.service-price {
+    font-family: 'Montserrat', 'Poppins', sans-serif; /* خط للأرقام والعناوين */
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--primary);
+}
+
+.service-description {
+    font-family: 'Open Sans', 'Roboto', sans-serif; /* خطوط النص الأساسي */
+    color: var(--text-muted-dark);
+    font-size: 0.875rem;
+    line-height: 1.5;
+    margin-bottom: 1.5rem;
+    flex: 1;
+}
+
+.service-features {
+    list-style: none;
+    margin-bottom: 1.5rem;
+}
+
+.service-features li {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.875rem;
+    margin-bottom: 0.5rem;
+    color: var(--text-muted-dark);
+    font-family: 'Open Sans', 'Roboto', sans-serif;
+}
+
+.service-features li::before {
+    content: "✓";
+    color: var(--primary);
+    font-weight: bold;
+}
+
+.service-actions {
+    display: flex;
+    gap: 0.75rem;
+}
+
+.add-to-cart-btn {
+    flex: 1;
+    background-color: var(--primary);
+    color: var(--background-dark);
+    border: none;
+    padding: 0.75rem 1rem;
+    border-radius: 0.5rem;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    transition: all 0.2s;
+    font-family: 'Roboto', 'Open Sans', sans-serif;
+}
+
+.add-to-cart-btn:hover {
+    background-color: var(--primary-dark);
+    transform: translateY(-1px);
+}
+
+.add-to-cart-btn.added {
+    background-color: var(--success);
+}
+
+.learn-more-btn {
+    background-color: transparent;
+    color: var(--primary);
+    border: 1px solid var(--primary);
+    padding: 0.75rem 1rem;
+    border-radius: 0.5rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+    font-family: 'Roboto', 'Open Sans', sans-serif;
+}
+
+.learn-more-btn:hover {
+    background-color: var(--primary);
+    color: var(--background-dark);
+}
+
+/* Notification */
+.notification {
+    position: fixed;
+    bottom: 1.25rem;
+    right: 1.25rem;
+    background-color: var(--primary);
+    color: var(--background-dark);
+    padding: 1rem 1.5rem;
+    border-radius: 0.5rem;
+    font-weight: 600;
+    box-shadow: var(--shadow-lg);
+    z-index: 9999;
+    display: none;
+    align-items: center;
+    gap: 0.625rem;
+    max-width: 24rem;
+    animation: slideIn 0.3s ease-out;
+    font-family: 'Roboto', 'Open Sans', sans-serif;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideOut {
+    from {
+        transform: translateX(0);
+        opacity: 1;
+    }
+    to {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+}
+
+/* Cart Modal */
+.cart-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    z-index: 9998;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+}
+
+.cart-modal-content {
+    background-color: var(--background-dark);
+    border-radius: 1rem;
+    width: 100%;
+    max-width: 28rem;
+    max-height: 90vh;
+    overflow-y: auto;
+    animation: modalFadeIn 0.3s ease-out;
+    border: 1px solid var(--border-dark);
+}
+
+@keyframes modalFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-1.25rem);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.cart-modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem;
+    border-bottom: 1px solid var(--border-dark);
+}
+
+.cart-modal-title {
+    font-family: 'Poppins', 'Montserrat', 'Lato', sans-serif; /* خط العناوين */
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--text-dark);
+}
+
+.close-cart-modal {
+    background: none;
+    border: none;
+    color: var(--text-muted-dark);
+    font-size: 1.5rem;
+    cursor: pointer;
+    width: 2.5rem;
+    height: 2.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: all 0.2s;
+}
+
+.close-cart-modal:hover {
+    background-color: var(--border-dark);
+    color: var(--text-dark);
+}
+
+.cart-modal-body {
+    padding: 1.5rem;
+}
+
+.cart-empty {
+    text-align: center;
+    padding: 3rem 1rem;
+    color: var(--text-muted-dark);
+}
+
+.cart-empty-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    color: var(--text-muted-dark);
+}
+
+.cart-items {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.cart-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+    background-color: var(--card-bg-dark);
+    border-radius: 0.75rem;
+    border: 1px solid var(--border-dark);
+}
+
+.cart-item-image {
+    width: 4rem;
+    height: 4rem;
+    object-fit: cover;
+    border-radius: 0.5rem;
+}
+
+.cart-item-details {
+    flex: 1;
+}
+
+.cart-item-title {
+    font-family: 'Poppins', 'Montserrat', 'Lato', sans-serif;
+    font-weight: 600;
+    color: var(--text-dark);
+    margin-bottom: 0.25rem;
+}
+
+.cart-item-price {
+    font-family: 'Montserrat', 'Poppins', sans-serif; /* خط للأرقام والعناوين */
+    color: var(--primary);
+    font-weight: 700;
+}
+
+.cart-item-quantity {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+}
+
+.quantity-btn {
+    background-color: var(--border-dark);
+    color: var(--text-dark);
+    border: none;
+    width: 1.75rem;
+    height: 1.75rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-weight: 600;
+    font-family: 'Roboto', 'Open Sans', sans-serif;
+}
+
+.quantity-input {
+    width: 2.5rem;
+    text-align: center;
+    border: 1px solid var(--border-dark);
+    border-radius: 0.375rem;
+    padding: 0.25rem;
+    background-color: var(--background-dark);
+    color: var(--text-dark);
+    font-family: 'Open Sans', 'Roboto', sans-serif;
+}
+
+.remove-from-cart {
+    background: none;
+    border: none;
+    color: var(--danger);
+    cursor: pointer;
+    padding: 0.5rem;
+    border-radius: 0.375rem;
+    transition: all 0.2s;
+}
+
+.remove-from-cart:hover {
+    background-color: rgba(239, 68, 68, 0.1);
+}
+
+.cart-summary {
+    padding: 1.5rem;
+    border-top: 1px solid var(--border-dark);
+    background-color: var(--card-bg-dark);
+    border-radius: 0 0 1rem 1rem;
+}
+
+.cart-total {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+
+.total-label {
+    font-family: 'Poppins', 'Montserrat', 'Lato', sans-serif;
+    font-size: 1.125rem;
+    color: var(--text-dark);
+}
+
+.total-amount {
+    font-family: 'Montserrat', 'Poppins', sans-serif; /* خط للأرقام والعناوين */
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--primary);
+}
+
+.cart-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.checkout-btn {
+    background-color: var(--primary);
+    color: var(--background-dark);
+    border: none;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    font-weight: 700;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.625rem;
+    transition: all 0.2s;
+    font-family: 'Roboto', 'Open Sans', sans-serif;
+}
+
+.checkout-btn:hover {
+    background-color: var(--primary-dark);
+    transform: translateY(-1px);
+}
+
+.clear-cart-btn {
+    background-color: transparent;
+    color: var(--danger);
+    border: 1px solid var(--danger);
+    padding: 1rem;
+    border-radius: 0.5rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s;
+    font-family: 'Roboto', 'Open Sans', sans-serif;
+}
+
+.clear-cart-btn:hover {
+    background-color: rgba(239, 68, 68, 0.1);
+}
+
+/* Footer */
+footer {
+    border-top: 1px solid var(--border-dark);
+    background-color: var(--background-dark);
+    padding: 2.5rem 0;
+}
+
+.footer-content {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+}
+
+.footer-links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem 2rem;
+}
+
+.footer-link {
+    font-family: 'Open Sans', 'Roboto', sans-serif;
+    font-size: 0.875rem;
+    color: var(--text-muted-dark);
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.footer-link:hover {
+    color: var(--primary);
+}
+
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+}
+
+.social-link {
+    color: var(--text-muted-dark);
+    transition: color 0.2s;
+}
+
+.social-link:hover {
+    color: var(--primary);
+}
+
+.copyright {
+    font-family: 'Open Sans', 'Roboto', sans-serif;
+    font-size: 0.875rem;
+    color: var(--text-muted-dark);
+    text-align: center;
+}
+
+
+
+
+/* Service Modal */
+.service-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    z-index: 9998;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+}
+
+.service-modal-content {
+    background-color: var(--background-dark);
+    border-radius: 1rem;
+    width: 100%;
+    max-width: 48rem;
+    max-height: 90vh;
+    overflow-y: auto;
+    animation: modalFadeIn 0.3s ease-out;
+    border: 1px solid var(--border-dark);
+}
+
+.service-modal-body {
+    padding: 2rem;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+}
+
+@media (min-width: 768px) {
+    .service-modal-body {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+.service-modal-image {
+    width: 100%;
+    height: 20rem;
+    object-fit: cover;
+    border-radius: 0.75rem;
+}
+
+@media (min-width: 768px) {
+    .service-modal-image {
+        height: 100%;
+    }
+}
+
+.service-modal-details {
+    display: flex;
+    flex-direction: column;
+}
+
+.service-modal-title {
+    font-family: 'Poppins', 'Montserrat', 'Lato', sans-serif; /* خط العناوين */
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    color: var(--text-dark);
+}
+
+.service-modal-price {
+    font-family: 'Montserrat', 'Poppins', sans-serif; /* خط للأرقام والعناوين */
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--primary);
+    margin-bottom: 1rem;
+}
+
+.service-modal-description {
+    font-family: 'Open Sans', 'Roboto', sans-serif; /* خطوط النص الأساسي */
+    color: var(--text-muted-dark);
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+}
+
+.service-modal-features {
+    margin-bottom: 1.5rem;
+}
+
+.service-modal-features h4 {
+    font-family: 'Poppins', 'Montserrat', 'Lato', sans-serif;
+    font-size: 1.125rem;
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+    color: var(--text-dark);
+}
+
+.modal-features-list {
+    list-style: none;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+}
+
+@media (min-width: 640px) {
+    .modal-features-list {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+.modal-features-list li {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--text-muted-dark);
+    font-family: 'Open Sans', 'Roboto', sans-serif;
+}
+
+.modal-features-list li::before {
+    content: "✓";
+    color: var(--primary);
+    font-weight: bold;
+}
+
+.service-modal-actions {
+    display: flex;
+    gap: 0.75rem;
+    margin-top: auto;
+}
+
+/* WhatsApp Float Button */
+.whatsapp-float {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 60px;
+    height: 60px;
+    background-color: #D4AF37;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 20px rgba(212, 175, 55, 0.4);
+    z-index: 1000;
+    transition: all 0.3s ease;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% {
+        box-shadow: 0 4px 20px rgba(212, 175, 55, 0.4);
+    }
+    50% {
+        box-shadow: 0 4px 30px rgba(212, 175, 55, 0.7);
+    }
+    100% {
+        box-shadow: 0 4px 20px rgba(212, 175, 55, 0.4);
+    }
+}
+
+.whatsapp-float:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 25px rgba(212, 175, 55, 0.5);
+    background-color: #B8961E;
+    animation: none;
+}
+
+.whatsapp-float img {
+    width: 35px;
+    height: 35px;
+    filter: brightness(0) invert(1);
+}
+
+@media (max-width: 768px) {
+    .whatsapp-float {
+        width: 50px;
+        height: 50px;
+        bottom: 20px;
+        right: 20px;
+    }
+    
+    .whatsapp-float img {
+        width: 28px;
+        height: 28px;
+    }
+    
+    .page-title {
+        font-size: 2.8rem;
+        font-family: 'Poppins', 'Montserrat', sans-serif;
+    }
+    
+    .hero-stats-container {
+        flex-direction: column;
+        gap: 30px;
+    }
+    
+    .hero-stat {
+        min-width: 100%;
+    }
+    
+    .hero-section {
+        background-attachment: scroll;
+    }
+}
+
+@media (max-width: 576px) {
+    .page-title {
+        font-size: 2.2rem;
+        font-family: 'Poppins', 'Montserrat', sans-serif;
+    }
+    
+    .page-description {
+        font-size: 1rem;
+        font-family: 'Open Sans', 'Roboto', sans-serif;
+    }
+    
+    .btn {
+        padding: 12px 24px;
+        font-size: 0.9rem;
+        font-family: 'Roboto', 'Open Sans', sans-serif;
+    }
+}
+
+@media (max-width: 992px) {
+    .hero-content-wrapper {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .page-title::after {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    
+    .page-description {
+        max-width: 100%;
+    }
+    
+    .hero-buttons {
+        justify-content: center;
+    }
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .page-title {
+        font-size: 2.8rem;
+        font-family: 'Poppins', 'Montserrat', sans-serif;
+    }
+    
+    .hero-stats-container {
+        flex-direction: column;
+        gap: 30px;
+    }
+    
+    .hero-stat {
+        min-width: 100%;
+    }
+}
+
+/* ===== FOOTER COMPACT DESIGN ===== */
+footer {
+    background: #0A0A0A;
+    border-top: 1px solid rgba(212, 175, 55, 0.3);
+    margin-top: 3rem;
+    padding: 2rem 1rem 1rem;
+    position: relative;
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+@media (min-width: 768px) {
+    .footer-grid {
+        grid-template-columns: 1.5fr 1fr 1fr;
+        gap: 2rem;
+    }
+}
+
+/* ===== FOOTER ABOUT - COMPACT ===== */
+.footer-about {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.footer-logo {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    margin-bottom: 0.5rem;
+}
+
+.footer-logo-icon {
+    font-size: 1.8rem;
+    color: #D4AF37;
+    background: rgba(212, 175, 55, 0.1);
+    padding: 8px;
+    border-radius: 8px;
+    border: 1px solid rgba(212, 175, 55, 0.2);
+}
+
+.footer-logo-text {
+    font-family: 'Montserrat', 'Poppins', sans-serif; /* خط العناوين للفوتر */
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: #FFFFFF;
+    letter-spacing: 0.5px;
+}
+
+.footer-about-text {
+    font-family: 'Open Sans', 'Roboto', sans-serif;
+    color: #A0A0A0;
+    font-size: 0.9rem;
+    line-height: 1.6;
+    max-width: 300px;
+}
+
+/* ===== FOOTER COLUMNS - COMPACT ===== */
+.footer-column {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.footer-title {
+    font-family: 'Poppins', 'Montserrat', sans-serif;
+    color: #FFFFFF;
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid rgba(212, 175, 55, 0.3);
+}
+
+.footer-links {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+}
+
+.footer-link {
+    font-family: 'Open Sans', 'Roboto', sans-serif;
+    color: #B0B0B0;
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: all 0.2s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.footer-link:hover {
+    color: #D4AF37;
+    transform: translateX(5px);
+}
+
+.footer-contact p {
+    font-family: 'Open Sans', 'Roboto', sans-serif;
+    color: #B0B0B0;
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+    line-height: 1.5;
+}
+
+.footer-contact .footer-link {
+    color: #D4AF37;
+    font-size: 0.9rem;
+    font-family: 'Open Sans', 'Roboto', sans-serif;
+}
+
+.footer-contact .footer-link:hover {
+    color: #FFFFFF;
+    text-decoration: underline;
+}
+
+/* ===== FOOTER BOTTOM - COMPACT ===== */
+.footer-bottom {
+    margin-top: 2rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    text-align: center;
+}
+
+@media (min-width: 640px) {
+    .footer-bottom {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+}
+
+.copyright {
+    font-family: 'Open Sans', 'Roboto', sans-serif;
+    color: #808080;
+    font-size: 0.85rem;
+    order: 2;
+}
+
+@media (min-width: 640px) {
+    .copyright {
+        order: 1;
+    }
+}
+
+.social-links {
+    display: flex;
+    gap: 0.8rem;
+    order: 1;
+}
+
+@media (min-width: 640px) {
+    .social-links {
+        order: 2;
+    }
+}
+
+.social-link {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.05);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #B0B0B0;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.social-link:hover {
+    background: rgba(212, 175, 55, 0.1);
+    color: #D4AF37;
+    border-color: #D4AF37;
+    transform: translateY(-2px);
+}
+
+.social-link svg {
+    width: 18px;
+    height: 18px;
+}
+
+/* ===== RESPONSIVE ADJUSTMENTS ===== */
+@media (max-width: 767px) {
+    footer {
+        padding: 1.5rem 1rem 1rem;
+        margin-top: 2rem;
+    }
+    
+    .footer-grid {
+        gap: 1.5rem;
+    }
+    
+    .footer-logo-text {
+        font-size: 1.2rem;
+        font-family: 'Montserrat', 'Poppins', sans-serif;
+    }
+    
+    .footer-logo-icon {
+        font-size: 1.5rem;
+        padding: 6px;
+    }
+    
+    .footer-title {
+        font-size: 1rem;
+        font-family: 'Poppins', 'Montserrat', sans-serif;
+    }
+    
+    .footer-link {
+        font-size: 0.85rem;
+        font-family: 'Open Sans', 'Roboto', sans-serif;
+    }
+}
+
+@media (max-width: 480px) {
+    .footer-about-text {
+        font-size: 0.85rem;
+        font-family: 'Open Sans', 'Roboto', sans-serif;
+    }
+    
+    .footer-contact p {
+        font-size: 0.85rem;
+        font-family: 'Open Sans', 'Roboto', sans-serif;
+    }
+    
+    .social-link {
+        width: 32px;
+        height: 32px;
+    }
+    
+    .social-link svg {
+        width: 16px;
+        height: 16px;
+    }
+}
+
+/* ===== MINIMAL HOVER EFFECTS ===== */
+.footer-link::before {
+    content: '›';
+    color: #D4AF37;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+}
+
+.footer-link:hover::before {
+    opacity: 1;
+}
+
+/* ===== UTILITY CLASSES ===== */
+.text-gold {
+    color: #D4AF37;
+}
+
+.text-muted {
+    color: #A0A0A0;
+}
+
+/* ===== PRINT STYLES ===== */
+@media print {
+    footer {
+        display: none;
+    }
+}
+
+/* النصوص في الأزرار */
+.add-to-cart-btn-modal,
+.close-service-modal-btn {
+    font-family: 'Roboto', 'Open Sans', sans-serif;
+}
+
+/* النصوص الصغيرة جداً */
+.cart-badge,
+.footer-link::before {
+    font-family: 'Roboto', sans-serif; /* خط للنصوص الصغيرة */
+}    
+ 
+
+
+
+
+
+
+
+
+/* Mobile Navigation - واحده فقط */
+.mobile-nav {
+    display: none;
+    position: fixed;
+    top: 70px;
+    left: 0;
+    right: 0;
+    background-color: var(--background-dark);
+    border-top: 1px solid var(--border-dark);
+    padding: 20px;
+    z-index: 999;
+    flex-direction: column;
+    gap: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--border-dark);
+}
+
+.mobile-nav.active {
+    display: flex;
+}
+
+.mobile-nav .nav-link {
+    padding: 15px 20px;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+    background-color: rgba(216, 195, 165, 0.05);
+    border: 1px solid rgba(216, 195, 165, 0.1);
+    text-align: center;
+    font-size: 16px;
+    font-family: 'Open Sans', 'Roboto', sans-serif;
+    color: var(--text-white);
+    text-decoration: none;
+    display: block;
+}
+
+.mobile-nav .nav-link:hover {
+    background-color: rgba(216, 195, 165, 0.15);
+    transform: translateX(5px);
+    border-color: var(--primary);
+}
+
+.mobile-nav .nav-link.active {
+    background-color: rgba(216, 195, 165, 0.2);
+    border-color: var(--primary);
+    color: var(--primary);
+}
+
+/* زر السلة داخل القائمة المتنقلة */
+.mobile-nav .nav-cart {
+    width: 100%;
+    justify-content: center;
+    margin-bottom: 10px;
+    padding: 15px;
+    background-color: rgba(216, 195, 165, 0.1);
+    border: 1px solid rgba(216, 195, 165, 0.2);
+    border-radius: 10px;
+}
+
+.mobile-nav .nav-cart:hover {
+    background-color: rgba(216, 195, 165, 0.2);
+}
+    </style>
+</head>
+<body class="dark">
+    <!-- Scroll Indicator -->
+    <div class="scroll-indicator">
+        <div class="scroll-progress" id="scrollProgress"></div>
+    </div>
+    
+    <!-- WhatsApp Float Button -->
+    <a href="https://wa.me/447470631885" class="whatsapp-float" target="_blank">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
+    </a>
+    
+    
+
+      <div class="notification" id="notification">
+        <span class="material-symbols-outlined">shopping_cart</span>
+        <span id="notificationMessage">Item added to cart!</span>
+    </div>
+    
+    
+    <div class="cart-modal" id="cartModal">
+        <div class="cart-modal-content">
+            <div class="cart-modal-header">
+                <h3 class="cart-modal-title">Your Shopping Cart</h3>
+                <button class="close-cart-modal" id="closeCartModalBtn">&times;</button>
+            </div>
+            <div class="cart-modal-body">
+                <div id="cartItemsContainer">
+                    
+                </div>
+            </div>
+            <div class="cart-summary">
+                <div class="cart-total">
+                    <span class="total-label">Total:</span>
+                    <span class="total-amount" id="cartTotalAmount">$0.00</span>
+                </div>
+                <div class="cart-actions">
+                    <button class="checkout-btn" id="checkoutBtn">
+                        <span class="material-symbols-outlined">shopping_cart_checkout</span>
+                        Proceed to Checkout
+                    </button>
+                    <button class="clear-cart-btn" id="clearCartBtn">Clear Cart</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    
+    <div class="service-modal" id="serviceModal">
+        <div class="service-modal-content">
+            <div class="cart-modal-header">
+                <h3 class="cart-modal-title" id="serviceModalTitle">Service Details</h3>
+                <button class="close-cart-modal" id="closeServiceModalBtn">&times;</button>
+            </div>
+            <div class="service-modal-body">
+                <img id="serviceModalImage" src="" alt="Service Image" class="service-modal-image">
+                <div class="service-modal-details">
+                    <h3 class="service-modal-title" id="serviceModalServiceTitle">Service Title</h3>
+                    <div class="service-modal-price" id="serviceModalPrice">$0.00</div>
+                    <p class="service-modal-description" id="serviceModalDescription">
+                        Service description will appear here.
+                    </p>
+                    <div class="service-modal-features">
+                        <h4>Features Included:</h4>
+                        <ul class="modal-features-list" id="serviceModalFeatures">
+                            
+                        </ul>
+                    </div>
+                    <div class="service-modal-actions">
+                        <button class="add-to-cart-btn" id="modalAddToCartBtn">
+                            <span class="material-symbols-outlined">add_shopping_cart</span>
+                            Add to Cart
+                        </button>
+                        <button class="learn-more-btn" id="closeServiceModalBtn2">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> 
+    
+    <!-- TopNavBar -->
+    
+     <header>
+            <div class="logo">
+                <span class="material-symbols-outlined logo-icon">architecture</span>
+                <h2 class="logo-text">Architectural → CMA</h2>
+            </div>
+
+            <nav class="nav-desktop">
+                <div class="nav-links">
+                    <a class="nav-link" href="Home.html" id="homeLink">Home</a>
+                    <a class="nav-link" href="Services.html" id="servicesLink">Services</a>
+                    <a class="nav-link" href="Shop.html" id="shopLink">Shop</a>
+                    <a class="nav-link" href="portofolio.html" id="walletLink">Portfolio</a>
+                    <a class="nav-link" href="About.html" id="aboutLink">About Us</a>
+                    <a class="nav-link" href="Contact.html" id="contactLink">Contact</a>
+                    <!-- زر السلة الوحيد للديسكتوب -->
+                    <button class="nav-cart" id="cartBtn">
+                        <span class="material-symbols-outlined">shopping_cart</span>
+                        <span class="cart-badge" id="cartCount">0</span>
+                    </button>
+
+                    <a class="nav-link" onclick="toggleAuth()" id="authLink">
+                        <span id="authText">
+                            <script>
+                                document.write(localStorage.getItem('currentUser') ? 'Logout' : 'Login');
+                            </script>
+                        </span>
+                    </a>
+                </div>
+            </nav>
+
+            <div style="display: flex; align-items: center; gap: 0.75rem;">
+                <button class="mobile-menu-btn" id="mobileMenuBtn">
+                    <span class="material-symbols-outlined">menu</span>
+                </button>
+            </div>
+        </header>
+
+        
+   
+    
+    <!-- Main Content -->
+    <main>
+        <!-- Page Heading -->
+        <section class="hero-section">
+            <div class="hero-overlay"></div>
+            <div class="container">
+                <div class="hero-content-wrapper">
+                    <div class="hero-text-container">
+                        <h1 class="page-title">Our Services</h1>
+                        <p class="page-description">
+                            We offer a range of specialized architectural services to bring your vision to life, from initial concept to final execution. Professional quality with student-friendly pricing.
+                        </p>
+                        <div class="hero-buttons">
+                            <button class="btn btn-primary" id="exploreServicesBtn">
+                                <span class="material-symbols-outlined">design_services</span>
+                                Explore Services
+                            </button>
+                            <button class="btn btn-outline" id="contactUsBtn">
+                                <span class="material-symbols-outlined">call</span>
+                                Contact Us
+                            </button>
+                        </div>
+                    </div>
+                    <div class="hero-stats-container">
+                        <div class="hero-stat">
+                            <span class="stat-number">500+</span>
+                            <span class="stat-label">Projects Completed</span>
+                        </div>
+                        <div class="hero-stat">
+                            <span class="stat-number">48h</span>
+                            <span class="stat-label">Fast Delivery Time</span>
+                        </div>
+                        <div class="hero-stat">
+                            <span class="stat-number">100%</span>
+                            <span class="stat-label">Client Satisfaction</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="scroll-indicator-bottom">
+                <span></span>
+            </div>
+        </section>
+    
+        <!-- Services Grid -->
+        <section class="services-grid">
+            <div class="container">
+                <div class="services-container" id="servicesContainer">
+                    <!-- Service Card 1: Rendering & Storytelling -->
+                    <div class="service-card" data-service-id="1">
+                        <div class="service-image-container">
+                            <img src="./img/Orla-by-OMNIYAT-Amenities-1024x569 (1).jpg" 
+                                 alt="Photorealistic architectural rendering with compelling storytelling" 
+                                 class="service-image">
+                            <div class="service-overlay">
+                                <button class="quick-view-btn" data-service-id="1">Quick View</button>
+                            </div>
+                        </div>
+                        <div class="service-content">
+                            <div class="service-header">
+                                <h3 class="service-title">Rendering & Storytelling</h3>
+                                <!-- <div class="service-price">$299.00</div> -->
+                            </div>
+                            <p class="service-description">
+                                Transform your architectural concepts into compelling visual narratives. We create photorealistic renders that tell the story of your design, perfect for presentations and portfolio enhancement.
+                            </p>
+                            <ul class="service-features">
+                                <li>Photorealistic quality renders</li>
+                                <li>Visual storytelling & narratives</li>
+                                <li>Multiple angle options</li>
+                                <li>48h Delivery Label</li>
+                            </ul>
+                            <div class="service-actions">
+                                <button class="add-to-cart-btn" data-service-id="1">
+                                    <span class="material-symbols-outlined">add_shopping_cart</span>
+                                    Add to Cart
+                                </button>
+                                <button class="learn-more-btn" data-service-id="1">Enquire</button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Service Card 2: 3D Modelling (Revit/Rhino/AutoCAD) -->
+                    <div class="service-card featured" data-service-id="2">
+                        <div class="service-image-container">
+                            <img src="./img/getCroppedImage (2) (1).jpg" 
+                                 alt="Professional 3D modeling in Revit, Rhino, and AutoCAD" 
+                                 class="service-image">
+                            <div class="service-overlay">
+                                <button class="quick-view-btn" data-service-id="2">Quick View</button>
+                            </div>
+                        </div>
+                        <div class="service-content">
+                            <div class="service-header">
+                                <h3 class="service-title">3D Modelling</h3>
+                                <!-- <div class="service-price">$399.00</div> -->
+                            </div>
+                            <p class="service-description">
+                                Professional 3D modeling services using industry-standard software like Revit, Rhino, and AutoCAD. We deliver clean, organized models with export-ready files for your architectural projects.
+                            </p>
+                            <ul class="service-features">
+                                <li>Revit, Rhino, AutoCAD</li>
+                                <li>Clean layer organization</li>
+                                <li>48h Delivery Label</li>
+                                <li>Academic standard quality</li>
+                            </ul>
+                            <div class="service-actions">
+                                <button class="add-to-cart-btn" data-service-id="2">
+                                    <span class="material-symbols-outlined">add_shopping_cart</span>
+                                    Add to Cart
+                                </button>
+                                <button class="learn-more-btn" data-service-id="2">Enquire</button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Service Card 3: Full Project Assistance -->
+                    <div class="service-card" data-service-id="3">
+                        <div class="service-image-container">
+                            <img src="./img/getCroppedImage (2).jpg" 
+                                 alt="Comprehensive project assistance from concept to completion" 
+                                 class="service-image">
+                            <div class="service-overlay">
+                                <button class="quick-view-btn" data-service-id="3">Quick View</button>
+                            </div>
+                        </div>
+                        <div class="service-content">
+                            <div class="service-header">
+                                <h3 class="service-title">Full Project Assistance</h3>
+                                <!-- <div class="service-price">$799.00</div> -->
+                            </div>
+                            <p class="service-description">
+                                End-to-end project support from initial concept through design development to final presentation. We provide comprehensive assistance including diagrams, narrative development, and presentation layouts.
+                            </p>
+                            <ul class="service-features">
+                                <li>End-to-end project support</li>
+                                <li>Concept to completion</li>
+                                <li>Diagrams & narrative</li>
+                                <li>48h Delivery Label</li>
+                            </ul>
+                            <div class="service-actions">
+                                <button class="add-to-cart-btn" data-service-id="3">
+                                    <span class="material-symbols-outlined">add_shopping_cart</span>
+                                    Add to Cart
+                                </button>
+                                <button class="learn-more-btn" data-service-id="3">Enquire</button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Service Card 4: Tutoring & Coaching -->
+                    <div class="service-card" data-service-id="4">
+                        <div class="service-image-container">
+                            <img src="/img/getCroppedImage (3).jpg" 
+                                 alt="Personalized tutoring and coaching for architects" 
+                                 class="service-image">
+                            <div class="service-overlay">
+                                <button class="quick-view-btn" data-service-id="4">Quick View</button>
+                            </div>
+                        </div>
+                        <div class="service-content">
+                            <div class="service-header">
+                                <h3 class="service-title">Tutoring & Coaching</h3>
+                                <!-- <div class="service-price">$149.00/hr</div> -->
+                            </div>
+                            <p class="service-description">
+                                Personalized one-on-one tutoring and coaching sessions for architecture students and professionals. We help with portfolio reviews, interview preparation, and skill development in design software.
+                            </p>
+                            <ul class="service-features">
+                                <li>Portfolio reviews & feedback</li>
+                                <li>Interview preparation</li>
+                                <li>Software skill-building</li>
+                                <li>48h Delivery Label</li>
+                            </ul>
+                            <div class="service-actions">
+                                <button class="add-to-cart-btn" data-service-id="4">
+                                    <span class="material-symbols-outlined">add_shopping_cart</span>
+                                    Add to Cart
+                                </button>
+                                <button class="learn-more-btn" data-service-id="4">Enquire</button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Service Card 5: Build‑Your‑Own Order (Shop interface) -->
+                    <div class="service-card" data-service-id="5">
+                        <div class="service-image-container">
+                            <img src="./img/getCroppedImage (4).jpg" 
+                                 alt="Custom build-your-own order interface" 
+                                 class="service-image">
+                            <div class="service-overlay">
+                                <button class="quick-view-btn" data-service-id="5">Quick View</button>
+                            </div>
+                        </div>
+                        <div class="service-content">
+                            <div class="service-header">
+                                <h3 class="service-title">Build‑Your‑Own Order</h3>
+                                <!-- <div class="service-price">From $99.00</div> -->
+                            </div>
+                            <p class="service-description">
+                                Customize your architectural service package with our intuitive shop interface. Select exactly what you need from our modular service offerings to create a personalized solution for your project.
+                            </p>
+                            <ul class="service-features">
+                                <li>Modular service selection</li>
+                                <li>Customized package building</li>
+                                <li>Flexible pricing options</li>
+                                <li>48h Delivery Label</li>
+                            </ul>
+                            <div class="service-actions">
+                                <button class="add-to-cart-btn" data-service-id="5">
+                                    <span class="material-symbols-outlined">add_shopping_cart</span>
+                                    Build Your Order
+                                </button>
+                                <button class="learn-more-btn" data-service-id="5">Enquire</button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Service Card 6: Portfolio Design & Development (الكارد الجديدة) -->
+                    <div class="service-card" data-service-id="6">
+                        <div class="service-image-container">
+                            <img src="./img/getCroppedImage (5).jpg" 
+                                 alt="Professional portfolio design and development for architects" 
+                                 class="service-image">
+                            <div class="service-overlay">
+                                <button class="quick-view-btn" data-service-id="6">Quick View</button>
+                            </div>
+                        </div>
+                        <div class="service-content">
+                            <div class="service-header">
+                                <h3 class="service-title"> Poster Design & Portfolio </h3>
+                                <!-- <div class="service-price">$449.00</div> -->
+                            </div>
+                            <p class="service-description">
+                                Create a stunning professional portfolio that showcases your architectural work effectively. We design visually compelling portfolios tailored for job applications, university admissions, or client presentations.
+                            </p>
+                            <ul class="service-features">
+                                <li>Custom portfolio layout design</li>
+                                <li>Content organization & sequencing</li>
+                                <li>Print-ready & digital formats</li>
+                                <li>48h Delivery Label</li>
+                            </ul>
+                            <div class="service-actions">
+                                <button class="add-to-cart-btn" data-service-id="6">
+                                    <span class="material-symbols-outlined">add_shopping_cart</span>
+                                    Add to Cart
+                                </button>
+                                <button class="learn-more-btn" data-service-id="6">Enquire</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+   <!-- Premium Testimonials Section - Professional Version -->
+<section class="testimonials-section" style="padding: 80px 0; background: #0A0A0A; position: relative; overflow: hidden;">
+    <!-- Animated Background -->
+    <div class="bg-animation" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none;">
+        <div style="position: absolute; top: 10%; left: 10%; width: 300px; height: 300px; background: radial-gradient(circle, rgba(212, 175, 55, 0.03) 0%, transparent 70%);"></div>
+        <div style="position: absolute; bottom: 20%; right: 15%; width: 200px; height: 200px; background: radial-gradient(circle, rgba(196, 181, 157, 0.02) 0%, transparent 70%);"></div>
+    </div>
+
+    <!-- Section Container -->
+    <div style="max-width: 1200px; margin: 0 auto; padding: 0 20px; position: relative; z-index: 2;">
+        
+        <!-- Section Header -->
+        <div style="text-align: center; margin-bottom: 60px;">
+            <!-- Badge -->
+            <div style="display: inline-block; margin-bottom: 20px;">
+                <div style="display: inline-flex; align-items: center; gap: 8px; padding: 8px 24px; background: rgba(212, 175, 55, 0.1); border-radius: 30px; border: 1px solid rgba(212, 175, 55, 0.2); backdrop-filter: blur(10px);">
+                    <span class="material-symbols-outlined" style="color: #D4AF37; font-size: 18px;">verified</span>
+                    <span style="font-family: 'Inter', sans-serif; color: #D4AF37; font-size: 0.85rem; font-weight: 500; letter-spacing: 1px;">CLIENT TESTIMONIALS</span>
+                </div>
+            </div>
+
+            <!-- Main Title -->
+            <h2 style="font-family: 'Inter', sans-serif; color: #ffffff; font-size: 2.5rem; font-weight: 700; line-height: 1.2; margin: 0 0 15px;">
+                Voices of <span style="color: #D4AF37;">Excellence</span>
+            </h2>
+
+            <!-- Description -->
+            <p style="font-family: 'Inter', sans-serif; color: #A9A9A9; font-size: 1rem; max-width: 600px; margin: 0 auto; line-height: 1.6;">
+                Real experiences from clients who achieved remarkable results through our premium architectural services.
+            </p>
+        </div>
+
+        <!-- Testimonials Cards Container -->
+        <div class="testimonials-container" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(550px, 1fr)); gap: 30px;">
+            
+            <!-- Card 1 -->
+            <div class="testimonial-card" style="position: relative; background: #000000; border-radius: 20px; border: 1px solid rgba(212, 175, 55, 0.1); overflow: hidden; transition: all 0.3s ease; height: 100%; opacity: 0; transform: translateY(30px);">
+                
+                <!-- Card Hover Effect -->
+                <div class="card-hover" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(45deg, rgba(212, 175, 55, 0.03), transparent); opacity: 0; transition: opacity 0.3s ease;"></div>
+                
+                <!-- Card Content -->
+                <div style="padding: 40px; height: 100%; display: flex; flex-direction: column;">
+                    
+                    <!-- Client Info Row -->
+                    <div style="display: flex; align-items: center; gap: 20px; margin-bottom: 30px;">
+                        <!-- Avatar -->
+                        <div style="position: relative;">
+                            <div class="avatar-ring" style="position: absolute; top: -2px; left: -2px; right: -2px; bottom: -2px; border: 1px solid rgba(212, 175, 55, 0.3); border-radius: 50%; animation: ringRotate 20s infinite linear;"></div>
+                            <div style="width: 70px; height: 70px; border-radius: 50%; background: linear-gradient(135deg, #D4AF37, #C4B59D); display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden;">
+                                <div style="color: #000; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 1.2rem; z-index: 2;">AR</div>
+                            </div>
+                        </div>
+                        
+                        <!-- Client Details -->
+                        <div style="flex: 1;">
+                            <h3 style="font-family: 'Inter', sans-serif; color: #ffffff; font-size: 1.2rem; font-weight: 600; margin: 0 0 5px;">
+                                Ahmed Rashed
+                            </h3>
+                            <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 8px;">
+                                <span style="font-family: 'Inter', sans-serif; color: #C4B59D; font-size: 0.9rem; font-weight: 500;">Architecture Student</span>
+                                <span style="color: rgba(255, 255, 255, 0.3);">•</span>
+                                <span style="font-family: 'Inter', sans-serif; color: rgba(255, 255, 255, 0.6); font-size: 0.85rem;">Cairo University</span>
+                            </div>
+                            
+                            <!-- Rating -->
+                            <div style="display: flex; align-items: center; gap: 5px;">
+                                <div class="stars" style="display: flex; gap: 1px;">
+                                    <span class="star" style="display: block; width: 16px; height: 16px; background: #D4AF37; clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);"></span>
+                                    <span class="star" style="display: block; width: 16px; height: 16px; background: #D4AF37; clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);"></span>
+                                    <span class="star" style="display: block; width: 16px; height: 16px; background: #D4AF37; clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);"></span>
+                                    <span class="star" style="display: block; width: 16px; height: 16px; background: #D4AF37; clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);"></span>
+                                    <span class="star" style="display: block; width: 16px; height: 16px; background: #D4AF37; clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);"></span>
+                                </div>
+                                <span style="font-family: 'Inter', sans-serif; color: #D4AF37; font-size: 0.85rem; font-weight: 500; margin-left: 8px;">5.0 Rating</span>
+                            </div>
+                        </div>
+                        
+                        <!-- Service Tag -->
+                        <div style="display: inline-flex; align-items: center; gap: 6px; padding: 6px 14px; background: rgb(0, 0, 0); border-radius: 20px; border: 1px solid rgba(212, 175, 55, 0.2);">
+                            <span class="material-symbols-outlined" style="color: #D4AF37; font-size: 14px;">design_services</span>
+                            <span style="font-family: 'Inter', sans-serif; color: #D4AF37; font-size: 0.75rem; font-weight: 500;">3D Modeling</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Testimonial Text -->
+                    <div style="flex: 1; position: relative;">
+                        <!-- Quote Icon -->
+                        <div style="position: absolute; top: -10px; left: -10px; color: rgba(212, 175, 55, 0.05); font-family: 'Georgia', serif; font-size: 60px; font-weight: bold; line-height: 1;">"</div>
+                        
+                        <p style="font-family: 'Inter', sans-serif; color: #ffffff; font-size: 1rem; line-height: 1.7; margin: 0; position: relative; z-index: 2;">
+                            "The team's exceptional attention to detail transformed my university project into a masterpiece. Their photorealistic renders and architectural insight resulted in top grades and professional recognition."
+                        </p>
+                    </div>
+                    
+                    <!-- Result & Stats -->
+                    <div style="margin-top: 25px; padding-top: 25px; border-top: 1px solid rgba(255, 255, 255, 0.1); display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;">
+                        <div style="text-align: center;">
+                            <div style="font-family: 'Inter', sans-serif; color: #D4AF37; font-size: 1.2rem; font-weight: 700; margin-bottom: 5px;">A+</div>
+                            <div style="font-family: 'Inter', sans-serif; color: #A9A9A9; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.5px;">Final Grade</div>
+                        </div>
+                        <div style="text-align: center;">
+                            <div style="font-family: 'Inter', sans-serif; color: #D4AF37; font-size: 1.2rem; font-weight: 700; margin-bottom: 5px;">48h</div>
+                            <div style="font-family: 'Inter', sans-serif; color: #A9A9A9; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.5px;">Delivery Time</div>
+                        </div>
+                        <div style="text-align: center;">
+                            <div style="font-family: 'Inter', sans-serif; color: #D4AF37; font-size: 1.2rem; font-weight: 700; margin-bottom: 5px;">100%</div>
+                            <div style="font-family: 'Inter', sans-serif; color: #A9A9A9; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.5px;">Satisfaction</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="testimonial-card" style="position: relative; background: #000000; border-radius: 20px; border: 1px solid rgba(212, 175, 55, 0.1); overflow: hidden; transition: all 0.3s ease; height: 100%; opacity: 0; transform: translateY(30px);">
+                
+                <!-- Card Hover Effect -->
+                <div class="card-hover" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(45deg, rgba(212, 175, 55, 0.03), transparent); opacity: 0; transition: opacity 0.3s ease;"></div>
+                
+                <!-- Card Content -->
+                <div style="padding: 40px; height: 100%; display: flex; flex-direction: column;">
+                    
+                    <!-- Client Info Row -->
+                    <div style="display: flex; align-items: center; gap: 20px; margin-bottom: 30px;">
+                        <!-- Avatar -->
+                        <div style="position: relative;">
+                            <div class="avatar-ring" style="position: absolute; top: -2px; left: -2px; right: -2px; bottom: -2px; border: 1px solid rgba(212, 175, 55, 0.3); border-radius: 50%; animation: ringRotate 20s infinite linear reverse;"></div>
+                            <div style="width: 70px; height: 70px; border-radius: 50%; background: linear-gradient(135deg, #C4B59D, #D4AF37); display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden;">
+                                <div style="color: #000; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 1.2rem; z-index: 2;">SA</div>
+                            </div>
+                        </div>
+                        
+                        <!-- Client Details -->
+                        <div style="flex: 1;">
+                            <h3 style="font-family: 'Inter', sans-serif; color: #ffffff; font-size: 1.2rem; font-weight: 600; margin: 0 0 5px;">
+                                Sarah Al-Mansoori
+                            </h3>
+                            <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 8px;">
+                                <span style="font-family: 'Inter', sans-serif; color: #C4B59D; font-size: 0.9rem; font-weight: 500;">Lead Architect</span>
+                                <span style="color: rgba(255, 255, 255, 0.3);">•</span>
+                                <span style="font-family: 'Inter', sans-serif; color: rgba(255, 255, 255, 0.6); font-size: 0.85rem;">Dubai, UAE</span>
+                            </div>
+                            
+                            <!-- Rating -->
+                            <div style="display: flex; align-items: center; gap: 5px;">
+                                <div class="stars" style="display: flex; gap: 1px;">
+                                    <span class="star" style="display: block; width: 16px; height: 16px; background: #D4AF37; clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);"></span>
+                                    <span class="star" style="display: block; width: 16px; height: 16px; background: #D4AF37; clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);"></span>
+                                    <span class="star" style="display: block; width: 16px; height: 16px; background: #D4AF37; clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);"></span>
+                                    <span class="star" style="display: block; width: 16px; height: 16px; background: #D4AF37; clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);"></span>
+                                    <span class="star" style="display: block; width: 16px; height: 16px; background: #D4AF37; clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);"></span>
+                                </div>
+                                <span style="font-family: 'Inter', sans-serif; color: #D4AF37; font-size: 0.85rem; font-weight: 500; margin-left: 8px;">5.0 Rating</span>
+                            </div>
+                        </div>
+                        
+                        <!-- Service Tag -->
+                        <div style="display: inline-flex; align-items: center; gap: 6px; padding: 6px 14px; background: rgb(0, 0, 0); border-radius: 20px; border: 1px solid rgba(212, 175, 55, 0.2);">
+                            <span class="material-symbols-outlined" style="color: #D4AF37; font-size: 14px;">architecture</span>
+                            <span style="font-family: 'Inter', sans-serif; color: #D4AF37; font-size: 0.75rem; font-weight: 500;">Consultation</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Testimonial Text -->
+                    <div style="flex: 1; position: relative;">
+                        <!-- Quote Icon -->
+                        <div style="position: absolute; top: -10px; left: -10px; color: rgba(212, 175, 55, 0.05); font-family: 'Georgia', serif; font-size: 60px; font-weight: bold; line-height: 1;">"</div>
+                        
+                        <p style="font-family: 'Inter', sans-serif; color: #ffffff; font-size: 1rem; line-height: 1.7; margin: 0; position: relative; z-index: 2;">
+                            "Professional expertise that exceeded all expectations. Their Revit modeling for our luxury residential complex was flawless, leading to client acquisition and multiple follow-up projects."
+                        </p>
+                    </div>
+                    
+                    <!-- Result & Stats -->
+                    <div style="margin-top: 25px; padding-top: 25px; border-top: 1px solid rgba(255, 255, 255, 0.1); display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;">
+                        <div style="text-align: center;">
+                            <div style="font-family: 'Inter', sans-serif; color: #D4AF37; font-size: 1.2rem; font-weight: 700; margin-bottom: 5px;">3+</div>
+                            <div style="font-family: 'Inter', sans-serif; color: #A9A9A9; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.5px;">Projects</div>
+                        </div>
+                        <div style="text-align: center;">
+                            <div style="font-family: 'Inter', sans-serif; color: #D4AF37; font-size: 1.2rem; font-weight: 700; margin-bottom: 5px;">5K+</div>
+                            <div style="font-family: 'Inter', sans-serif; color: #A9A9A9; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.5px;">Square Meters</div>
+                        </div>
+                        <div style="text-align: center;">
+                            <div style="font-family: 'Inter', sans-serif; color: #D4AF37; font-size: 1.2rem; font-weight: 700; margin-bottom: 5px;">100%</div>
+                            <div style="font-family: 'Inter', sans-serif; color: #A9A9A9; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.5px;">Satisfaction</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Stats Section -->
+        <div class="stats-section" style="margin-top: 60px; text-align: center; opacity: 0; transform: translateY(20px);">
+            <div style="display: inline-grid; grid-template-columns: repeat(4, 1fr); gap: 30px; padding: 30px; background: rgba(0, 0, 0, 0.8); border-radius: 16px; border: 1px solid rgba(212, 175, 55, 0.1); backdrop-filter: blur(10px);">
+                <div class="stat-item">
+                    <div style="font-family: 'Inter', sans-serif; color: #D4AF37; font-size: 2rem; font-weight: 700; margin-bottom: 8px;">150+</div>
+                    <div style="font-family: 'Inter', sans-serif; color: #A9A9A9; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px;">Projects</div>
+                </div>
+                <div class="stat-item">
+                    <div style="font-family: 'Inter', sans-serif; color: #D4AF37; font-size: 2rem; font-weight: 700; margin-bottom: 8px;">4.9</div>
+                    <div style="font-family: 'Inter', sans-serif; color: #A9A9A9; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px;">Avg Rating</div>
+                </div>
+                <div class="stat-item">
+                    <div style="font-family: 'Inter', sans-serif; color: #D4AF37; font-size: 2rem; font-weight: 700; margin-bottom: 8px;">48h</div>
+                    <div style="font-family: 'Inter', sans-serif; color: #A9A9A9; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px;">Avg Delivery</div>
+                </div>
+                <div class="stat-item">
+                    <div style="font-family: 'Inter', sans-serif; color: #D4AF37; font-size: 2rem; font-weight: 700; margin-bottom: 8px;">100%</div>
+                    <div style="font-family: 'Inter', sans-serif; color: #A9A9A9; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px;">Satisfaction</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Footer -->
+<footer>
+    <div class="footer-grid">
+        <div class="footer-about">
+            <div class="footer-logo">
+                <span class="material-symbols-outlined footer-logo-icon">architecture</span>
+                <h2 class="footer-logo-text">Architectural → CMA</h2>
+            </div>
+            <p class="footer-about-text">
+                Crafting spaces that inspire. We are an award-winning architectural firm dedicated to
+                innovative and sustainable design.
+            </p>
+        </div>
+
+        <div class="footer-column">
+            <h3 class="footer-title">Sitemap</h3>
+            <div class="footer-links">
+                <a class="footer-link" href="Services.html">Services</a>
+                <a class="footer-link" href="Shop.html">Shop</a>
+                <a class="footer-link" href="About.html">About Us</a>
+                <a class="footer-link" href="Contact.html">Contact</a>
+                <a class="footer-link" href="portofolio.html">portofolio</a>
+            </div>
+        </div>
+
+        <div class="footer-column footer-contact">
+            <h3 class="footer-title">Contact Us</h3>
+            <div class="footer-links">
+                <p>Address: 10 Downing Street, London, UK</p>
+                <a class="footer-link" href="mailto:contact@archstone.com">contact@archstone.com</a>
+                <a class="footer-link" href="tel:+447470631885">+44 7470 631885</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer-bottom">
+        <p class="copyright">© 2024 Architectural → CMA. All Rights Reserved.</p>
+        <div class="social-links">
+            <a class="social-link" href="#" onclick="showNotification('Opening Facebook...')">
+                <svg aria-hidden="true" class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
+                    <path clip-rule="evenodd"
+                        d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z"
+                        fill-rule="evenodd"></path>
+                </svg>
+            </a>
+            <a class="social-link" href="#" onclick="showNotification('Opening Twitter...')">
+                <svg aria-hidden="true" class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
+                    <path
+                        d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.71v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84">
+                    </path>
+                </svg>
+            </a>
+            <a class="social-link" href="#" onclick="showNotification('Opening Instagram...')">
+                <svg aria-hidden="true" class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
+                    <path
+                        d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zM5.838 12a6.162 6.162 0 1112.324 0 6.162 6.162 0 01-12.324 0zM12 16a4 4 0 110-8 4 4 0 010 8zm4.965-10.405a1.44 1.44 0 112.881.001 1.44 1.44 0 01-2.881-.001z">
+                    </path>
+                </svg>
+            </a>
+        </div>
+    </div>
+</footer>
+    <script src="./js/Services.js"></script>
+  
+
+<script>
+     const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+            const mobileMenu = document.getElementById('mobileMenu');
+            if (mobileMenuBtn && mobileMenu) {
+                mobileMenuBtn.addEventListener('click', function () {
+                    mobileMenu.classList.toggle('active');
+                });
+            }
+
+            // إغلاق القائمة عند النقر على رابط
+            document.querySelectorAll('.mobile-nav-link').forEach(link => {
+                link.addEventListener('click', function () {
+                    mobileMenu.classList.remove('active');
+                });
+            });
+</script>
+
+    </body>
+</html>

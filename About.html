@@ -1,0 +1,2651 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+<head>
+    <!-- <script>
+    // لو المستخدم مش مسجل
+    if (!localStorage.getItem('currentUser')) {
+        // تحويله مباشرة لصفحة التسجيل
+        window.location.href = 'registar.html'; // اسم ملف الريجستر اللي انت عاملها
+    } -->
+</script>
+
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>About Us - Architectural Studio</title>
+    <link rel="stylesheet" href="./css/master.css">
+    <link href="https://fonts.googleapis.com" rel="preconnect"/>
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&amp;family=Playfair+Display:wght@700&amp;display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+   
+
+
+    <style>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#readBioBtn {
+    min-width: 200px;
+    height: 52px;
+    font-size: 1.1rem;
+    border: 2px solid #D4AF37;
+    color: #D4AF37;
+    background: transparent;
+    margin-top: 1.5rem;
+    border-radius: 8px;
+}
+
+#readBioBtn:hover {
+    background: rgba(212, 175, 55, 0.2);
+    color: #FFFFFF;
+    border-color: #FFFFFF;
+    transform: translateY(-3px);
+}
+
+#readBioBtn .material-symbols-outlined {
+    font-size: 1.3rem;
+}
+
+/* ===== زر Modal للسيرة الذاتية ===== */
+#closeModalBtn {
+    margin-top: 1.5rem;
+    background: linear-gradient(135deg, #D4AF37, #B8961E);
+    color: #000;
+    border: none;
+    padding: 0.75rem 2rem;
+    font-weight: 700;
+}
+
+#closeModalBtn:hover {
+    background: linear-gradient(135deg, #B8961E, #D4AF37);
+    transform: translateY(-3px);
+}
+
+/* ===== إصلاح شامل للهيرو سكشن ===== */
+.hero-section {
+    position: relative;
+    width: 100vw;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+    height: 100vh; /* الشاشة كاملة */
+    min-height: 100vh;
+    max-height: 100vh;
+    overflow: hidden;
+    border-radius: 0 !important;
+    margin-top: 0;
+    padding: 0;
+}
+
+/* التأكد من أن الصورة تملأ الشاشة بالكامل */
+.hero-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+/* تحسين الطبقة الشفافة */
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, 
+        rgba(0,0,0,0.3) 0%,
+        rgba(0,0,0,0.5) 50%,
+        rgba(0,0,0,0.7) 100%);
+    z-index: 3;
+}
+
+/* محتوى الهيرو في منتصف الصورة تماماً */
+.hero-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%;
+    max-width: 1200px;
+    text-align: center;
+    z-index: 0;
+    padding: 0;
+    margin: 0;
+}
+
+.hero-title {
+    
+    font-size: 10px;
+    line-height: 1.2;
+    text-shadow: 2px 2px 8px rgba(0,0,0,0.8);
+    margin-bottom: 1.5rem;
+    font-weight: 500;
+    color: #FFFFFF;
+}
+
+@media (min-width: 768px) {
+    .hero-title {
+        font-size: 2rem;
+    }
+}
+
+@media (min-width: 1024px) {
+    .hero-title {
+        font-size: 5rem;
+    }
+}
+
+/* إذا كان هناك نص تحت الـ Hero Title */
+.hero-subtitle {
+    font-size: 1.2rem;
+    color: rgba(255,255,255,0.9);
+    max-width: 600px;
+    margin: 0 auto 2rem;
+    line-height: 1.6;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+}
+
+@media (min-width: 768px) {
+    .hero-subtitle {
+        font-size: 1.4rem;
+    }
+}
+
+/* ===== إصلاح الفوتر ليملأ العرض الكامل ===== */
+footer {
+    width: 100vw !important;
+    left: 50% !important;
+    right: 50% !important;
+    margin-left: -50vw !important;
+    margin-right: -50vw !important;
+    margin-top: 0 !important;
+    border-radius: 0 !important;
+    padding: 4rem 1rem 2rem !important;
+    background: #0A0A0A !important;
+    border-top: 2px solid rgba(212, 175, 55, 0.3) !important;
+}
+
+/* ===== إصلاح الـ Container الرئيسي ===== */
+.layout-container {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+
+.layout-content-container {
+    width: 100%;
+    max-width: 100%;
+    padding: 0;
+    margin: 0;
+}
+
+/* ===== إصلاح الهيدر ===== */
+header {
+    width: 100vw !important;
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    padding: 1rem 2rem !important;
+    background: rgba(17, 17, 17, 0.98) !important;
+    backdrop-filter: blur(15px) !important;
+    z-index: 1000 !important;
+    border-bottom: 1px solid rgba(212, 175, 55, 0.2) !important;
+}
+
+/* ===== إصلاح المسافات ===== */
+main {
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+    width: 100%;
+}
+
+/* ===== إصلاح الـ Sections ===== */
+.section {
+    width: 100%;
+    max-width: 1200px;
+    margin: 4rem auto;
+    padding: 0 1rem;
+}
+
+/* ===== إصلاح الـ CTA Section ===== */
+.cta-section {
+    width: 100%;
+    max-width: 1200px;
+    margin: 4rem auto;
+    padding: 4rem 1rem;
+}
+
+/* ===== إصلاح الـ Container العام ===== */
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+/* ===== Mobile Menu Links ===== */
+.mobile-menu {
+    display: none;
+    position: fixed;
+    top: 4rem;
+    left: 0;
+    right: 0;
+    background-color: #111111 !important;
+    border-bottom: 1px solid #D4AF37;
+    padding: 1rem;
+    z-index: 9999;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
+}
+
+.mobile-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.mobile-nav-link {
+    font-family: 'Montserrat', sans-serif;
+    padding: 1rem 1.25rem;
+    color: #FFFFFF !important;
+    text-decoration: none;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    background-color: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(212, 175, 55, 0.2);
+    font-size: 1rem;
+    font-weight: 500;
+    text-align: left;
+    display: block;
+}
+
+.mobile-nav-link:hover {
+    background-color: rgba(212, 175, 55, 0.15);
+    color: #D4AF37 !important;
+    border-color: #D4AF37;
+    transform: translateX(5px) translateY(-2px);
+}
+
+/* الأنيميشن لكل لينك */
+.mobile-nav-link:nth-child(1) { animation-delay: 0.1s; }
+.mobile-nav-link:nth-child(2) { animation-delay: 0.15s; }
+.mobile-nav-link:nth-child(3) { animation-delay: 0.2s; }
+.mobile-nav-link:nth-child(4) { animation-delay: 0.25s; }
+.mobile-nav-link:nth-child(5) { animation-delay: 0.3s; }
+.mobile-nav-link:nth-child(6) { animation-delay: 0.35s; }
+.mobile-nav-link:nth-child(7) { animation-delay: 0.4s; }
+.mobile-nav-link:nth-child(8) { animation-delay: 0.45s; }
+
+@keyframes slideInRight {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* تحسين أزرار السلة في الموبايل منيو */
+.mobile-nav-link.nav-cart {
+    display: flex !important;
+    align-items: center !important;
+    gap: 10px !important;
+    justify-content: flex-start !important;
+    color: #FFFFFF !important;
+}
+
+.mobile-nav-link.nav-cart:hover {
+    background-color: rgba(212, 175, 55, 0.2) !important;
+    color: #D4AF37 !important;
+}
+
+/* أيقونة السلة في الموبايل منيو */
+.mobile-nav-link .material-symbols-outlined {
+    font-size: 1.2rem !important;
+    color: inherit !important;
+}
+
+/* التأكد من أن النص واضح */
+.mobile-nav-link span:not(.material-symbols-outlined) {
+    color: inherit !important;
+}
+
+/* ===== CSS Variables ===== */
+:root {
+    --primary: #D8C3A5;
+    --primary-dark: #c0ad8d;
+    --background-light: #FFFFFF;
+    --background-dark: #111111;
+    --sand: #D8C3A5;
+    --light-gray: #F5F5F5;
+    --black: #111111;
+    --text-white: #ffffff;
+    --text-gray: #A9A9A9;
+    --border-gray: rgba(169, 169, 169, 0.2);
+    --success-green: #25D366;
+    --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+.dark {
+    --background-color: var(--background-dark);
+    --text-color: var(--text-white);
+}
+
+.light {
+    --background-color: var(--background-light);
+    --text-color: var(--black);
+}
+
+.material-symbols-outlined {
+    font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+}
+
+/* ===== Base Styles ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+    width: 100%;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+}
+
+/* body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+} */
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--background-dark);
+    color: var(--text-white);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* ===== Layout Container ===== */
+.layout-container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    width: 100%;
+}
+
+/* ===== Header Styles ===== */
+header {
+    position: sticky;
+    top: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 1.5rem;
+    border-bottom: 1px solid var(--border-gray);
+    white-space: nowrap;
+    opacity: 0;
+    transform: translateY(-20px);
+    animation: slideDownHeader 0.8s ease-out 0.3s forwards;
+    background-color: var(--background-dark);
+    z-index: 1000;
+}
+
+@keyframes slideDownHeader {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    animation: logoPulse 2s ease-in-out infinite;
+}
+
+@keyframes logoPulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.02);
+    }
+}
+
+.logo-icon {
+    color: var(--text-white);
+    font-size: 1.5rem;
+}
+
+.logo-text {
+    font-family: 'Poppins', 'Montserrat', sans-serif;
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--text-white);
+}
+
+.nav-desktop {
+    display: none;
+    flex: 1;
+    justify-content: center;
+    align-items: center;
+}
+
+@media (min-width: 1024px) {
+    .nav-desktop {
+        display: flex;
+    }
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 2.25rem;
+}
+
+.nav-link {
+    font-family: 'Montserrat', 'Lato', sans-serif;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--text-white);
+    text-decoration: none;
+    transition: color 0.2s;
+    position: relative;
+}
+
+.nav-link:hover {
+    color: var(--primary);
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--primary);
+    transition: width 0.3s ease;
+}
+
+.nav-link:hover::after {
+    width: 100%;
+}
+
+/* زر السلة في النافبار */
+.nav-cart {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: none;
+    border: none;
+    color: var(--text-white);
+    cursor: pointer;
+    padding: 0.5rem 1rem;
+    border-radius: 0.375rem;
+    transition: all 0.2s;
+    position: relative;
+    margin-left: 1rem;
+}
+
+.nav-cart:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: var(--primary);
+    transform: translateY(-2px);
+}
+
+.cart-badge {
+    position: absolute;
+    top: -0.25rem;
+    right: -0.25rem;
+    background-color: #ef4444;
+    color: white;
+    font-size: 0.7rem;
+    width: 1.25rem;
+    height: 1.25rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    animation: badgePulse 2s infinite;
+}
+
+@keyframes badgePulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+/* ===== Main Content Styles ===== */
+main {
+    display: flex;
+    flex-direction: column;
+    gap: 4rem;
+    padding: 2.5rem 0;
+    margin-top: 70px;
+    width: 100%;
+}
+
+
+
+
+
+@media (min-width: 768px) {
+    main {
+        gap: 6rem;
+        padding: 6rem 0;
+        margin-top: 80px;
+    }
+}
+
+/* ===== Section Styles ===== */
+.section {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.6s ease;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+.section.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+@media (min-width: 768px) {
+    .section {
+        flex-direction: row;
+        align-items: center;
+        gap: 4rem;
+    }
+}
+
+.section-image {
+    width: 100%;
+    height: 300px;
+    border-radius: 0.75rem;
+    overflow: hidden;
+    transition: transform 0.5s ease;
+}
+
+.section-image:hover {
+    transform: scale(1.02);
+}
+
+@media (min-width: 768px) {
+    .section-image {
+        width: 33.333%;
+        height: 400px;
+    }
+}
+
+.section-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.section-image:hover img {
+    transform: scale(1.05);
+}
+
+.section-content {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+@media (min-width: 768px) {
+    .section-content {
+        width: 66.667%;
+    }
+}
+
+.section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    font-weight: 700;
+    line-height: 1.2;
+    color: var(--text-white);
+}
+
+@media (min-width: 768px) {
+    .section-title {
+        font-size: 2.5rem;
+    }
+}
+
+.section-text {
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+/* ===== Button Styles ===== */
+.btn {
+    min-width: 84px;
+    height: 2.75rem;
+    padding: 0 1.5rem;
+    border-radius: 0.375rem;
+    font-size: 0.95rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    text-decoration: none;
+    border: none;
+    font-family: 'Inter', sans-serif;
+}
+
+.btn-primary {
+    background-color: var(--primary);
+    color: #000;
+}
+
+.btn-primary:hover {
+    background-color: var(--primary-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(216, 195, 165, 0.3);
+}
+
+.btn-outline {
+    background-color: transparent;
+    color: var(--text-white);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.btn-outline:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(255, 255, 255, 0.1);
+}
+
+/* ===== CTA Section ===== */
+.cta-section {
+    text-align: center;
+    padding: 3rem 0;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.6s ease;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.cta-section.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.cta-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem;
+    font-weight: 700;
+    line-height: 1.2;
+    color: var(--text-white);
+    margin-bottom: 1rem;
+}
+
+.cta-text {
+    font-size: 1.1rem;
+    color: rgba(255, 255, 255, 0.7);
+    max-width: 42rem;
+    margin: 0 auto 2rem;
+    line-height: 1.6;
+}
+
+.cta-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    justify-content: center;
+    align-items: center;
+}
+
+@media (min-width: 640px) {
+    .cta-buttons {
+        flex-direction: row;
+    }
+}
+
+.cta-buttons .btn {
+    min-width: 180px;
+    height: 56px;
+    padding: 0 2rem;
+    font-size: 1.1rem;
+    font-weight: 700;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+}
+
+.cta-buttons .btn-primary {
+    background: linear-gradient(135deg, #D4AF37, #B8961E);
+    color: #000;
+    border: none;
+    box-shadow: 0 4px 15px rgba(212, 175, 55, 0.4);
+}
+
+.cta-buttons .btn-primary:hover {
+    background: linear-gradient(135deg, #B8961E, #D4AF37);
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(212, 175, 55, 0.6);
+}
+
+.cta-buttons .btn-outline {
+    border: 2px solid #D4AF37;
+    color: #D4AF37;
+    background: transparent;
+}
+
+.cta-buttons .btn-outline:hover {
+    background: rgba(212, 175, 55, 0.1);
+    color: #FFFFFF;
+    border-color: #FFFFFF;
+    transform: translateY(-5px);
+}
+
+/* ===== Cards Section ===== */
+.header {
+    text-align: center;
+    margin-bottom: 50px;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto 50px;
+    padding: 0 1rem;
+}
+
+.header h1 {
+    color: #ffffff;
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    position: relative;
+    display: inline-block;
+}
+
+.header h1::after {
+    content: '';
+    position: absolute;
+    width: 70px;
+    height: 4px;
+    background-color: #fdba00;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.header p {
+    color: #a0adad;
+    font-size: 1.1rem;
+    max-width: 700px;
+    margin: 20px auto;
+}
+
+.cards-container {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    gap: 30px;
+    margin-bottom: 70px;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+.card {
+    background-color: rgb(0, 0, 0);
+    border-radius: 12px;
+    box-shadow: 0 5px 3px rgb(255, 153, 0);
+    overflow: hidden;
+    width: calc(33.333% - 20px);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    min-width: 280px;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 5px 10px rgb(255, 255, 255);
+}
+
+.card-icon {
+    background: linear-gradient(135deg, #000000, #d49c00);
+    color: white;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.5rem;
+}
+
+.card-content {
+    padding: 30px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.card-title {
+    color: #ffffff;
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #f1f2f6;
+}
+
+.card-text {
+    color: #ffffff;
+    margin-bottom: 25px;
+    flex-grow: 1;
+    line-height: 1.7;
+    overflow: hidden;
+}
+
+/* ===== FAQ Section ===== */
+.faq-section {
+    background-color: rgb(17, 16, 16);
+    border-radius: 12px;
+    padding: 40px;
+    box-shadow: 0 5px 5px rgba(201, 147, 0, 0.986);
+    margin-top: 30px;
+    width: 100%;
+    max-width: 1200px;
+    margin: 30px auto;
+}
+
+.faq-title {
+    color: #ffffff;
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 30px;
+    position: relative;
+}
+
+.faq-title::after {
+    content: '';
+    position: absolute;
+    width: 60px;
+    height: 4px;
+    background-color: #ffae00;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.faq-container {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.faq-item {
+    margin-bottom: 20px;
+    border: 1px solid #ffffff;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.faq-question {
+    background-color: #f8f9fa;
+    padding: 18px 25px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #000000;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: background-color 0.3s ease;
+}
+
+.faq-question:hover {
+    background-color: #c58000;
+}
+
+.faq-question i {
+    transition: transform 0.3s ease;
+}
+
+.faq-answer {
+    padding: 0 25px;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease, padding 0.3s ease;
+    background-color: white;
+    color: #000000;
+    line-height: 1.7;
+}
+
+.faq-item.active .faq-answer {
+    padding: 20px 25px;
+    max-height: 500px;
+}
+
+.faq-item.active .faq-question i {
+    transform: rotate(180deg);
+}
+
+/* ===== Modal Styles ===== */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    z-index: 2000;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal.active {
+    display: flex;
+    opacity: 1;
+    animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.modal-content {
+    background-color: var(--background-dark);
+    border-radius: 0.75rem;
+    width: 90%;
+    max-width: 800px;
+    max-height: 90vh;
+    overflow-y: auto;
+    padding: 2rem;
+    position: relative;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transform: translateY(-20px);
+    transition: transform 0.3s ease;
+}
+
+.modal.active .modal-content {
+    transform: translateY(0);
+}
+
+.modal-close {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: none;
+    border: none;
+    color: var(--text-white);
+    font-size: 1.5rem;
+    cursor: pointer;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.modal-close:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    transform: rotate(90deg);
+}
+
+.modal-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--primary);
+    margin-bottom: 1.5rem;
+}
+
+.modal-text {
+    color: rgba(255, 255, 255, 0.8);
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+}
+
+.modal-list {
+    margin-left: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.modal-list li {
+    color: rgba(255, 255, 255, 0.8);
+    margin-bottom: 0.5rem;
+    line-height: 1.6;
+}
+
+/* ===== WhatsApp Float Button ===== */
+.whatsapp-float {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 60px;
+    height: 60px;
+    background-color: #D4AF37;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 20px rgba(212, 175, 55, 0.4);
+    z-index: 1000;
+    transition: all 0.3s ease;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% {
+        box-shadow: 0 4px 20px rgba(212, 175, 55, 0.4);
+    }
+    50% {
+        box-shadow: 0 4px 30px rgba(212, 175, 55, 0.7);
+    }
+    100% {
+        box-shadow: 0 4px 20px rgba(212, 175, 55, 0.4);
+    }
+}
+
+.whatsapp-float:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 25px rgba(212, 175, 55, 0.5);
+    background-color: #B8961E;
+    animation: none;
+}
+
+.whatsapp-float img {
+    width: 35px;
+    height: 35px;
+    filter: brightness(0) invert(1);
+}
+
+@media (max-width: 768px) {
+    .whatsapp-float {
+        width: 50px;
+        height: 50px;
+        bottom: 20px;
+        right: 20px;
+    }
+
+    .whatsapp-float img {
+        width: 28px;
+        height: 28px;
+    }
+}
+
+/* ===== Scroll Indicator ===== */
+.scroll-indicator {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background-color: rgba(216, 195, 165, 0.2);
+    z-index: 1001;
+}
+
+.scroll-progress {
+    height: 100%;
+    background-color: var(--primary);
+    width: 0%;
+    transition: width 0.1s ease;
+}
+
+/* ===== Responsive Design ===== */
+@media (max-width: 1200px) {
+    .cards-container {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    
+    .card {
+        width: calc(50% - 20px);
+        min-width: 300px;
+        max-width: 400px;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero-section {
+        height: 100vh;
+    }
+    
+    .hero-title {
+        font-size: 2.5rem;
+    }
+    
+    .cards-container {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .card {
+        width: 100%;
+        max-width: 400px;
+    }
+    
+    .faq-section {
+        padding: 25px;
+    }
+    
+    .cta-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .cta-buttons .btn {
+        width: 100%;
+        max-width: 300px;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-title {
+        font-size: 2rem;
+    }
+    
+    .cta-title {
+        font-size: 2rem;
+    }
+    
+    .section-title {
+        font-size: 1.8rem;
+    }
+    
+    .card {
+        min-width: 100%;
+    }
+    
+    .modal-content {
+        padding: 1.5rem;
+        margin: 1rem;
+    }
+    
+    .modal-title {
+        font-size: 1.8rem;
+    }
+}
+
+/* ===== Mobile Menu Button ===== */
+.mobile-menu-btn {
+    display: none;
+}
+
+@media (max-width: 1023px) {
+    .mobile-menu-btn {
+        display: flex !important;
+        align-items: center;
+        justify-content: center;
+        width: 44px;
+        height: 44px;
+        background: rgba(212, 175, 55, 0.1);
+        border: 1px solid rgba(212, 175, 55, 0.3);
+        border-radius: 8px;
+        color: #FFFFFF;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        z-index: 1001;
+    }
+    
+    .mobile-menu-btn .material-symbols-outlined {
+        font-size: 1.5rem;
+    }
+}
+
+@media (min-width: 1024px) {
+    header > .mobile-menu-btn {
+        display: none !important;
+        visibility: hidden !important;
+        opacity: 0 !important;
+        width: 0 !important;
+        height: 0 !important;
+        padding: 0 !important;
+        margin: 0 !important;
+    }
+    
+    .nav-desktop {
+        display: flex !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+    }
+}
+
+
+/* إخفاء الموبايل منيو في الديسكتوب */
+@media (min-width: 1024px) {
+    .mobile-menu {
+        display: none !important;
+    }
+    
+    .mobile-menu.active {
+        display: none !important;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+footer {
+    background: #0A0A0A;
+    border-top: 1px solid rgba(212, 175, 55, 0.3);
+    margin-top: 3rem;
+    padding: 2rem 1rem 1rem;
+    position: relative;
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+@media (min-width: 768px) {
+    .footer-grid {
+        grid-template-columns: 1.5fr 1fr 1fr;
+        gap: 2rem;
+    }
+}
+
+/* ===== FOOTER ABOUT - COMPACT ===== */
+.footer-about {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.footer-logo {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    margin-bottom: 0.5rem;
+}
+
+.footer-logo-icon {
+    font-size: 1.8rem;
+    color: #D4AF37;
+    background: rgba(212, 175, 55, 0.1);
+    padding: 8px;
+    border-radius: 8px;
+    border: 1px solid rgba(212, 175, 55, 0.2);
+}
+
+.footer-logo-text {
+    font-family: 'Montserrat', 'Poppins', sans-serif; /* خط العناوين للفوتر */
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: #FFFFFF;
+    letter-spacing: 0.5px;
+}
+
+.footer-about-text {
+    font-family: 'Open Sans', 'Roboto', sans-serif;
+    color: #A0A0A0;
+    font-size: 0.9rem;
+    line-height: 1.6;
+    max-width: 300px;
+}
+
+/* ===== FOOTER COLUMNS - COMPACT ===== */
+.footer-column {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.footer-title {
+    font-family: 'Poppins', 'Montserrat', sans-serif;
+    color: #FFFFFF;
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid rgba(212, 175, 55, 0.3);
+}
+
+.footer-links {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+}
+
+.footer-link {
+    font-family: 'Open Sans', 'Roboto', sans-serif;
+    color: #B0B0B0;
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: all 0.2s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.footer-link:hover {
+    color: #D4AF37;
+    transform: translateX(5px);
+}
+
+.footer-contact p {
+    font-family: 'Open Sans', 'Roboto', sans-serif;
+    color: #B0B0B0;
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+    line-height: 1.5;
+}
+
+.footer-contact .footer-link {
+    color: #D4AF37;
+    font-size: 0.9rem;
+    font-family: 'Open Sans', 'Roboto', sans-serif;
+}
+
+.footer-contact .footer-link:hover {
+    color: #FFFFFF;
+    text-decoration: underline;
+}
+
+/* ===== FOOTER BOTTOM - COMPACT ===== */
+.footer-bottom {
+    margin-top: 2rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    text-align: center;
+}
+
+@media (min-width: 640px) {
+    .footer-bottom {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+}
+
+.copyright {
+    font-family: 'Open Sans', 'Roboto', sans-serif;
+    color: #808080;
+    font-size: 0.85rem;
+    order: 2;
+}
+
+@media (min-width: 640px) {
+    .copyright {
+        order: 1;
+    }
+}
+
+.social-links {
+    display: flex;
+    gap: 0.8rem;
+    order: 1;
+}
+
+@media (min-width: 640px) {
+    .social-links {
+        order: 2;
+    }
+}
+
+.social-link {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.05);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #B0B0B0;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.social-link:hover {
+    background: rgba(212, 175, 55, 0.1);
+    color: #D4AF37;
+    border-color: #D4AF37;
+    transform: translateY(-2px);
+}
+
+.social-link svg {
+    width: 18px;
+    height: 18px;
+}
+
+/* ===== RESPONSIVE ADJUSTMENTS ===== */
+@media (max-width: 767px) {
+    footer {
+        padding: 1.5rem 1rem 1rem;
+        margin-top: 2rem;
+    }
+    
+    .footer-grid {
+        gap: 1.5rem;
+    }
+    
+    .footer-logo-text {
+        font-size: 1.2rem;
+        font-family: 'Montserrat', 'Poppins', sans-serif;
+    }
+    
+    .footer-logo-icon {
+        font-size: 1.5rem;
+        padding: 6px;
+    }
+    
+    .footer-title {
+        font-size: 1rem;
+        font-family: 'Poppins', 'Montserrat', sans-serif;
+    }
+    
+    .footer-link {
+        font-size: 0.85rem;
+        font-family: 'Open Sans', 'Roboto', sans-serif;
+    }
+}
+
+@media (max-width: 480px) {
+    .footer-about-text {
+        font-size: 0.85rem;
+        font-family: 'Open Sans', 'Roboto', sans-serif;
+    }
+    
+    .footer-contact p {
+        font-size: 0.85rem;
+        font-family: 'Open Sans', 'Roboto', sans-serif;
+    }
+    
+    .social-link {
+        width: 32px;
+        height: 32px;
+    }
+    
+    .social-link svg {
+        width: 16px;
+        height: 16px;
+    }
+}
+
+/* ===== MINIMAL HOVER EFFECTS ===== */
+.footer-link::before {
+    content: '›';
+    color: #D4AF37;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+}
+
+.footer-link:hover::before {
+    opacity: 1;
+}
+
+/* ===== UTILITY CLASSES ===== */
+.text-gold {
+    color: #D4AF37;
+}
+
+.text-muted {
+    color: #A0A0A0;
+}
+
+/* ===== PRINT STYLES ===== */
+@media print {
+    footer {
+        display: none;
+    }
+}
+
+/* النصوص في الأزرار */
+.add-to-cart-btn-modal,
+.close-service-modal-btn {
+    font-family: 'Roboto', 'Open Sans', sans-serif;
+}
+
+/* النصوص الصغيرة جداً */
+.cart-badge,
+.footer-link::before {
+    font-family: 'Roboto', sans-serif; /* خط للنصوص الصغيرة */
+}    
+ 
+</style>
+</head>
+<body class="dark">
+    <!-- Scroll Indicator -->
+    <div class="scroll-indicator">
+        <div class="scroll-progress" id="scrollProgress"></div>
+    </div>
+
+    <!-- WhatsApp Float Button -->
+    <a href="https://wa.me/447470631885" class="whatsapp-float" target="_blank">
+       <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
+    </a>
+
+    <!-- Modal for Full Bio -->
+    <div class="modal" id="bioModal">
+        <div class="modal-content">
+            <button class="modal-close" id="closeModal">
+                <span class="material-symbols-outlined">close</span>
+            </button>
+            <h2 class="modal-title">Founder's Biography</h2>
+            <div class="modal-text">
+                <p>Our founder is a distinguished London-based architect with over a decade of experience at prestigious global firms across Spain, Europe, and the UK. Their journey began at the renowned Architectural Association School of Architecture in London, where they developed a unique perspective on spatial design and narrative-driven architecture.</p>
+                
+                <p>Throughout their career, they have led numerous award-winning projects that blend contemporary aesthetics with functional pragmatism. Their expertise spans residential complexes, cultural institutions, commercial spaces, and urban planning initiatives.</p>
+                
+                <h3 style="color: var(--primary); margin: 1.5rem 0 1rem;">Key Achievements:</h3>
+                <ul class="modal-list">
+                    <li>architecture student support,interior design student support,
+3D modelling student service
+</li>
+                    <li>architecture render service,fast architectural rendering 48 hours,
+Revit modelling UK
+</li>
+                    <li>Rhino modelling student help,
+architecture portfolio support London,
+architecture tutoring online,
+architecture diagram service,
+</li>
+                    <li>competition layout help</li>
+                    <li>architectural concept development support</li>
+                </ul>
+                
+                <h3 style="color: var(--primary); margin: 1.5rem 0 1rem;">Philosophy & Approach:</h3>
+                <p>Our founder believes that architecture should tell a story - one that resonates with its inhabitants while respecting its environmental context. They specialize in creating design clarity through strategic narrative development, ensuring every project has a coherent concept that guides all design decisions.</p>
+                
+                <p>Beyond professional practice, they are passionate about education and mentorship. They regularly conduct workshops and guest lectures at leading architecture schools across Europe, sharing insights on design strategy, sustainable practices, and the future of urban spaces.</p>
+                
+                <p>Their commitment to excellence and innovation has positioned our studio at the forefront of contemporary architecture, delivering spaces that inspire, function beautifully, and stand the test of time.</p>
+            </div>
+            <button class="btn btn-primary" id="closeModalBtn">
+                <span class="material-symbols-outlined">check</span>
+                Close Biography
+            </button>
+        </div>
+    </div>
+
+    <!-- Main Layout -->
+    <div class="layout-container">
+        <div class="layout-content-container">
+            <!-- TopNavBar -->
+             
+           
+<header>
+            <div class="logo">
+                <span class="material-symbols-outlined logo-icon">architecture</span>
+                <h2 class="logo-text">Architectural → CMA</h2>
+            </div>
+
+            <nav class="nav-desktop">
+                <div class="nav-links">
+                    <a class="nav-link" href="Home.html" id="homeLink">Home</a>
+                    <a class="nav-link" href="Services.html" id="servicesLink">Services</a>
+                    <a class="nav-link" href="Shop.html" id="shopLink">Shop</a>
+                    <a class="nav-link" href="portofolio.html" id="walletLink">Portfolio</a>
+                    <a class="nav-link" href="About.html" id="aboutLink">About Us</a>
+                    <a class="nav-link" href="Contact.html" id="contactLink">Contact</a>
+                    <!-- زر السلة الوحيد للديسكتوب -->
+                    <button class="nav-cart" id="cartBtn">
+                        <span class="material-symbols-outlined">shopping_cart</span>
+                        <span class="cart-badge" id="cartCount">0</span>
+                    </button>
+
+                    <a class="nav-link" onclick="toggleAuth()" id="authLink">
+                        <span id="authText">
+                            <script>
+                                document.write(localStorage.getItem('currentUser') ? 'Logout' : 'Login');
+                            </script>
+                        </span>
+                    </a>
+                </div>
+            </nav>
+
+            <div style="display: flex; align-items: center; gap: 0.75rem;">
+                <button class="mobile-menu-btn" id="mobileMenuBtn">
+                    <span class="material-symbols-outlined">menu</span>
+                </button>
+            </div>
+        </header>
+<!-- Mobile Menu -->
+<div class="mobile-menu" id="mobileMenu" style="display: none;">
+    <div class="mobile-nav">
+        <a class="mobile-nav-link" href="Home.html">
+            <span class="material-symbols-outlined" style="margin-right: 10px;">home</span>
+            Home
+        </a>
+        <a class="mobile-nav-link" href="Services.html">
+            <span class="material-symbols-outlined" style="margin-right: 10px;">design_services</span>
+            Services
+        </a>
+        <a class="mobile-nav-link" href="Shop.html">
+            <span class="material-symbols-outlined" style="margin-right: 10px;">shopping_bag</span>
+            Shop
+        </a>
+        <a class="mobile-nav-link" href="portofolio.html">
+            <span class="material-symbols-outlined" style="margin-right: 10px;">collections</span>
+            Portfolio
+        </a>
+        <a class="mobile-nav-link" href="About.html">
+            <span class="material-symbols-outlined" style="margin-right: 10px;">info</span>
+            About Us
+        </a>
+        <a class="mobile-nav-link" href="Contact.html">
+            <span class="material-symbols-outlined" style="margin-right: 10px;">mail</span>
+            Contact
+        </a>
+        <!-- زر السلة للموبايل -->
+        <button class="mobile-nav-link nav-cart" id="mobileCartBtn">
+            <span class="material-symbols-outlined">shopping_cart</span>
+            Cart (<span id="mobileCartCount">0</span>)
+        </button>
+        <!-- زر تسجيل الدخول/الخروج -->
+        <a class="mobile-nav-link" onclick="toggleAuth()" style="cursor: pointer;">
+            <span class="material-symbols-outlined" style="margin-right: 10px;">login</span>
+            <span id="mobileAuthText">
+                <script>
+                    document.write(localStorage.getItem('currentUser') ? 'Logout' : 'Login');
+                </script>
+            </span>
+        </a>
+    </div>
+</div>
+
+            <main>
+                <!-- Hero Section -->
+                <section class="hero-section">
+                    <img class="hero-image" src="./img/00.jpg" alt="A beautifully designed modern building with large glass windows and clean lines">
+                    <div class="hero-overlay"></div>
+                    <div class="hero-content">
+                        <h1 class="hero-title">Design with purpose, build with integrity.</h1>
+                    </div>
+                </section>
+
+                <!-- Founder's Biography Section -->
+                <section class="section" id="founderSection">
+                    <div class="section-image">
+                        <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuDsVwnOna7EoU32mXAh_Q106SzzsUWf8HZ6oxdGma3rPAJi74G7-3HbmJTVy3OJJm6QB3APrS5iz2Sqm-2MxbA96uD3H45Fpn1GRNJkkKOzvkR_ZNrUAFIRD7uBPKgq8W_ognORgDGTNux-qO5Pz5bd4wrZ4TuQ-o9zzEeTjOdS43gspOt1wmkSLY5UPx9QPan0sx6DIf7X4Z_rYR870GXgeE1XziiPTWjjmqH6fAJcK_uS8fNwpYs9IxD5UAgwieF-kmLT0H9XH2M" alt="A professional headshot of the studio founder">
+                    </div>
+                    <div class="section-content">
+                        <h2 class="section-title">Our Story</h2>
+                        <p class="section-text">
+             Professional architectural support for students and young designers. High‑quality renders, 3D modelling, diagrams, and full project assistance—directed by a London architect with 10+ years’ experience. Affordable pricing, premium quality, 48‑hour delivery.
+                        </p>
+                        <button class="btn btn-outline" id="readBioBtn">
+                            <span class="material-symbols-outlined">menu_book</span>
+                            Read Full Bio
+                        </button>
+                    </div>
+                </section>
+
+                <!-- Philosophy Section -->
+             
+
+
+
+
+
+
+  <div class="container">
+        <div class="header">
+            <h1>About Us</h1>
+            <p>We are a leading platform in providing architectural services supported by a global team of experts and professionals</p>
+        </div>
+
+        <div class="cards-container">
+            <!-- Mission Card -->
+            <div class="card">
+                <div class="card-icon">
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">Our Mission</h3>
+                    <p class="card-text short-text" id="mission-text">
+                        Providing professional, fast, and flexible architectural services through an easy-to-use platform, with expert follow-up, and achieving efficiency through a global team.
+                    </p>
+                   
+                </div>
+            </div>
+
+            <!-- Vision Card -->
+            <div class="card">
+                <div class="card-icon">
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">Our Vision</h3>
+                    <p class="card-text short-text" id="vision-text">
+               Our objective is to empower architecture students and emerging professionals worldwide by providing fast, reliable, and high-quality architectural support. We aim to simplify the design process, enhance learning,         
+                    </p>
+                    
+                </div>
+            </div>
+
+            <!-- Objective Card -->
+            <div class="card">
+                <div class="card-icon">
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">Our Objective</h3>
+                    <p class="card-text short-text" id="objective-text">
+                        Our objective is to achieve clear, sustainable goals that strengthen operational efficiency. We focus on developing effective plans that improve performance and drive the organization toward long-term success.
+                    </p>
+                   
+                </div>
+            </div>
+        </div>
+
+        <!-- FAQ Section -->
+        <div class="faq-section">
+            <h2 class="faq-title">Frequently Asked Questions</h2>
+            <div class="faq-container">
+                <!-- FAQ Item 1 -->
+                <div class="faq-item">
+                    <div class="faq-question">
+                        How can I request an architectural service from the platform?
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        You can request an architectural service by registering on the platform, then selecting the desired service from the menu, and submitting your project details. Our team will contact you within 24 hours.
+                    </div>
+                </div>
+
+                <!-- FAQ Item 2 -->
+                <div class="faq-item">
+                    <div class="faq-question">
+                        Does the platform offer services for students?
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        Yes, we offer special discounts for architecture students, in addition to consulting and design services that help them with their academic projects and skill development.
+                    </div>
+                </div>
+
+                <!-- FAQ Item 3 -->
+                <div class="faq-item">
+                    <div class="faq-question">
+                        What is the timeframe for completing an architectural project?
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        The completion timeframe varies depending on the size and complexity of the project. It typically ranges from one week for simple projects to several months for large projects. We guarantee a clear timeline from the beginning.
+                    </div>
+                </div>
+
+                <!-- FAQ Item 4 -->
+                <div class="faq-item">
+                    <div class="faq-question">
+                        How is the quality of the designs ensured?
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        We work with a global team of certified architects, and all designs undergo multiple review stages to ensure high quality and compliance with industry standards.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal for Read More -->
+    <div class="modal-overlay" id="modal-overlay">
+        <div class="modal">
+            <div class="modal-header">
+                <div class="modal-icon" id="modal-icon">
+                    <i class="fas fa-info-circle"></i>
+                </div>
+                <h3 class="modal-title" id="modal-title">Our Mission</h3>
+                <button class="modal-close" id="modal-close">&times;</button>
+            </div>
+            <div class="modal-content" id="modal-content">
+                <p>Detailed content will appear here...</p>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                
+
+                <!-- CTA Section -->
+                <section class="cta-section" id="ctaSection">
+                    <h2 class="cta-title">Ready to build the future?</h2>
+                    <p class="cta-text">
+                        Explore our portfolio to see how we transform visions into reality, or contact us to start a conversation about your next project.
+                    </p>
+                    <div class="cta-buttons">
+                        <a href="portofolio.html" class="btn btn-primary">
+                            <span class="material-symbols-outlined">collections</span>
+                            View Our Work
+                        </a>
+                        <a href="Contact.html" class="btn btn-outline">
+                            <span class="material-symbols-outlined">mail</span>
+                            Contact Us
+                        </a>
+                    </div>
+                    </section>
+                </main>
+                   <footer>
+                <div class="footer-grid">
+                    <div class="footer-about">
+                        <div class="footer-logo">
+                            <span class="material-symbols-outlined footer-logo-icon">architecture</span>
+                            <h2 class="footer-logo-text">Architectural → CMA</h2>
+                        </div>
+                        <p class="footer-about-text">
+                            Crafting spaces that inspire. We are an award-winning architectural firm dedicated to
+                            innovative and sustainable design.
+                        </p>
+                    </div>
+
+                    <div class="footer-column">
+                        <h3 class="footer-title">Sitemap</h3>
+                        <div class="footer-links">
+                            <a class="footer-link" href="Services.html">Services</a>
+                            <a class="footer-link" href="Shop.html">Shop</a>
+                            <a class="footer-link" href="About.html">About Us</a>
+                            <a class="footer-link" href="Contact.html">Contact</a>
+                            <a class="footer-link" href="portofolio.html">portofolio</a>
+                        </div>
+                    </div>
+
+                    <div class="footer-column footer-contact">
+                        <h3 class="footer-title">Contact Us</h3>
+                        <div class="footer-links">
+                            <p>Address: 10 Downing Street, London, UK</p>
+                            <a class="footer-link" href="mailto:contact@archstone.com">contact@archstone.com</a>
+                            <a class="footer-link" href="tel:+447470631885">+44 7470 631885</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="footer-bottom">
+                    <p class="copyright">© 2024 Architectural → CMA. All Rights Reserved.</p>
+                    <div class="social-links">
+                        <a class="social-link" href="#" onclick="showNotification('Opening Facebook...')">
+                            <svg aria-hidden="true" class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
+                                <path clip-rule="evenodd"
+                                    d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z"
+                                    fill-rule="evenodd"></path>
+                            </svg>
+                        </a>
+                        <a class="social-link" href="#" onclick="showNotification('Opening Twitter...')">
+                            <svg aria-hidden="true" class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
+                                <path
+                                    d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.71v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84">
+                                </path>
+                            </svg>
+                        </a>
+                        <a class="social-link" href="#" onclick="showNotification('Opening Instagram...')">
+                            <svg aria-hidden="true" class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
+                                <path
+                                    d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zM5.838 12a6.162 6.162 0 1112.324 0 6.162 6.162 0 01-12.324 0zM12 16a4 4 0 110-8 4 4 0 010 8zm4.965-10.405a1.44 1.44 0 112.881.001 1.44 1.44 0 01-2.881-.001z">
+                                </path>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </footer>
+                
+            
+        </div>
+    </div>
+            
+
+    <script>
+
+
+// تهيئة الصفحة
+document.addEventListener('DOMContentLoaded', function () {
+    setupEventListeners();
+    initScrollAnimations();
+    setupScrollIndicator();
+    updateCartCount();
+    updateAuthButtons();
+    updateMobileCartCount();
+    updateMobileAuthButton();
+    setupReadMoreModals();
+    setupFAQ();
+});
+
+// العناصر الرئيسية
+let mobileMenu, mobileMenuBtn, readBioBtn, bioModal, closeModal, closeModalBtn;
+let scrollProgress, cartCount, mobileCartCount, cartBtn, mobileCartBtn;
+
+// إعداد جميع الأحداث
+function setupEventListeners() {
+    // الحصول على العناصر
+    mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    mobileMenu = document.getElementById('mobileMenu');
+    readBioBtn = document.getElementById('readBioBtn');
+    bioModal = document.getElementById('bioModal');
+    closeModal = document.getElementById('closeModal');
+    closeModalBtn = document.getElementById('closeModalBtn');
+    scrollProgress = document.getElementById('scrollProgress');
+    cartCount = document.getElementById('cartCount');
+    mobileCartCount = document.getElementById('mobileCartCount');
+    cartBtn = document.getElementById('cartBtn');
+    mobileCartBtn = document.getElementById('mobileCartBtn');
+    
+    // قائمة الموبايل
+    if (mobileMenuBtn && mobileMenu) {
+        mobileMenuBtn.addEventListener('click', function (e) {
+            e.stopPropagation();
+            const isActive = mobileMenu.classList.toggle('active');
+            const icon = this.querySelector('.material-symbols-outlined');
+            
+            // التحكم في العرض بشكل صريح
+            if (isActive) {
+                mobileMenu.style.display = 'block';
+                setTimeout(() => {
+                    mobileMenu.style.opacity = '1';
+                    mobileMenu.style.transform = 'translateY(0)';
+                }, 10);
+            } else {
+                mobileMenu.style.opacity = '0';
+                mobileMenu.style.transform = 'translateY(-10px)';
+                setTimeout(() => {
+                    mobileMenu.style.display = 'none';
+                }, 300);
+            }
+            
+            if (icon) {
+                icon.textContent = isActive ? 'close' : 'menu';
+            }
+        });
+    }
+    
+    // زر Read Bio
+    if (readBioBtn) {
+        readBioBtn.addEventListener('click', function () {
+            bioModal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        });
+    }
+    
+    // إغلاق Modal
+    if (closeModal) {
+        closeModal.addEventListener('click', closeBioModal);
+    }
+    
+    if (closeModalBtn) {
+        closeModalBtn.addEventListener('click', closeBioModal);
+    }
+    
+    // إغلاق Modal عند النقر خارج المحتوى
+    if (bioModal) {
+        bioModal.addEventListener('click', function (e) {
+            if (e.target === bioModal) {
+                closeBioModal();
+            }
+        });
+    }
+    
+    // إغلاق قائمة الموبايل عند النقر على رابط
+    const mobileLinks = document.querySelectorAll('.mobile-nav-link');
+    mobileLinks.forEach(link => {
+        link.addEventListener('click', function (e) {
+            // لا تغلق القائمة إذا كان زر السلة أو تسجيل الدخول
+            if (this.id === 'mobileCartBtn' || this.getAttribute('onclick') === 'toggleAuth()') {
+                return;
+            }
+            
+            if (mobileMenu) {
+                mobileMenu.classList.remove('active');
+                mobileMenu.style.opacity = '0';
+                mobileMenu.style.transform = 'translateY(-10px)';
+                setTimeout(() => {
+                    mobileMenu.style.display = 'none';
+                }, 300);
+                
+                if (mobileMenuBtn) {
+                    const icon = mobileMenuBtn.querySelector('.material-symbols-outlined');
+                    if (icon) {
+                        icon.textContent = 'menu';
+                    }
+                }
+            }
+        });
+    });
+    
+    // تأثيرات عند التمرير
+    window.addEventListener('scroll', handleScroll);
+    
+    // تأثيرات Hover للكروت
+    const philosophyCards = document.querySelectorAll('.philosophy-card');
+    philosophyCards.forEach(card => {
+        card.addEventListener('mouseenter', function () {
+            this.style.transform = 'translateY(-5px)';
+        });
+        
+        card.addEventListener('mouseleave', function () {
+            this.style.transform = 'translateY(0)';
+        });
+    });
+    
+    // تأثيرات Country Tags
+    const countryTags = document.querySelectorAll('.country-tag');
+    countryTags.forEach(tag => {
+        tag.addEventListener('click', function () {
+            this.style.backgroundColor = 'rgba(216, 195, 165, 0.3)';
+            this.style.color = 'var(--primary)';
+            setTimeout(() => {
+                this.style.backgroundColor = '';
+                this.style.color = '';
+            }, 300);
+        });
+    });
+    
+    // تأثيرات الأزرار
+    const buttons = document.querySelectorAll('.btn');
+    buttons.forEach(button => {
+        button.addEventListener('mouseenter', function () {
+            this.style.transform = 'translateY(-2px)';
+        });
+        
+        button.addEventListener('mouseleave', function () {
+            this.style.transform = 'translateY(0)';
+        });
+    });
+    
+    // زر السلة
+    if (cartBtn) {
+        cartBtn.addEventListener('click', function() {
+            showNotification('عرض محتويات السلة - هذه وظيفة تجريبية');
+        });
+    }
+    
+    if (mobileCartBtn) {
+        mobileCartBtn.addEventListener('click', function() {
+            showNotification('عرض محتويات السلة (موبايل) - هذه وظيفة تجريبية');
+        });
+    }
+    
+    // إغلاق قائمة الموبايل عند النقر خارجها
+    document.addEventListener('click', function(event) {
+        if (mobileMenu && mobileMenuBtn && mobileMenu.classList.contains('active')) {
+            const isClickInsideMenu = mobileMenu.contains(event.target);
+            const isClickOnMenuBtn = mobileMenuBtn.contains(event.target);
+            
+            if (!isClickInsideMenu && !isClickOnMenuBtn) {
+                mobileMenu.classList.remove('active');
+                mobileMenu.style.opacity = '0';
+                mobileMenu.style.transform = 'translateY(-10px)';
+                setTimeout(() => {
+                    mobileMenu.style.display = 'none';
+                }, 300);
+                
+                const icon = mobileMenuBtn.querySelector('.material-symbols-outlined');
+                if (icon) {
+                    icon.textContent = 'menu';
+                }
+            }
+        }
+    });
+}
+
+// إغلاق Modal السيرة الذاتية
+function closeBioModal() {
+    if (bioModal) {
+        bioModal.classList.remove('active');
+        document.body.style.overflow = 'auto';
+    }
+}
+
+// تهيئة تأثيرات التمرير
+function initScrollAnimations() {
+    const sections = document.querySelectorAll('.section, .philosophy-section, .cta-section');
+    
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+            }
+        });
+    }, {
+        threshold: 0.1,
+        rootMargin: '0px 0px -100px 0px'
+    });
+    
+    sections.forEach(section => {
+        observer.observe(section);
+    });
+}
+
+// إعداد مؤشر التمرير
+function setupScrollIndicator() {
+    window.addEventListener('scroll', updateScrollProgress);
+}
+
+// تحديث شريط التقدم
+function updateScrollProgress() {
+    if (scrollProgress) {
+        const windowHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+        const scrolled = (window.scrollY / windowHeight) * 100;
+        scrollProgress.style.width = scrolled + '%';
+    }
+}
+
+// التعامل مع التمرير
+function handleScroll() {
+    // تأثير الرأس
+    const mainHeader = document.querySelector('header');
+    if (mainHeader) {
+        if (window.scrollY > 50) {
+            mainHeader.classList.add('scrolled');
+        } else {
+            mainHeader.classList.remove('scrolled');
+        }
+    }
+    
+    // تحديث شريط التقدم
+    updateScrollProgress();
+}
+
+// تحديث عدد العناصر في السلة
+function updateCartCount() {
+    try {
+        const cart = JSON.parse(localStorage.getItem('cart')) || [];
+        const totalItems = cart.reduce((sum, item) => sum + (item.quantity || 1), 0);
+        
+        if (cartCount) {
+            cartCount.textContent = totalItems;
+        }
+    } catch (error) {
+        console.error('Error updating cart count:', error);
+    }
+}
+
+// تحديث عدد العناصر في سلة الموبايل
+function updateMobileCartCount() {
+    try {
+        const cart = JSON.parse(localStorage.getItem('cart')) || [];
+        const totalItems = cart.reduce((sum, item) => sum + (item.quantity || 1), 0);
+        
+        if (mobileCartCount) {
+            mobileCartCount.textContent = totalItems;
+        }
+    } catch (error) {
+        console.error('Error updating mobile cart count:', error);
+    }
+}
+
+// تحديث أزرار تسجيل الدخول/الخروج
+function updateAuthButtons() {
+    const authText = document.getElementById('authText');
+    if (authText) {
+        authText.textContent = localStorage.getItem('currentUser') ? 'Logout' : 'Login';
+    }
+}
+
+// تحديث زر تسجيل الدخول/الخروج للموبايل
+function updateMobileAuthButton() {
+    const mobileAuthText = document.getElementById('mobileAuthText');
+    if (mobileAuthText) {
+        mobileAuthText.textContent = localStorage.getItem('currentUser') ? 'Logout' : 'Login';
+    }
+}
+
+// وظيفة تسجيل الدخول/الخروج
+function toggleAuth() {
+    if (localStorage.getItem('currentUser')) {
+        // تسجيل الخروج
+        localStorage.removeItem('currentUser');
+        showNotification('تم تسجيل الخروج بنجاح');
+        setTimeout(() => {
+            updateAuthButtons();
+            updateMobileAuthButton();
+        }, 100);
+    } else {
+        // الذهاب لصفحة تسجيل الدخول
+        window.location.href = 'registar.html';
+    }
+}
+
+// وظيفة الإشعارات
+function showNotification(message) {
+    // إنشاء عنصر الإشعار
+    const notification = document.createElement('div');
+    notification.style.cssText = `
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        background-color: #D4AF37;
+        color: #000;
+        padding: 12px 24px;
+        border-radius: 8px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+        z-index: 10000;
+        font-weight: bold;
+        transform: translateX(150%);
+        transition: transform 0.3s ease;
+        max-width: 300px;
+        font-family: 'Inter', sans-serif;
+    `;
+    
+    notification.textContent = message;
+    document.body.appendChild(notification);
+    
+    // إظهار الإشعار
+    setTimeout(() => {
+        notification.style.transform = 'translateX(0)';
+    }, 10);
+    
+    // إخفاء الإشعار بعد 3 ثوان
+    setTimeout(() => {
+        notification.style.transform = 'translateX(150%)';
+        setTimeout(() => {
+            if (notification.parentNode) {
+                document.body.removeChild(notification);
+            }
+        }, 300);
+    }, 3000);
+}
+
+// Read More functionality for about us cards
+function setupReadMoreModals() {
+    const readMoreButtons = document.querySelectorAll('.read-more');
+    const modalOverlay = document.getElementById('modal-overlay');
+    const modalTitle = document.getElementById('modal-title');
+    const modalContent = document.getElementById('modal-content');
+    const modalIcon = document.getElementById('modal-icon');
+    const modalClose = document.getElementById('modal-close');
+    
+    // Define detailed content for each card
+    const detailedContent = {
+        mission: {
+            title: "Our Mission - Detailed",
+            icon: "fas fa-bullseye",
+            content: `
+                <p><strong>Our comprehensive mission includes:</strong></p>
+                <ul>
+                    <li>Providing professional architectural services with the highest quality standards</li>
+                    <li>Ensuring fast project delivery without compromising on quality</li>
+                    <li>Offering flexible solutions tailored to each client's unique needs</li>
+                    <li>Utilizing an intuitive, easy-to-use platform for seamless client experience</li>
+                    <li>Providing expert follow-up and continuous support throughout projects</li>
+                    <li>Achieving maximum efficiency through our diverse global team of specialists</li>
+                    <li>Innovating continuously to stay at the forefront of architectural technology</li>
+                </ul>
+                <p>We believe that great architecture should be accessible, efficient, and transformative. Our mission drives us to deliver exceptional value to every client, from individual homeowners to large corporations.</p>
+            `
+        },
+        vision: {
+            title: "Our Vision - Detailed",
+            icon: "fas fa-eye",
+            content: `
+                <p><strong>Our vision encompasses:</strong></p>
+                <ul>
+                    <li>Empowering architecture students worldwide with practical tools and resources</li>
+                    <li>Supporting emerging professionals in building successful careers</li>
+                    <li>Providing fast, reliable architectural support to all clients</li>
+                    <li>Maintaining consistently high-quality standards across all projects</li>
+                    <li>Simplifying the design process through innovative technology</li>
+                    <li>Enhancing learning experiences through interactive platforms</li>
+                    <li>Creating a global community of architectural excellence</li>
+                    <li>Bridging the gap between academic learning and professional practice</li>
+                </ul>
+                <p>We envision a world where architectural excellence is accessible to all, where design processes are streamlined through technology, and where learning is continuous and collaborative. Our platform aims to be the catalyst for this transformation in the architectural industry.</p>
+            `
+        },
+        objective: {
+            title: "Our Objective - Detailed",
+            icon: "fas fa-flag-checkered",
+            content: `
+                <p><strong>Our strategic objectives include:</strong></p>
+                <ul>
+                    <li>Achieving clear, measurable goals that align with sustainable development principles</li>
+                    <li>Strengthening operational efficiency through continuous process improvement</li>
+                    <li>Developing effective strategic plans that drive organizational growth</li>
+                    <li>Improving performance metrics across all departments and projects</li>
+                    <li>Driving the organization toward long-term success and market leadership</li>
+                    <li>Implementing sustainable practices that benefit clients and the environment</li>
+                    <li>Fostering innovation and creativity in all aspects of our work</li>
+                    <li>Building lasting relationships with clients, partners, and the community</li>
+                </ul>
+                <p>Our objectives are designed to create lasting value for all stakeholders. We measure our success not just by financial metrics, but by the positive impact we create in the architectural community and the built environment.</p>
+            `
+        }
+    };
+    
+    // Add click event to each Read More button
+    readMoreButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            const target = this.getAttribute('data-target') || this.id.replace('-text', '');
+            
+            if (detailedContent[target] && modalTitle && modalIcon && modalContent) {
+                // Update modal content based on which button was clicked
+                modalTitle.textContent = detailedContent[target].title;
+                modalIcon.innerHTML = `<i class="${detailedContent[target].icon}"></i>`;
+                modalContent.innerHTML = detailedContent[target].content;
+                
+                // Show the modal
+                if (modalOverlay) {
+                    modalOverlay.classList.add('active');
+                    document.body.style.overflow = 'hidden';
+                }
+            }
+        });
+    });
+    
+    // Close modal when close button is clicked
+    if (modalClose) {
+        modalClose.addEventListener('click', function() {
+            if (modalOverlay) {
+                modalOverlay.classList.remove('active');
+                document.body.style.overflow = 'auto';
+            }
+        });
+    }
+    
+    // Close modal when clicking outside the modal
+    if (modalOverlay) {
+        modalOverlay.addEventListener('click', function(e) {
+            if (e.target === modalOverlay) {
+                modalOverlay.classList.remove('active');
+                document.body.style.overflow = 'auto';
+            }
+        });
+    }
+    
+    // Close modal with Escape key
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && modalOverlay && modalOverlay.classList.contains('active')) {
+            modalOverlay.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+    });
+}
+
+// إعداد الـFAQ
+function setupFAQ() {
+    const faqItems = document.querySelectorAll('.faq-item');
+    
+    faqItems.forEach(item => {
+        const question = item.querySelector('.faq-question');
+        if (question) {
+            question.addEventListener('click', () => {
+                // Close other open items
+                faqItems.forEach(otherItem => {
+                    if (otherItem !== item && otherItem.classList.contains('active')) {
+                        otherItem.classList.remove('active');
+                    }
+                });
+                
+                // Toggle current item
+                item.classList.toggle('active');
+            });
+        }
+    });
+}
+
+// إغلاق كل الـmodals عند الضغط على ESC
+document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') {
+        // إغلاق bio modal
+        if (bioModal && bioModal.classList.contains('active')) {
+            closeBioModal();
+        }
+        
+        // إغلاق about us modal
+        const modalOverlay = document.getElementById('modal-overlay');
+        if (modalOverlay && modalOverlay.classList.contains('active')) {
+            modalOverlay.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+        
+        // إغلاق mobile menu
+        if (mobileMenu && mobileMenu.classList.contains('active')) {
+            mobileMenu.classList.remove('active');
+            mobileMenu.style.opacity = '0';
+            mobileMenu.style.transform = 'translateY(-10px)';
+            setTimeout(() => {
+                mobileMenu.style.display = 'none';
+            }, 300);
+            
+            if (mobileMenuBtn) {
+                const icon = mobileMenuBtn.querySelector('.material-symbols-outlined');
+                if (icon) {
+                    icon.textContent = 'menu';
+                }
+            }
+        }
+    }
+});
+
+// تحديث عند تغيير السلة
+window.addEventListener('storage', function(e) {
+    if (e.key === 'cart') {
+        updateCartCount();
+        updateMobileCartCount();
+    }
+});
+
+// التأكد من تحميل Font Awesome للـicons
+function checkFontAwesome() {
+    if (!document.querySelector('link[href*="font-awesome"]') && 
+        !document.querySelector('link[href*="fontawesome"]')) {
+        const faLink = document.createElement('link');
+        faLink.rel = 'stylesheet';
+        faLink.href = 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css';
+        document.head.appendChild(faLink);
+    }
+}
+
+// استدعاء عند تحميل الصفحة
+checkFontAwesome();
+
+// تهيئة CSS للموبايل منيو إذا كان مفقوداً
+function initMobileMenuStyles() {
+    if (!document.querySelector('#mobileMenuStyles')) {
+        const style = document.createElement('style');
+        style.id = 'mobileMenuStyles';
+        style.textContent = `
+            .mobile-menu {
+                display: none;
+                position: fixed;
+                top: 70px;
+                left: 0;
+                right: 0;
+                background-color: #111111;
+                border-bottom: 2px solid #D4AF37;
+                padding: 20px;
+                z-index: 9999;
+                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.9);
+                opacity: 0;
+                transform: translateY(-20px);
+                transition: opacity 0.3s ease, transform 0.3s ease;
+            }
+            
+            .mobile-menu.active {
+                display: block;
+                opacity: 1;
+                transform: translateY(0);
+            }
+            
+            .mobile-nav {
+                display: flex;
+                flex-direction: column;
+                gap: 12px;
+            }
+            
+            .mobile-nav-link {
+                display: flex;
+                align-items: center;
+                padding: 15px 20px;
+                color: white !important;
+                text-decoration: none;
+                border-radius: 10px;
+                background: rgba(255, 255, 255, 0.05);
+                border: 1px solid rgba(212, 175, 55, 0.3);
+                font-size: 16px;
+                font-weight: 500;
+                transition: all 0.3s ease;
+            }
+            
+            .mobile-nav-link:hover {
+                background: rgba(212, 175, 55, 0.2);
+                color: #D4AF37 !important;
+                transform: translateX(5px);
+            }
+            
+            .mobile-nav-link .material-symbols-outlined {
+                margin-right: 12px;
+                font-size: 20px;
+            }
+        `;
+        document.head.appendChild(style);
+    }
+}
+
+// استدعاء تهيئة الأنماط
+initMobileMenuStyles();
+
+
+
+    </script>
+</body>
+</html>
