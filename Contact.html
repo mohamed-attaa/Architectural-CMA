@@ -1500,6 +1500,102 @@ header {
         .close-notification:hover {
             opacity: 1;
         }
+
+
+
+
+        
+.lang-btn {
+    background: #FFD600;
+    color: #000;
+    font-weight: 700;
+    border: none;
+    border-radius: 8px;
+    padding: 8px 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    min-width: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+}
+
+.lang-btn:hover {
+    background: #E6C100;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(255, 214, 0, 0.3);
+}
+
+.lang-btn.active {
+    background: #000;
+    color: #FFD600;
+    border: 2px solid #FFD600;
+}
+
+.lang-btn .material-symbols-outlined {
+    font-size: 18px;
+}
+
+.mobile-nav .lang-btn {
+    width: 100%;
+    justify-content: center;
+    margin-top: 10px;
+    padding: 15px;
+    background-color: rgba(255, 214, 0, 0.1);
+    border: 1px solid rgba(255, 214, 0, 0.2);
+    border-radius: 10px;
+    color: #FFD600;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    font-family: 'Inter', sans-serif;
+}
+
+.mobile-nav .lang-btn:hover {
+    background-color: rgba(255, 214, 0, 0.2);
+}
+
+.mobile-nav .lang-btn .material-symbols-outlined {
+    font-size: 20px;
+}
+
+/* RTL Support */
+body[dir="rtl"] .logo {
+    flex-direction: row-reverse;
+}
+
+body[dir="rtl"] .nav-links {
+    gap: 1.5rem;
+}
+
+body[dir="rtl"] .footer-grid {
+    direction: rtl;
+}
+
+body[dir="rtl"] .footer-column {
+    text-align: right;
+}
+
+body[dir="rtl"] .footer-links {
+    align-items: flex-end;
+}
+
+body[dir="rtl"] .footer-link {
+    direction: rtl;
+}
+
+body[dir="rtl"] .mobile-nav .nav-link {
+    text-align: right;
+    padding-right: 30px;
+}
+
+body[dir="rtl"] .mobile-nav .lang-btn {
+    direction: ltr;
+}
     </style>
 </head>
 <body>
@@ -1522,6 +1618,12 @@ header {
                 <a class="nav-link" href="About.html">About Us</a>
                 <a class="nav-link" href="Contact.html">Contact</a>
                 
+<button id="langToggle" class="lang-btn">
+    <span class="material-symbols-outlined">language</span>
+    <span id="langText">EN</span>
+</button>
+
+
                 <!-- زر السلة للديسكتوب -->
                 <button class="nav-cart" id="desktopCartBtn">
                     <span class="material-symbols-outlined">shopping_cart</span>
@@ -1538,6 +1640,7 @@ header {
         <button class="mobile-menu-btn" id="mobileMenuBtn">
             <span class="material-symbols-outlined" id="menuIcon">menu</span>
         </button>
+      
     </header>
 
     <!-- Cart Modal -->
@@ -2342,6 +2445,563 @@ header {
         window.removeFromCart = removeFromCart;
         window.increaseQuantity = increaseQuantity;
         window.decreaseQuantity = decreaseQuantity;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        // ========== LANGUAGE TOGGLE FUNCTIONALITY ==========
+
+// تعريف المتغيرات والدوال
+let currentLang = localStorage.getItem('siteLanguage') || 'en';
+
+// الترجمة الإنجليزية
+const englishTexts = {
+    // Navigation
+    home: "Home",
+    services: "Services",
+    shop: "Shop",
+    portfolio: "Portfolio",
+    about: "About Us",
+    contact: "Contact",
+    login: "Login",
+    logout: "Logout",
+    cart: "Cart",
+    
+    // Hero Section
+    heroTitle: "Connect With Architecture Experts",
+    heroSubtitle: "Let's Build Something Exceptional Together. Whether you need help with renders, diagrams, 3D modelling, portfolio development, or full project support—I'm here to assist you with professional, high-quality guidance delivered fast and affordably.",
+    
+    // Contact Section
+    contactExperts: "Contact Our Experts",
+    whatsappCard: "WhatsApp Direct",
+    whatsappDesc: "Get instant responses to your queries via WhatsApp. Our support team is available Monday to Friday, 9 AM to 6 PM.",
+    whatsappBtn: "Start Chat Now",
+    
+    calendarCard: "Schedule Appointment",
+    calendarDesc: "Book a one-on-one consultation with our architecture experts. Choose a time that works best for your schedule.",
+    calendarBtn: "Book Appointment",
+    
+    emailCard: "Email Support",
+    emailDesc: "Send us detailed project inquiries or technical questions. We respond within 24 hours with comprehensive solutions.",
+    emailBtn: "Send Message",
+    
+    // Calendar Section
+    scheduleConsultation: "Schedule Your Consultation",
+    calendarSubtitle: "Select a date and time for your architectural consultation session with our experts.",
+    selectedDate: "Selected",
+    noDateSelected: "No date selected",
+    
+    selectConsultant: "Select Consultant",
+    chooseExpert: "Choose an expert",
+    johnAnderson: "John Anderson - Structural Design",
+    sarahMitchell: "Sarah Mitchell - Sustainable Architecture",
+    michaelChen: "Michael Chen - Urban Planning",
+    elenaRodriguez: "Elena Rodriguez - Interior Design",
+    
+    meetingType: "Meeting Type",
+    selectMeeting: "Select meeting type",
+    initialConsultation: "Initial Consultation (30 min)",
+    designReview: "Design Review (60 min)",
+    technicalConsultation: "Technical Consultation (45 min)",
+    projectPlanning: "Project Planning (90 min)",
+    
+    availableSlots: "Available Time Slots",
+    fullName: "Full Name",
+    enterName: "Enter your full name",
+    emailAddress: "Email Address",
+    enterEmail: "Enter your email",
+    confirmAppointment: "Confirm Appointment",
+    
+    // Email Section
+    sendMessage: "Send Us a Message",
+    fullNameRequired: "Full Name *",
+    emailRequired: "Email Address *",
+    phoneNumber: "Phone Number",
+    subjectRequired: "Subject *",
+    yourMessage: "Your Message *",
+    messagePlaceholder: "Please provide details about your architectural project or inquiry...",
+    sendBtn: "Send Message",
+    
+    // Footer
+    sitemap: "Sitemap",
+    contactUsFooter: "Contact Us",
+    address: "Address: 10 Downing Street, London, UK",
+    copyright: "© 2024 Architectural → CMA. All Rights Reserved.",
+    aboutText: "Crafting spaces that inspire. We are an award-winning architectural firm dedicated to innovative and sustainable design."
+};
+
+// الترجمة العربية
+const arabicTexts = {
+    // Navigation
+    home: "الرئيسية",
+    services: "الخدمات",
+    shop: "المتجر",
+    portfolio: "الأعمال",
+    about: "من نحن",
+    contact: "اتصل بنا",
+    login: "تسجيل الدخول",
+    logout: "تسجيل الخروج",
+    cart: "السلة",
+    
+    // Hero Section
+    heroTitle: "تواصل مع خبراء الهندسة المعمارية",
+    heroSubtitle: "دعونا نبني شيئًا استثنائيًا معًا. سواء كنت بحاجة إلى مساعدة في العروض التقديمية، المخططات، النمذجة ثلاثية الأبعاد، تطوير المحفظة، أو الدعم الكامل للمشروع - أنا هنا لمساعدتك بتوجيه احترافي عالي الجودة يتم تسليمه بسرعة وبأسعار معقولة.",
+    
+    // Contact Section
+    contactExperts: "تواصل مع خبرائنا",
+    whatsappCard: "واتساب مباشر",
+    whatsappDesc: "احصل على ردود فورية على استفساراتك عبر واتساب. فريق الدعم لدينا متاح من الاثنين إلى الجمعة، من 9 صباحًا إلى 6 مساءً.",
+    whatsappBtn: "ابدأ الدردشة الآن",
+    
+    calendarCard: "حجز موعد",
+    calendarDesc: "احجز استشارة فردية مع خبراء الهندسة المعمارية لدينا. اختر الوقت الأناسب لجدولك الزمني.",
+    calendarBtn: "حجز موعد",
+    
+    emailCard: "الدعم عبر البريد الإلكتروني",
+    emailDesc: "أرسل لنا استفسارات مفصلة عن المشاريع أو أسئلة تقنية. نرد خلال 24 ساعة بحلول شاملة.",
+    emailBtn: "إرسال رسالة",
+    
+    // Calendar Section
+    scheduleConsultation: "جدولة استشارتك",
+    calendarSubtitle: "اختر تاريخًا ووقتًا لجلسة الاستشارة المعمارية مع خبرائنا.",
+    selectedDate: "محدد",
+    noDateSelected: "لم يتم اختيار تاريخ",
+    
+    selectConsultant: "اختر المستشار",
+    chooseExpert: "اختر خبيرًا",
+    johnAnderson: "جون أندرسون - التصميم الإنشائي",
+    sarahMitchell: "سارة ميتشل - الهندسة المعمارية المستدامة",
+    michaelChen: "مايكل تشين - التخطيط الحضري",
+    elenaRodriguez: "إلينا رودريغيز - التصميم الداخلي",
+    
+    meetingType: "نوع الاجتماع",
+    selectMeeting: "اختر نوع الاجتماع",
+    initialConsultation: "استشارة أولية (30 دقيقة)",
+    designReview: "مراجعة التصميم (60 دقيقة)",
+    technicalConsultation: "استشارة تقنية (45 دقيقة)",
+    projectPlanning: "تخطيط المشروع (90 دقيقة)",
+    
+    availableSlots: "المواعيد المتاحة",
+    fullName: "الاسم الكامل",
+    enterName: "أدخل اسمك الكامل",
+    emailAddress: "عنوان البريد الإلكتروني",
+    enterEmail: "أدخل بريدك الإلكتروني",
+    confirmAppointment: "تأكيد الموعد",
+    
+    // Email Section
+    sendMessage: "أرسل لنا رسالة",
+    fullNameRequired: "الاسم الكامل *",
+    emailRequired: "عنوان البريد الإلكتروني *",
+    phoneNumber: "رقم الهاتف",
+    subjectRequired: "الموضوع *",
+    yourMessage: "رسالتك *",
+    messagePlaceholder: "يرجى تقديم تفاصيل حول مشروعك المعماري أو استفسارك...",
+    sendBtn: "إرسال الرسالة",
+    
+    // Footer
+    sitemap: "خريطة الموقع",
+    contactUsFooter: "اتصل بنا",
+    address: "العنوان: 10 داونينج ستريت، لندن، المملكة المتحدة",
+    copyright: "© 2024 الهندسة المعمارية → CMA. جميع الحقوق محفوظة.",
+    aboutText: "صنع مساحات تلهم. نحن شركة هندسة معمارية حائزة على جوائز مكرسة للتصميم المبتكر والمستدام."
+};
+
+// وظيفة مساعدة لتحديث نص العنصر
+function updateElementText(selector, text, keepHTML = false) {
+    const element = document.querySelector(selector);
+    if (element) {
+        if (keepHTML) {
+            const icon = element.querySelector('.material-symbols-outlined');
+            if (icon) {
+                element.innerHTML = icon.outerHTML + ' ' + text;
+            } else {
+                element.textContent = text;
+            }
+        } else {
+            element.textContent = text;
+        }
+        return true;
+    }
+    return false;
+}
+
+// تحديث نصوص التنقل
+function updateNavigationTexts(texts) {
+    // روابط التنقل الرئيسية
+    updateElementText('#homeLink', texts.home);
+    updateElementText('#servicesLink', texts.services);
+    updateElementText('#shopLink', texts.shop);
+    updateElementText('#portfolioLink', texts.portfolio);
+    updateElementText('#aboutLink', texts.about);
+    updateElementText('#contactLink', texts.contact);
+    
+    // زر تسجيل الدخول
+    const desktopAuthText = document.getElementById('desktopAuthText');
+    const mobileAuthText = document.getElementById('mobileAuthText');
+    const isLoggedIn = localStorage.getItem('currentUser');
+    
+    if (desktopAuthText) {
+        desktopAuthText.textContent = isLoggedIn ? texts.logout : texts.login;
+    }
+    if (mobileAuthText) {
+        mobileAuthText.textContent = isLoggedIn ? texts.logout : texts.login;
+    }
+    
+    // زر السلة
+    updateElementText('#desktopCartBtn', texts.cart, true);
+    updateElementText('#mobileCartBtn', texts.cart, true);
+}
+
+// تحديث نصوص الـ Hero
+function updateHeroTexts(texts) {
+    updateElementText('.hero-title', texts.heroTitle);
+    updateElementText('.hero-subtitle', texts.heroSubtitle);
+}
+
+// تحديث نصوص القسم الرئيسي
+function updateContactSectionTexts(texts) {
+    updateElementText('.section-title', texts.contactExperts);
+    
+    // بطاقات التواصل
+    const whatsappCard = document.querySelector('#whatsapp-card');
+    const calendarCard = document.querySelector('#calendar-card');
+    const emailCard = document.querySelector('#email-card');
+    
+    if (whatsappCard) {
+        updateElementTextInCard(whatsappCard, 'h3', texts.whatsappCard);
+        updateElementTextInCard(whatsappCard, 'p', texts.whatsappDesc);
+        updateElementTextInCard(whatsappCard, '.contact-btn', texts.whatsappBtn, true);
+    }
+    
+    if (calendarCard) {
+        updateElementTextInCard(calendarCard, 'h3', texts.calendarCard);
+        updateElementTextInCard(calendarCard, 'p', texts.calendarDesc);
+        updateElementTextInCard(calendarCard, '.contact-btn', texts.calendarBtn, true);
+    }
+    
+    if (emailCard) {
+        updateElementTextInCard(emailCard, 'h3', texts.emailCard);
+        updateElementTextInCard(emailCard, 'p', texts.emailDesc);
+        updateElementTextInCard(emailCard, '.contact-btn', texts.emailBtn, true);
+    }
+}
+
+// تحديث نصوص التقويم
+function updateCalendarTexts(texts) {
+    updateElementText('.calendar-title', texts.scheduleConsultation);
+    updateElementText('.calendar-subtitle', texts.calendarSubtitle);
+    
+    // تحديث التسميات
+    const selectedDisplay = document.querySelector('#selected-date-display strong');
+    if (selectedDisplay) {
+        selectedDisplay.textContent = texts.selectedDate + ": ";
+    }
+    
+    // تحديث select consultant
+    const consultantSelect = document.getElementById('consultant');
+    if (consultantSelect) {
+        consultantSelect.innerHTML = `
+            <option value="">${texts.chooseExpert}</option>
+            <option value="john">${texts.johnAnderson}</option>
+            <option value="sarah">${texts.sarahMitchell}</option>
+            <option value="michael">${texts.michaelChen}</option>
+            <option value="elena">${texts.elenaRodriguez}</option>
+        `;
+    }
+    
+    // تحديث meeting type
+    const meetingSelect = document.getElementById('meeting-type');
+    if (meetingSelect) {
+        meetingSelect.innerHTML = `
+            <option value="">${texts.selectMeeting}</option>
+            <option value="initial">${texts.initialConsultation}</option>
+            <option value="design">${texts.designReview}</option>
+            <option value="technical">${texts.technicalConsultation}</option>
+            <option value="project">${texts.projectPlanning}</option>
+        `;
+    }
+    
+    // تحديث التسميات الأخرى
+    const labels = document.querySelectorAll('.form-group label');
+    labels.forEach(label => {
+        const forAttr = label.getAttribute('for');
+        if (forAttr === 'consultant') label.textContent = texts.selectConsultant;
+        if (forAttr === 'meeting-type') label.textContent = texts.meetingType;
+        if (forAttr === 'name') label.textContent = texts.fullName;
+        if (forAttr === 'email') label.textContent = texts.emailAddress;
+    });
+    
+    // تحديث الأماكن النائبة
+    const bookingName = document.getElementById('booking-name');
+    const bookingEmail = document.getElementById('booking-email');
+    if (bookingName) bookingName.placeholder = texts.enterName;
+    if (bookingEmail) bookingEmail.placeholder = texts.enterEmail;
+    
+    // تحديث الزر
+    updateElementText('#confirm-booking', texts.confirmAppointment, true);
+}
+
+// تحديث نصوص نموذج البريد
+function updateEmailFormTexts(texts) {
+    updateElementText('.form-title', texts.sendMessage);
+    
+    // تحديث التسميات
+    const formLabels = document.querySelectorAll('#contactForm label');
+    formLabels.forEach(label => {
+        const forAttr = label.getAttribute('for');
+        if (forAttr === 'name') label.textContent = texts.fullNameRequired;
+        if (forAttr === 'email') label.textContent = texts.emailRequired;
+        if (forAttr === 'phone') label.textContent = texts.phoneNumber;
+        if (forAttr === 'subject') label.textContent = texts.subjectRequired;
+        if (forAttr === 'message') label.textContent = texts.yourMessage;
+    });
+    
+    // تحديث الأماكن النائبة
+    const formName = document.getElementById('form-name');
+    const formEmail = document.getElementById('form-email');
+    const formPhone = document.getElementById('form-phone');
+    const formSubject = document.getElementById('form-subject');
+    const formMessage = document.getElementById('form-message');
+    
+    if (formName) formName.placeholder = '';
+    if (formEmail) formEmail.placeholder = '';
+    if (formPhone) formPhone.placeholder = '';
+    if (formSubject) formSubject.placeholder = '';
+    if (formMessage) formMessage.placeholder = texts.messagePlaceholder;
+    
+    // تحديث الزر
+    updateElementText('.submit-btn', texts.sendBtn, true);
+}
+
+// تحديث نصوص الفوتر
+function updateFooterTexts(texts) {
+    // خريطة الموقع
+    updateElementText('.footer-column:nth-child(2) .footer-title', texts.sitemap);
+    
+    // اتصل بنا
+    updateElementText('.footer-column:nth-child(3) .footer-title', texts.contactUsFooter);
+    
+    const footerLinks = document.querySelectorAll('.footer-contact p');
+    if (footerLinks[0]) footerLinks[0].textContent = texts.address;
+    
+    const copyright = document.querySelector('.copyright');
+    if (copyright) copyright.textContent = texts.copyright;
+    
+    const aboutText = document.querySelector('.footer-about-text');
+    if (aboutText) aboutText.textContent = texts.aboutText;
+}
+
+// وظيفة مساعدة لتحديث نص داخل بطاقة
+function updateElementTextInCard(card, selector, text, keepHTML = false) {
+    try {
+        const element = card.querySelector(selector);
+        if (element) {
+            if (keepHTML) {
+                const icon = element.querySelector('i');
+                if (icon) {
+                    element.innerHTML = icon.outerHTML + ' ' + text;
+                } else {
+                    element.textContent = text;
+                }
+            } else {
+                element.textContent = text;
+            }
+            return true;
+        }
+        return false;
+    } catch (error) {
+        console.error('Error updating element in card:', error);
+        return false;
+    }
+}
+
+// تطبيق الترجمة
+function applyLanguage(lang) {
+    const texts = lang === 'ar' ? arabicTexts : englishTexts;
+    
+    // تغيير اتجاه الصفحة
+    document.body.dir = lang === 'ar' ? 'rtl' : 'ltr';
+    
+    // تحديث النصوص
+    updateNavigationTexts(texts);
+    updateHeroTexts(texts);
+    updateContactSectionTexts(texts);
+    updateCalendarTexts(texts);
+    updateEmailFormTexts(texts);
+    updateFooterTexts(texts);
+    
+    // حفظ اللغة
+    localStorage.setItem('siteLanguage', lang);
+    currentLang = lang;
+}
+
+// تحديث أزرار اللغة
+function updateLangButtons() {
+    // زر الديسكتوب
+    const langText = document.getElementById('langText');
+    const langToggleBtn = document.getElementById('langToggle');
+    
+    if (langText) {
+        langText.textContent = currentLang === 'en' ? 'EN' : 'AR';
+        if (currentLang === 'ar') {
+            langToggleBtn?.classList.add('active');
+        } else {
+            langToggleBtn?.classList.remove('active');
+        }
+    }
+    
+    // زر الموبايل
+    const mobileLangText = document.getElementById('mobileLangText');
+    const mobileLangBtn = document.getElementById('mobileLangToggle');
+    
+    if (mobileLangText) {
+        mobileLangText.textContent = currentLang === 'en' ? 'EN' : 'AR';
+    }
+    
+    if (mobileLangBtn) {
+        if (currentLang === 'ar') {
+            mobileLangBtn.classList.add('active');
+        } else {
+            mobileLangBtn.classList.remove('active');
+        }
+    }
+}
+
+// تبديل اللغة
+function toggleLanguage() {
+    const newLang = currentLang === 'en' ? 'ar' : 'en';
+    applyLanguage(newLang);
+    updateLangButtons();
+    
+    // إظهار إشعار
+    showNotification(newLang === 'ar' ? 'تم التبديل إلى العربية' : 'Switched to English');
+}
+
+// تهيئة اللغة
+function initializeLanguage() {
+    console.log('Initializing language...');
+    console.log('Current lang:', currentLang);
+    
+    // تطبيق اللغة
+    applyLanguage(currentLang);
+    updateLangButtons();
+    
+    // إعداد حدث الزر للديسكتوب
+    const langToggleBtn = document.getElementById('langToggle');
+    if (langToggleBtn) {
+        langToggleBtn.addEventListener('click', toggleLanguage);
+    }
+    
+    // إعداد حدث زر الموبايل
+    const mobileLangToggleBtn = document.getElementById('mobileLangToggle');
+    if (mobileLangToggleBtn) {
+        mobileLangToggleBtn.addEventListener('click', toggleLanguage);
+    }
+}
+
+// ========== INITIALIZATION ==========
+
+// تعديل دالة initMobileMenu لتشمل زر الترجمة
+function initMobileMenu() {
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const menuIcon = document.getElementById('menuIcon');
+    
+    // إنشاء القائمة المتنقلة مع زر الترجمة
+    const mobileNav = document.createElement('div');
+    mobileNav.className = 'mobile-nav';
+    mobileNav.id = 'mobileNav';
+    mobileNav.innerHTML = `
+        <a class="nav-link" href="Home.html">Home</a>
+        <a class="nav-link" href="Services.html">Services</a>
+        <a class="nav-link" href="Shop.html">Shop</a>
+        <a class="nav-link" href="portofolio.html">Portfolio</a>
+        <a class="nav-link" href="About.html">About Us</a>
+        <a class="nav-link" href="Contact.html">Contact</a>
+        
+        <button class="nav-cart" id="mobileCartBtn">
+            <span class="material-symbols-outlined">shopping_cart</span>
+            <span class="cart-badge" id="mobileCartCount">0</span>
+        </button>
+        
+        <!-- زر الترجمة للموبايل -->
+        <button id="mobileLangToggle" class="lang-btn">
+            <span class="material-symbols-outlined">language</span>
+            <span id="mobileLangText">EN</span>
+        </button>
+        
+        <a class="nav-link" onclick="toggleAuth()" id="mobileAuthLink">
+            <span id="mobileAuthText">Login</span>
+        </a>
+    `;
+    
+    document.body.appendChild(mobileNav);
+    
+    // Mobile menu toggle
+    mobileMenuBtn.addEventListener('click', function() {
+        mobileNav.classList.toggle('active');
+        menuIcon.textContent = mobileNav.classList.contains('active') ? 'close' : 'menu';
+    });
+    
+    // Close mobile menu when clicking links
+    mobileNav.querySelectorAll('.nav-link, .lang-btn').forEach(link => {
+        link.addEventListener('click', () => {
+            mobileNav.classList.remove('active');
+            menuIcon.textContent = 'menu';
+        });
+    });
+    
+    // Mobile cart button
+    document.getElementById('mobileCartBtn')?.addEventListener('click', openCart);
+    
+    // Update mobile cart count
+    updateMobileCartCount();
+}
+
+// تحديث الدالة initialize لإضافة تهيئة اللغة
+document.addEventListener('DOMContentLoaded', function() {
+    // Initialize all components
+    initializeLanguage(); // أضف هذه السطر
+    initializeCartSystem();
+    initMobileMenu();
+    initializeParticles();
+    initializeCalendar();
+    initializeEmailForm();
+    initializeSmoothScroll();
+    updateAuthStatus();
+    
+    // Add some test products for demonstration
+    if (getCartItems().length === 0) {
+        addSampleProducts();
+    }
+});
+
+// ========== NOTIFICATION SYSTEM ==========
+function showNotification(message) {
+    const notification = document.getElementById('notification');
+    const notificationMessage = document.getElementById('notificationMessage');
+    
+    notificationMessage.textContent = message;
+    notification.classList.add('active');
+    
+    setTimeout(() => {
+        hideNotification();
+    }, 3000);
+}
     </script>
 </body>
 </html>

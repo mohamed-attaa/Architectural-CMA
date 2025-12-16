@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Studio Shop - Curated Digital Assets for Architects and Designers</title>
     <!-- Google Fonts -->
+     <!-- Add this to the head section after Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet">
     <!-- Material Icons -->
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
@@ -187,19 +189,19 @@
         }
 
         :root {
-            --primary-dark: #c57d00;
-            --primary: #be7500;
+--primary: #C4B59D;
+    --primary-dark: #a8987d;
             --background-dark: #000000;
             --white: #ffffff;
             --white-60: rgba(255, 255, 255, 0.6);
             --white-70: rgba(255, 255, 255, 0.7);
-            --white-80: rgba(255, 255, 255, 0.8);
+            --white-80: rgba(243, 238, 238, 0.8);
             --white-90: rgba(255, 255, 255, 0.9);
             --white-10: rgba(255, 255, 255, 0.1);
             --white-20: rgba(255, 255, 255, 0.2);
             --white-30: rgba(255, 255, 255, 0.3);
             --border-color: rgba(255, 255, 255, 0.1);
-        }
+        } 
 
         .material-symbols-outlined {
             font-variation-settings:
@@ -1113,12 +1115,13 @@
             right: 1.5rem;
             width: 60px;
             height: 60px;
-            background-color: var(--primary);
+            /* background-color: var(--primary); */
+            background-color: #dba101c0;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            box-shadow: 0 4px 20px rgba(196, 181, 157, 0.4);
+            box-shadow: 0 4px 20px rgba(197, 122, 0, 0.4);
             z-index: 1000;
             cursor: pointer;
             transition: all 0.3s ease;
@@ -1126,7 +1129,7 @@
 
         .whatsapp-float:hover {
             transform: scale(1.1);
-            box-shadow: 0 6px 25px rgba(196, 181, 157, 0.5);
+            box-shadow: 0 6px 25px rgba(168, 105, 3, 0.5);
         }
 
         .whatsapp-float img {
@@ -1201,17 +1204,17 @@
         .footer-logo-icon {
             font-size: 1.8rem;
             color: var(--primary);
-            background: rgba(196, 181, 157, 0.1);
+            background: rgba(139, 86, 6, 0.582);
             padding: 8px;
             border-radius: 8px;
-            border: 1px solid rgba(196, 181, 157, 0.2);
+            border: 1px solid rgba(124, 78, 3, 0.938);
         }
 
         .footer-logo-text {
             font-family: 'Inter', sans-serif;
             font-size: 1.4rem;
             font-weight: 700;
-            color: #FFFFFF;
+            color: #ffffff;
             letter-spacing: 0.5px;
         }
 
@@ -1236,7 +1239,7 @@
             font-weight: 600;
             margin-bottom: 0.5rem;
             padding-bottom: 0.5rem;
-            border-bottom: 1px solid rgba(196, 181, 157, 0.3);
+            border-bottom: 1px solid rgba(161, 159, 155, 0.3);
         }
 
         .footer-links {
@@ -1247,7 +1250,7 @@
 
         .footer-link {
             font-family: 'Inter', sans-serif;
-            color: #B0B0B0;
+            color: #b6b5b5;
             text-decoration: none;
             font-size: 0.9rem;
             transition: all 0.2s ease;
@@ -1270,12 +1273,13 @@
         }
 
         .footer-contact .footer-link {
-            color: var(--primary);
+           
+            color: #c27400;
             font-size: 0.9rem;
         }
 
         .footer-contact .footer-link:hover {
-            color: #FFFFFF;
+             color: var(--primary);
             text-decoration: underline;
         }
 
@@ -1313,7 +1317,7 @@
             width: 36px;
             height: 36px;
             border-radius: 50%;
-            background: rgba(255, 255, 255, 0.05);
+            background: rgba(221, 220, 218, 0.158);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -1334,10 +1338,174 @@
             width: 18px;
             height: 18px;
         }
+
+        .lang-btn {
+  background: #FFD600;
+  color: #000;
+  font-weight: 700;
+  border: none;
+  border-radius: 8px;
+  padding: 6px 10px;
+  cursor: pointer;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ========== LANGUAGE TOGGLE STYLES ========== */
+.lang-btn {
+    background: #FFD600;
+    color: #000;
+    font-weight: 700;
+    border: none;
+    border-radius: 8px;
+    padding: 8px 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    min-width: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+}
+
+.lang-btn:hover {
+    background: #E6C100;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(255, 214, 0, 0.3);
+}
+
+.lang-btn.active {
+    background: #000;
+    color: #FFD600;
+    border: 2px solid #FFD600;
+}
+
+.lang-btn .material-symbols-outlined {
+    font-size: 18px;
+}
+
+/* RTL Support for Arabic */
+body[dir="rtl"] .logo-text,
+body[dir="rtl"] .nav-link,
+body[dir="rtl"] .hero-title,
+body[dir="rtl"] .hero-subtitle,
+body[dir="rtl"] .product-title,
+body[dir="rtl"] .product-details-link,
+body[dir="rtl"] .modal-title,
+body[dir="rtl"] .modal-description,
+body[dir="rtl"] .features-list li,
+body[dir="rtl"] .footer-logo-text,
+body[dir="rtl"] .footer-title,
+body[dir="rtl"] .footer-link,
+body[dir="rtl"] .footer-about-text,
+body[dir="rtl"] .cart-modal-title,
+body[dir="rtl"] .cart-item-title {
+    font-family: 'Tajawal', 'Inter', sans-serif;
+}
+
+/* RTL Layout Adjustments */
+body[dir="rtl"] {
+    text-align: right;
+}
+
+body[dir="rtl"] .nav-links {
+    gap: 1.5rem;
+}
+
+body[dir="rtl"] .logo {
+    flex-direction: row-reverse;
+}
+
+body[dir="rtl"] .hero-text {
+    direction: rtl;
+}
+
+body[dir="rtl"] .products-grid {
+    direction: rtl;
+}
+
+body[dir="rtl"] .product-info {
+    text-align: right;
+}
+
+body[dir="rtl"] .product-actions {
+    flex-direction: row-reverse;
+}
+
+body[dir="rtl"] .modal-body {
+    direction: rtl;
+}
+
+body[dir="rtl"] .modal-details {
+    text-align: right;
+}
+
+body[dir="rtl"] .features-list li {
+    justify-content: flex-start;
+    flex-direction: row-reverse;
+}
+
+body[dir="rtl"] .modal-buttons {
+    flex-direction: row-reverse;
+}
+
+body[dir="rtl"] .footer-grid {
+    direction: rtl;
+}
+
+body[dir="rtl"] .footer-column {
+    text-align: right;
+}
+
+body[dir="rtl"] .footer-links {
+    align-items: flex-start;
+}
+
+body[dir="rtl"] .footer-link {
+    direction: rtl;
+}
+
+body[dir="rtl"] .cart-item {
+    direction: rtl;
+    text-align: right;
+}
+
+body[dir="rtl"] .cart-item-details {
+    margin-right: 1rem;
+}
+
+body[dir="rtl"] .cart-item-quantity {
+    flex-direction: row-reverse;
+}
     </style>
 </head>
 <body>
-    <!-- WhatsApp Float Button -->
+  <!-- WhatsApp Float Button -->
     <a href="https://wa.me/447470631885" class="whatsapp-float" target="_blank">
         <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
     </a>
@@ -1420,13 +1588,18 @@
         <!-- Desktop Navigation -->
         <nav class="nav-desktop">
             <div class="nav-links">
+        
+
                 <a class="nav-link" href="Home.html">Home</a>
                 <a class="nav-link" href="Services.html">Services</a>
                 <a class="nav-link" href="Shop.html">Shop</a>
                 <a class="nav-link" href="portofolio.html">Portfolio</a>
                 <a class="nav-link" href="About.html">About Us</a>
                 <a class="nav-link" href="Contact.html">Contact</a>
-                
+<button id="langToggle" class="lang-btn">
+    <span class="material-symbols-outlined">language</span>
+    <span id="langText">EN</span>
+</button>
                 <!-- Cart Button -->
                 <button class="nav-cart" id="cartBtn">
                     <span class="material-symbols-outlined">shopping_cart</span>
@@ -1463,6 +1636,10 @@
             <button class="mobile-nav-link" onclick="toggleAuth()">
                 <span id="mobileAuthText">Login</span>
             </button>
+            <button class="mobile-nav-link" id="mobileLangToggle">
+    <span class="material-symbols-outlined">language</span>
+    <span id="mobileLangText">English / عربي</span>
+</button>
         </div>
     </div>
 
@@ -1554,592 +1731,861 @@
         </div>
     </footer>
 
-    <script>
-        // بيانات المنتجات كما كانت تماماً
-        const products = [
-            {
-                id: 1,
-                title: "Rendering & Storytelling",
-                price: 0,
-                category: "renders",
-                image: "./img/Orla-by-OMNIYAT-Amenities-1024x569 (1).jpg",
-                description: "Complete blueprint set for a modern villa with detailed floor plans, elevations, and sections. Perfect for residential projects with contemporary design.",
-                features: ["Detailed floor plans", "Elevations & sections", "Vector & CAD files", "Material specifications", "Fully editable", "4K resolution"]
-            },
-            {
-                id: 10,
-                title: "3D Modelling (Revit/Rhino/AutoCAD)",
-                price: 0,
-                category: "3dmodels",
-                image: "./img/getCroppedImage(23).jpg",
-                description: "Complete blueprint set for a modern villa with detailed floor plans, elevations, and sections. Perfect for residential projects with contemporary design.",
-                features: ["Detailed floor plans", "Elevations & sections", "Vector & CAD files", "Material specifications", "Fully editable", "4K resolution"]
-            },
-            {
-                id: 9,
-                title: "Modern Villa Blueprint Pack",
-                price: 0,
-                category: "blueprints",
-                image: "./img/8-nmoq-designed-by-ateliers-jean-nouvel-iwan-baan-1600x1067 (1).jpg",
-                description: "Complete blueprint set for a modern villa with detailed floor plans, elevations, and sections. Perfect for residential projects with contemporary design.",
-                features: ["Detailed floor plans", "Elevations & sections", "Vector & CAD files", "Material specifications", "Fully editable", "4K resolution"]
-            },
-            {
-                id: 2,
-                title: "Industrial Loft 3D Model",
-                price: 0,
-                category: "3dmodels",
-                image: "./img/مخطط سيرفيز.jpg",
-                description: "Highly detailed 3D model of an industrial loft with customizable elements. Includes textures, materials, and furniture for realistic visualization.",
-                features: ["Fully textured", "Customizable elements", "Furniture included", "Multiple file formats", "Optimized for rendering", "Commercial license"]
-            },
-            {
-                id: 3,
-                title: "Skyscraper Photorealistic Render",
-                price: 0,
-                category: "renders",
-                image: "./img/getCroppedImage(10).jpg",
-                description: "Photorealistic render package with various angles and lighting conditions. Perfect for architectural presentations and client reviews.",
-                features: ["Multiple angles", "Day & night versions", "4K resolution", "PSD files included", "Adjustable lighting", "Print ready"]
-            },
-            {
-                id: 4,
-                title: "Building Fly-through Clip",
-                price: 0,
-                category: "3dmodels",
-                image: "./img/getCroppedImage(1).jpg",
-                description: "Professional animation clip showing a fly-through of a modern building. High-quality video perfect for client presentations and marketing.",
-                features: ["4K video", "60 seconds duration", "Music included", "No watermark", "Multiple formats", "Commercial use"]
-            },
-            {
-                id: 5,
-                title: "Minimalist House Blueprint",
-                price: 0,
-                category: "blueprints",
-                image: "./img/getCroppedImage (7).jpg",
-                description: "Clean and minimal blueprint set for contemporary house design with sustainable features. Includes detailed plans for eco-friendly homes.",
-                features: ["Sustainable design", "Energy efficient", "Detailed sections", "Material schedule", "CAD & PDF formats", "Scalable vector"]
-            },
-            {
-                id: 6,
-                title: "Interior Design 3D Model",
-                price: 0,
-                category: "3dmodels",
-                image: "./img/getCroppedImage (6).jpg",
-                description: "Comprehensive 3D model for interior design projects with furniture, lighting, and decor elements. Fully customizable for different styles.",
-                features: ["Fully furnished", "Adjustable lighting", "Multiple textures", "Furniture library", "VR ready", "Animation ready"]
-            },
-            {
-                id: 7,
-                title: "Sunset Residential Render",
-                price: 0,
-                category: "renders",
-                image: "./img/getCroppedImage (1).jpg",
-                description: "High-quality renders of residential spaces at sunset with warm lighting and realistic materials. Perfect for showcasing dream homes.",
-                features: ["Sunset lighting", "Warm color palette", "Realistic materials", "Multiple angles", "High resolution", "Background options"]
-            },
-           
-        ];
+<script>
+    // بيانات المنتجات كما كانت تماماً
+    const products = [
+        {
+            id: 1,
+            title: "Rendering & Storytelling",
+            price: 0,
+            category: "renders",
+            image: "./img/Orla-by-OMNIYAT-Amenities-1024x569 (1).jpg",
+            description: "Complete blueprint set for a modern villa with detailed floor plans, elevations, and sections. Perfect for residential projects with contemporary design.",
+            features: ["Detailed floor plans", "Elevations & sections", "Vector & CAD files", "Material specifications", "Fully editable", "4K resolution"]
+        },
+        {
+            id: 10,
+            title: "3D Modelling (Revit/Rhino/AutoCAD)",
+            price: 0,
+            category: "3dmodels",
+            image: "./img/getCroppedImage(23).jpg",
+            description: "Complete blueprint set for a modern villa with detailed floor plans, elevations, and sections. Perfect for residential projects with contemporary design.",
+            features: ["Detailed floor plans", "Elevations & sections", "Vector & CAD files", "Material specifications", "Fully editable", "4K resolution"]
+        },
+        {
+            id: 9,
+            title: "Modern Villa Blueprint Pack",
+            price: 0,
+            category: "blueprints",
+            image: "./img/8-nmoq-designed-by-ateliers-jean-nouvel-iwan-baan-1600x1067 (1).jpg",
+            description: "Complete blueprint set for a modern villa with detailed floor plans, elevations, and sections. Perfect for residential projects with contemporary design.",
+            features: ["Detailed floor plans", "Elevations & sections", "Vector & CAD files", "Material specifications", "Fully editable", "4K resolution"]
+        },
+        {
+            id: 2,
+            title: "Industrial Loft 3D Model",
+            price: 0,
+            category: "3dmodels",
+            image: "./img/مخطط سيرفيز.jpg",
+            description: "Highly detailed 3D model of an industrial loft with customizable elements. Includes textures, materials, and furniture for realistic visualization.",
+            features: ["Fully textured", "Customizable elements", "Furniture included", "Multiple file formats", "Optimized for rendering", "Commercial license"]
+        },
+        {
+            id: 3,
+            title: "Skyscraper Photorealistic Render",
+            price: 0,
+            category: "renders",
+            image: "./img/getCroppedImage(10).jpg",
+            description: "Photorealistic render package with various angles and lighting conditions. Perfect for architectural presentations and client reviews.",
+            features: ["Multiple angles", "Day & night versions", "4K resolution", "PSD files included", "Adjustable lighting", "Print ready"]
+        },
+        {
+            id: 4,
+            title: "Building Fly-through Clip",
+            price: 0,
+            category: "3dmodels",
+            image: "./img/getCroppedImage(1).jpg",
+            description: "Professional animation clip showing a fly-through of a modern building. High-quality video perfect for client presentations and marketing.",
+            features: ["4K video", "60 seconds duration", "Music included", "No watermark", "Multiple formats", "Commercial use"]
+        },
+        {
+            id: 5,
+            title: "Minimalist House Blueprint",
+            price: 0,
+            category: "blueprints",
+            image: "./img/getCroppedImage (7).jpg",
+            description: "Clean and minimal blueprint set for contemporary house design with sustainable features. Includes detailed plans for eco-friendly homes.",
+            features: ["Sustainable design", "Energy efficient", "Detailed sections", "Material schedule", "CAD & PDF formats", "Scalable vector"]
+        },
+        {
+            id: 6,
+            title: "Interior Design 3D Model",
+            price: 0,
+            category: "3dmodels",
+            image: "./img/getCroppedImage (6).jpg",
+            description: "Comprehensive 3D model for interior design projects with furniture, lighting, and decor elements. Fully customizable for different styles.",
+            features: ["Fully furnished", "Adjustable lighting", "Multiple textures", "Furniture library", "VR ready", "Animation ready"]
+        },
+        {
+            id: 7,
+            title: "Sunset Residential Render",
+            price: 0,
+            category: "renders",
+            image: "./img/getCroppedImage (1).jpg",
+            description: "High-quality renders of residential spaces at sunset with warm lighting and realistic materials. Perfect for showcasing dream homes.",
+            features: ["Sunset lighting", "Warm color palette", "Realistic materials", "Multiple angles", "High resolution", "Background options"]
+        },
+       
+    ];
 
-        // العناصر الرئيسية
-        const productsGrid = document.getElementById('productsGrid');
-        const productModal = document.getElementById('productModal');
-        const modalProductTitle = document.getElementById('modalProductTitle');
-        const modalProductPrice = document.getElementById('modalProductPrice');
-        const modalProductDescription = document.getElementById('modalProductDescription');
-        const modalProductImage = document.getElementById('modalProductImage');
-        const modalFeaturesList = document.getElementById('modalFeaturesList');
-        const modalAddCartBtn = document.getElementById('modalAddCartBtn');
-        const closeModalBtn = document.getElementById('closeModalBtn');
-        const modalCloseBtn = document.getElementById('modalCloseBtn');
-        const cartBtn = document.getElementById('cartBtn');
-        const mobileCartBtn = document.getElementById('mobileCartBtn');
-        const cartCount = document.getElementById('cartCount');
-        const mobileCartCount = document.getElementById('mobileCartCount');
-        const heroShopBtn = document.getElementById('heroShopBtn');
-        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-        const mobileMenu = document.getElementById('mobileMenu');
-        const cartModal = document.getElementById('cartModal');
-        const closeCartModalBtn = document.getElementById('closeCartModalBtn');
-        const cartItemsContainer = document.getElementById('cartItemsContainer');
-        const cartTotalAmount = document.getElementById('cartTotalAmount');
-        const checkoutBtn = document.getElementById('checkoutBtn');
-        const clearCartBtn = document.getElementById('clearCartBtn');
-        const notification = document.getElementById('notification');
-        const notificationMessage = document.getElementById('notificationMessage');
-        const authText = document.getElementById('authText');
-        const mobileAuthText = document.getElementById('mobileAuthText');
+    // ========== LANGUAGE SUPPORT ==========
+    const translations = {
+        en: {
+            // Header & Navigation
+            logo: "Architectural → CMA",
+            home: "Home",
+            services: "Services",
+            shop: "Shop",
+            portfolio: "Portfolio",
+            about: "About Us",
+            contact: "Contact",
+            login: "Login",
+            logout: "Logout",
+            cart: "Cart",
+            
+            // Hero Section
+            heroTitle: "The Studio Shop",
+            heroSubtitle: "Curated Digital Assets for Architects and Designers",
+            heroBtn: "Shop Now",
+            
+            // Products
+            viewDetails: "View Details",
+            addToCart: "Add to Cart",
+            enquire: "Enquire",
+            
+            // Product Modal
+            featuresInclude: "Features Include:",
+            close: "Close",
+            
+            // Cart Modal
+            yourCart: "Your Shopping Cart",
+            cartEmpty: "Your cart is empty",
+            cartEmptySub: "Add some products to get started",
+            total: "Total:",
+            proceedCheckout: "Proceed to Checkout",
+            clearCart: "Clear Cart",
+            
+            // Notifications
+            addedToCart: "added to cart!",
+            removedFromCart: "removed from cart",
+            cartCleared: "Cart cleared successfully",
+            checkoutComing: "Checkout functionality coming soon!",
+            browsingCollection: "Browsing our collection...",
+            loggedOut: "Logged out successfully",
+            switchedToEnglish: "Switched to English",
+            switchedToArabic: "Switched to Arabic",
+            
+            // Footer
+            footerAbout: "Crafting spaces that inspire. We are an award-winning architectural firm dedicated to innovative and sustainable design.",
+            sitemap: "Sitemap",
+            contactUs: "Contact Us",
+            address: "Address: 10 Downing Street, London, UK",
+            copyright: "© 2024 Architectural → CMA. All Rights Reserved.",
+        },
+        
+        ar: {
+            // Header & Navigation
+            logo: "معماري → سي إم إيه",
+            home: "الرئيسية",
+            services: "الخدمات",
+            shop: "المتجر",
+            portfolio: "الأعمال",
+            about: "من نحن",
+            contact: "اتصل بنا",
+            login: "تسجيل الدخول",
+            logout: "تسجيل الخروج",
+            cart: "عربة التسوق",
+            
+            // Hero Section
+            heroTitle: "متجر الأستوديو",
+            heroSubtitle: "أصول رقمية مختارة للمهندسين المعماريين والمصممين",
+            heroBtn: "تسوق الآن",
+            
+            // Products
+            viewDetails: "عرض التفاصيل",
+            addToCart: "أضف إلى السلة",
+            enquire: "استفسر",
+            
+            // Product Modal
+            featuresInclude: "المميزات تشمل:",
+            close: "إغلاق",
+            
+            // Cart Modal
+            yourCart: "سلة التسوق الخاصة بك",
+            cartEmpty: "سلة التسوق فارغة",
+            cartEmptySub: "أضف بعض المنتجات للبدء",
+            total: "الإجمالي:",
+            proceedCheckout: "إتمام الشراء",
+            clearCart: "تفريغ السلة",
+            
+            // Notifications
+            addedToCart: "تمت الإضافة إلى السلة!",
+            removedFromCart: "تم الحذف من السلة",
+            cartCleared: "تم تفريغ السلة بنجاح",
+            checkoutComing: "وظيفة الدفع قريبًا!",
+            browsingCollection: "تصفح مجموعتنا...",
+            loggedOut: "تم تسجيل الخروج بنجاح",
+            switchedToEnglish: "تم التبديل إلى الإنجليزية",
+            switchedToArabic: "تم التبديل إلى العربية",
+            
+            // Footer
+            footerAbout: "نصنع مساحات تلهم. نحن شركة هندسية معمارية حائزة على جوائز مكرسة للتصميم المبتكر والمستدام.",
+            sitemap: "خريطة الموقع",
+            contactUs: "اتصل بنا",
+            address: "العنوان: 10 شارع داونينج، لندن، المملكة المتحدة",
+            copyright: "© 2024 معماري → سي إم إيه. جميع الحقوق محفوظة.",
+        }
+    };
 
-        // المتغيرات
-        let cart = JSON.parse(localStorage.getItem('cart')) || [];
-        let currentProduct = null;
+    // العناصر الرئيسية
+    const productsGrid = document.getElementById('productsGrid');
+    const productModal = document.getElementById('productModal');
+    const modalProductTitle = document.getElementById('modalProductTitle');
+    const modalProductPrice = document.getElementById('modalProductPrice');
+    const modalProductDescription = document.getElementById('modalProductDescription');
+    const modalProductImage = document.getElementById('modalProductImage');
+    const modalFeaturesList = document.getElementById('modalFeaturesList');
+    const modalAddCartBtn = document.getElementById('modalAddCartBtn');
+    const closeModalBtn = document.getElementById('closeModalBtn');
+    const modalCloseBtn = document.getElementById('modalCloseBtn');
+    const cartBtn = document.getElementById('cartBtn');
+    const mobileCartBtn = document.getElementById('mobileCartBtn');
+    const cartCount = document.getElementById('cartCount');
+    const mobileCartCount = document.getElementById('mobileCartCount');
+    const heroShopBtn = document.getElementById('heroShopBtn');
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const cartModal = document.getElementById('cartModal');
+    const closeCartModalBtn = document.getElementById('closeCartModalBtn');
+    const cartItemsContainer = document.getElementById('cartItemsContainer');
+    const cartTotalAmount = document.getElementById('cartTotalAmount');
+    const checkoutBtn = document.getElementById('checkoutBtn');
+    const clearCartBtn = document.getElementById('clearCartBtn');
+    const notification = document.getElementById('notification');
+    const notificationMessage = document.getElementById('notificationMessage');
+    const authText = document.getElementById('authText');
+    const mobileAuthText = document.getElementById('mobileAuthText');
+    const langToggle = document.getElementById('langToggle');
+    const langText = document.getElementById('langText');
+    const mobileLangToggle = document.getElementById('mobileLangToggle');
+    const mobileLangText = document.getElementById('mobileLangText');
 
-        // تهيئة الصفحة
-        document.addEventListener('DOMContentLoaded', function () {
-            displayProducts(products);
-            updateCartCount();
-            updateAuthStatus();
-            setupEventListeners();
-            initScrollAnimations();
+    // المتغيرات
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+    let currentProduct = null;
+    let currentLang = localStorage.getItem('language') || 'en';
+
+    // تهيئة الصفحة
+    document.addEventListener('DOMContentLoaded', function () {
+        initLanguage();
+        displayProducts(products);
+        updateCartCount();
+        updateAuthStatus();
+        setupEventListeners();
+        initScrollAnimations();
+    });
+
+    // تهيئة اللغة
+    function initLanguage() {
+        applyLanguage(currentLang);
+        updateLangButton();
+    }
+
+    // تطبيق اللغة
+    function applyLanguage(lang) {
+        const t = translations[lang];
+        
+        // تحديث اتجاه الصفحة
+        document.body.dir = lang === 'ar' ? 'rtl' : 'ltr';
+        document.documentElement.lang = lang;
+        
+        // تحديث الهيدر والنافبار
+        document.querySelector('.logo-text').textContent = t.logo;
+        document.querySelectorAll('.nav-link').forEach((link, index) => {
+            const texts = [t.home, t.services, t.shop, t.portfolio, t.about, t.contact];
+            if (index < texts.length) {
+                link.textContent = texts[index];
+            }
         });
+        
+        // تحديث زر الدخول
+        updateAuthStatus();
+        
+        // تحديث الهيرو سيكشن
+        document.querySelector('.hero-title').textContent = t.heroTitle;
+        document.querySelector('.hero-subtitle').textContent = t.heroSubtitle;
+        document.getElementById('heroShopBtn').textContent = t.heroBtn;
+        
+        // تحديث الفوتر
+        document.querySelector('.footer-logo-text').textContent = t.logo;
+        document.querySelector('.footer-about-text').textContent = t.footerAbout;
+        document.querySelectorAll('.footer-title').forEach((title, index) => {
+            const titles = [t.sitemap, t.contactUs];
+            if (index < titles.length) {
+                title.textContent = titles[index];
+            }
+        });
+        
+        document.querySelectorAll('.footer-link').forEach((link, index) => {
+            const links = [t.services, t.shop, t.about, t.contact, t.portfolio];
+            if (index < links.length) {
+                link.textContent = links[index];
+            }
+        });
+        
+        document.querySelector('.copyright').textContent = t.copyright;
+        
+        // حفظ اللغة الحالية
+        currentLang = lang;
+        localStorage.setItem('language', lang);
+        updateLangButton();
+        
+        // إعادة عرض المنتجات باللغة الجديدة
+        displayProducts(products);
+    }
 
-        // عرض المنتجات مع الأزرار الجديدة
-        function displayProducts(productsToShow) {
-            productsGrid.innerHTML = '';
+    // تحديث زر اللغة
+    function updateLangButton() {
+        const isArabic = currentLang === 'ar';
+        if (langText) {
+            langText.textContent = isArabic ? 'AR' : 'EN';
+        }
+        
+        // تحديث زر اللغة في المنيو الموبايل
+        const mobileLangBtn = document.querySelector('#mobileLangToggle .mobile-nav-link');
+        if (mobileLangBtn) {
+            mobileLangBtn.textContent = isArabic ? 'العربية / English' : 'English / العربية';
+        }
+        
+        // إضافة/إزالة الفئة النشطة
+        if (langToggle) {
+            if (isArabic) {
+                langToggle.classList.add('active');
+            } else {
+                langToggle.classList.remove('active');
+            }
+        }
+    }
 
-            productsToShow.forEach((product, index) => {
-                const productCard = document.createElement('div');
-                productCard.className = 'product-card';
-                productCard.setAttribute('data-id', product.id);
-                productCard.setAttribute('data-category', product.category);
+    // تبديل اللغة
+    function toggleLanguage() {
+        const newLang = currentLang === 'en' ? 'ar' : 'en';
+        applyLanguage(newLang);
+        showNotification(newLang === 'ar' ? translations.en.switchedToArabic : translations.en.switchedToEnglish);
+    }
 
-                productCard.innerHTML = `
-                    <div class="product-image-container" style="background-image: url('${product.image}')">
-                        <img src="${product.image}" alt="${product.title}" class="product-image">
-                        <button class="product-cart-btn" data-id="${product.id}">
-                            <span class="material-symbols-outlined">add_shopping_cart</span>
+    // عرض المنتجات مع الأزرار الجديدة
+    function displayProducts(productsToShow) {
+        productsGrid.innerHTML = '';
+        const t = translations[currentLang];
+
+        productsToShow.forEach((product, index) => {
+            const productCard = document.createElement('div');
+            productCard.className = 'product-card';
+            productCard.setAttribute('data-id', product.id);
+            productCard.setAttribute('data-category', product.category);
+
+            productCard.innerHTML = `
+                <div class="product-image-container" style="background-image: url('${product.image}')">
+                    <img src="${product.image}" alt="${product.title}" class="product-image">
+                    <button class="product-cart-btn" data-id="${product.id}">
+                        <span class="material-symbols-outlined">add_shopping_cart</span>
+                    </button>
+                </div>
+                <div class="product-info">
+                    <p class="product-title">${product.title}</p>
+                    <p class="product-price">$${product.price.toFixed(2)}</p>
+                    <div class="product-actions">
+                        <button class="action-btn add-to-cart-btn" data-id="${product.id}">
+                            <span class="material-symbols-outlined" style="font-size: 16px;">shopping_cart</span>
+                            ${t.addToCart}
+                        </button>
+                        <button class="action-btn enquire-btn" data-id="${product.id}">
+                            <span class="material-symbols-outlined" style="font-size: 16px;">contact_support</span>
+                            ${t.enquire}
                         </button>
                     </div>
-                    <div class="product-info">
-                        <p class="product-title">${product.title}</p>
-                        <p class="product-price">$${product.price.toFixed(2)}</p>
-                        <div class="product-actions">
-                            <button class="action-btn add-to-cart-btn" data-id="${product.id}">
-                                <span class="material-symbols-outlined" style="font-size: 16px;">shopping_cart</span>
-                                Add to Cart
-                            </button>
-                            <button class="action-btn enquire-btn" data-id="${product.id}">
-                                <span class="material-symbols-outlined" style="font-size: 16px;">contact_support</span>
-                                Enquire
-                            </button>
-                        </div>
-                        <a href="#" class="product-details-link" data-id="${product.id}">View Details</a>
-                    </div>
-                `;
+                    <a href="#" class="product-details-link" data-id="${product.id}">${t.viewDetails}</a>
+                </div>
+            `;
 
-                productsGrid.appendChild(productCard);
+            productsGrid.appendChild(productCard);
 
-                // إضافة تأثير ظهور تدريجي
-                setTimeout(() => {
-                    productCard.classList.add('visible');
-                }, index * 100);
-            });
-
-            setupProductEvents();
-        }
-
-        // إعداد أحداث المنتجات
-        function setupProductEvents() {
-            const productCards = document.querySelectorAll('.product-card');
-            const cartButtons = document.querySelectorAll('.product-cart-btn');
-            const addToCartButtons = document.querySelectorAll('.add-to-cart-btn');
-            const enquireButtons = document.querySelectorAll('.enquire-btn');
-            const viewDetailsLinks = document.querySelectorAll('.product-details-link');
-
-            // النقر على الكارد بالكامل
-            productCards.forEach(card => {
-                card.addEventListener('click', function (e) {
-                    if (e.target.closest('.product-cart-btn') || 
-                        e.target.closest('.add-to-cart-btn') || 
-                        e.target.closest('.enquire-btn') || 
-                        e.target.closest('.product-details-link')) {
-                        return;
-                    }
-                    const productId = parseInt(this.getAttribute('data-id'));
-                    openProductModal(productId);
-                });
-            });
-
-            // أزرار إضافة للسلة السريعة في الصورة
-            cartButtons.forEach(button => {
-                button.addEventListener('click', function (e) {
-                    e.stopPropagation();
-                    const productId = parseInt(this.getAttribute('data-id'));
-                    addToCart(productId);
-                });
-            });
-
-            // أزرار Add to Cart أسفل الكارد
-            addToCartButtons.forEach(button => {
-                button.addEventListener('click', function (e) {
-                    e.stopPropagation();
-                    const productId = parseInt(this.getAttribute('data-id'));
-                    addToCart(productId);
-                });
-            });
-
-            // أزرار Enquire
-            enquireButtons.forEach(button => {
-                button.addEventListener('click', function (e) {
-                    e.stopPropagation();
-                    const productId = parseInt(this.getAttribute('data-id'));
-                    const product = products.find(p => p.id === productId);
-                    if (product) {
-                        showEnquiryModal(product);
-                    }
-                });
-            });
-
-            // روابط View Details
-            viewDetailsLinks.forEach(link => {
-                link.addEventListener('click', function (e) {
-                    e.preventDefault();
-                    e.stopPropagation();
-                    const productId = parseInt(this.getAttribute('data-id'));
-                    openProductModal(productId);
-                });
-            });
-        }
-
-        // فتح نافذة المنتج
-        function openProductModal(productId) {
-            currentProduct = products.find(product => product.id === productId);
-
-            if (currentProduct) {
-                modalProductTitle.textContent = currentProduct.title;
-                modalProductPrice.textContent = `$${currentProduct.price.toFixed(2)}`;
-                modalProductDescription.textContent = currentProduct.description;
-                modalProductImage.src = currentProduct.image;
-                modalProductImage.alt = currentProduct.title;
-
-                modalFeaturesList.innerHTML = '';
-                currentProduct.features.forEach(feature => {
-                    const li = document.createElement('li');
-                    li.innerHTML = `<span class="material-symbols-outlined">check</span> ${feature}`;
-                    modalFeaturesList.appendChild(li);
-                });
-
-                modalAddCartBtn.setAttribute('data-id', currentProduct.id);
-                productModal.style.display = 'flex';
-                document.body.style.overflow = 'hidden';
-            }
-        }
-
-        // إغلاق نافذة المنتج
-        function closeProductModal() {
-            productModal.style.display = 'none';
-            document.body.style.overflow = 'auto';
-            currentProduct = null;
-        }
-
-        // إضافة منتج إلى السلة
-        function addToCart(productId) {
-            const product = products.find(p => p.id === productId);
-            if (!product) return;
-
-            const existingItem = cart.find(item => item.id === productId);
-
-            if (existingItem) {
-                existingItem.quantity += 1;
-            } else {
-                cart.push({
-                    id: product.id,
-                    title: product.title,
-                    price: product.price,
-                    image: product.image,
-                    quantity: 1
-                });
-            }
-
-            localStorage.setItem('cart', JSON.stringify(cart));
-            updateCartCount();
-            showNotification(`"${product.title}" added to cart!`);
-
-            cartBtn.style.transform = 'scale(1.1)';
+            // إضافة تأثير ظهور تدريجي
             setTimeout(() => {
-                cartBtn.style.transform = 'scale(1)';
-            }, 200);
-        }
+                productCard.classList.add('visible');
+            }, index * 100);
+        });
 
-        // عرض نافذة الاستفسار
-        function showEnquiryModal(product) {
-            const message = `Hi, I'm interested in "${product.title}" ($${product.price.toFixed(2)}). Could you provide more details?`;
-            const whatsappUrl = `https://wa.me/447470631885?text=${encodeURIComponent(message)}`;
-            
-            showNotification(`Opening WhatsApp to enquire about "${product.title}"`);
-            
-            // افتح WhatsApp في نافذة جديدة بعد تأخير قصير
-            setTimeout(() => {
-                window.open(whatsappUrl, '_blank');
-            }, 500);
-        }
+        setupProductEvents();
+    }
 
-        // إزالة منتج من السلة
-        function removeFromCart(productId) {
-            cart = cart.filter(item => item.id !== productId);
-            localStorage.setItem('cart', JSON.stringify(cart));
-            updateCartCount();
-            updateCartModal();
+    // إعداد أحداث المنتجات
+    function setupProductEvents() {
+        const productCards = document.querySelectorAll('.product-card');
+        const cartButtons = document.querySelectorAll('.product-cart-btn');
+        const addToCartButtons = document.querySelectorAll('.add-to-cart-btn');
+        const enquireButtons = document.querySelectorAll('.enquire-btn');
+        const viewDetailsLinks = document.querySelectorAll('.product-details-link');
 
-            const product = products.find(p => p.id === productId);
-            if (product) {
-                showNotification(`"${product.title}" removed from cart`);
-            }
-        }
-
-        // تحديث كمية المنتج
-        function updateCartQuantity(productId, newQuantity) {
-            const item = cart.find(item => item.id === productId);
-            if (item) {
-                if (newQuantity < 1) {
-                    removeFromCart(productId);
-                } else {
-                    item.quantity = newQuantity;
-                    localStorage.setItem('cart', JSON.stringify(cart));
-                    updateCartCount();
-                    updateCartModal();
+        // النقر على الكارد بالكامل
+        productCards.forEach(card => {
+            card.addEventListener('click', function (e) {
+                if (e.target.closest('.product-cart-btn') || 
+                    e.target.closest('.add-to-cart-btn') || 
+                    e.target.closest('.enquire-btn') || 
+                    e.target.closest('.product-details-link')) {
+                    return;
                 }
+                const productId = parseInt(this.getAttribute('data-id'));
+                openProductModal(productId);
+            });
+        });
+
+        // أزرار إضافة للسلة السريعة في الصورة
+        cartButtons.forEach(button => {
+            button.addEventListener('click', function (e) {
+                e.stopPropagation();
+                const productId = parseInt(this.getAttribute('data-id'));
+                addToCart(productId);
+            });
+        });
+
+        // أزرار Add to Cart أسفل الكارد
+        addToCartButtons.forEach(button => {
+            button.addEventListener('click', function (e) {
+                e.stopPropagation();
+                const productId = parseInt(this.getAttribute('data-id'));
+                addToCart(productId);
+            });
+        });
+
+        // أزرار Enquire
+        enquireButtons.forEach(button => {
+            button.addEventListener('click', function (e) {
+                e.stopPropagation();
+                const productId = parseInt(this.getAttribute('data-id'));
+                const product = products.find(p => p.id === productId);
+                if (product) {
+                    showEnquiryModal(product);
+                }
+            });
+        });
+
+        // روابط View Details
+        viewDetailsLinks.forEach(link => {
+            link.addEventListener('click', function (e) {
+                e.preventDefault();
+                e.stopPropagation();
+                const productId = parseInt(this.getAttribute('data-id'));
+                openProductModal(productId);
+            });
+        });
+    }
+
+    // فتح نافذة المنتج
+    function openProductModal(productId) {
+        currentProduct = products.find(product => product.id === productId);
+        const t = translations[currentLang];
+
+        if (currentProduct) {
+            modalProductTitle.textContent = currentProduct.title;
+            modalProductPrice.textContent = `$${currentProduct.price.toFixed(2)}`;
+            modalProductDescription.textContent = currentProduct.description;
+            modalProductImage.src = currentProduct.image;
+            modalProductImage.alt = currentProduct.title;
+
+            // تحديث عنوان المميزات
+            const featuresTitle = document.querySelector('.modal-features h4');
+            if (featuresTitle) {
+                featuresTitle.textContent = t.featuresInclude;
             }
-        }
 
-        // تحديث عداد السلة
-        function updateCartCount() {
-            const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
-            cartCount.textContent = totalItems;
-            if (mobileCartCount) mobileCartCount.textContent = totalItems;
-        }
-
-        // تحديث نافذة السلة
-        function updateCartModal() {
-            cartItemsContainer.innerHTML = '';
-            let cartTotal = 0;
-
-            if (cart.length === 0) {
-                cartItemsContainer.innerHTML = `
-                    <div class="cart-empty">
-                        <span class="material-symbols-outlined cart-empty-icon">shopping_cart</span>
-                        <p>Your cart is empty</p>
-                        <p style="font-size: 0.875rem; margin-top: 0.5rem;">Add some products to get started</p>
-                    </div>
-                `;
-                cartTotalAmount.textContent = '$0.00';
-                return;
-            }
-
-            cart.forEach(item => {
-                cartTotal += item.price * item.quantity;
-
-                const cartItemDiv = document.createElement('div');
-                cartItemDiv.className = 'cart-item';
-
-                cartItemDiv.innerHTML = `
-                    <img src="${item.image}" alt="${item.title}" class="cart-item-image">
-                    <div class="cart-item-details">
-                        <div class="cart-item-title">${item.title}</div>
-                        <div class="cart-item-price">$${parseFloat(item.price).toFixed(2)}</div>
-                        <div class="cart-item-quantity">
-                            <button class="quantity-btn decrease-quantity" data-id="${item.id}">-</button>
-                            <input type="number" class="quantity-input" value="${item.quantity}" min="1" data-id="${item.id}">
-                            <button class="quantity-btn increase-quantity" data-id="${item.id}">+</button>
-                        </div>
-                    </div>
-                    <button class="remove-from-cart" data-id="${item.id}">
-                        <span class="material-symbols-outlined">delete</span>
-                    </button>
-                `;
-
-                cartItemsContainer.appendChild(cartItemDiv);
+            modalFeaturesList.innerHTML = '';
+            currentProduct.features.forEach(feature => {
+                const li = document.createElement('li');
+                li.innerHTML = `<span class="material-symbols-outlined">check</span> ${feature}`;
+                modalFeaturesList.appendChild(li);
             });
 
-            cartTotalAmount.textContent = `$${cartTotal.toFixed(2)}`;
-
-            const removeButtons = document.querySelectorAll('.remove-from-cart');
-            removeButtons.forEach(button => {
-                button.addEventListener('click', function () {
-                    const productId = parseInt(this.getAttribute('data-id'));
-                    removeFromCart(productId);
-                });
-            });
-
-            const decreaseButtons = document.querySelectorAll('.decrease-quantity');
-            decreaseButtons.forEach(button => {
-                button.addEventListener('click', function () {
-                    const productId = parseInt(this.getAttribute('data-id'));
-                    const item = cart.find(item => item.id === productId);
-                    if (item) {
-                        updateCartQuantity(productId, item.quantity - 1);
-                    }
-                });
-            });
-
-            const increaseButtons = document.querySelectorAll('.increase-quantity');
-            increaseButtons.forEach(button => {
-                button.addEventListener('click', function () {
-                    const productId = parseInt(this.getAttribute('data-id'));
-                    const item = cart.find(item => item.id === productId);
-                    if (item) {
-                        updateCartQuantity(productId, item.quantity + 1);
-                    }
-                });
-            });
-
-            const quantityInputs = document.querySelectorAll('.quantity-input');
-            quantityInputs.forEach(input => {
-                input.addEventListener('change', function () {
-                    const productId = parseInt(this.getAttribute('data-id'));
-                    const newQuantity = parseInt(this.value);
-                    if (!isNaN(newQuantity)) {
-                        updateCartQuantity(productId, newQuantity);
-                    }
-                });
-            });
-        }
-
-        // فتح نافذة السلة
-        function openCartModal() {
-            updateCartModal();
-            cartModal.style.display = 'flex';
+            modalAddCartBtn.setAttribute('data-id', currentProduct.id);
+            modalAddCartBtn.innerHTML = `<span class="material-symbols-outlined">shopping_cart</span> ${t.addToCart}`;
+            modalCloseBtn.textContent = t.close;
+            
+            productModal.style.display = 'flex';
             document.body.style.overflow = 'hidden';
         }
+    }
 
-        // إغلاق نافذة السلة
-        function closeCartModal() {
-            cartModal.style.display = 'none';
-            document.body.style.overflow = 'auto';
+    // إغلاق نافذة المنتج
+    function closeProductModal() {
+        productModal.style.display = 'none';
+        document.body.style.overflow = 'auto';
+        currentProduct = null;
+    }
+
+    // إضافة منتج إلى السلة
+    function addToCart(productId) {
+        const product = products.find(p => p.id === productId);
+        if (!product) return;
+
+        const existingItem = cart.find(item => item.id === productId);
+
+        if (existingItem) {
+            existingItem.quantity += 1;
+        } else {
+            cart.push({
+                id: product.id,
+                title: product.title,
+                price: product.price,
+                image: product.image,
+                quantity: 1
+            });
         }
 
-        // عرض الإشعار
-        function showNotification(message) {
-            notificationMessage.textContent = message;
-            notification.style.display = 'flex';
-            notification.classList.remove('hide');
+        localStorage.setItem('cart', JSON.stringify(cart));
+        updateCartCount();
+        
+        // إشعار باللغة الحالية
+        const t = translations[currentLang];
+        showNotification(`"${product.title}" ${t.addedToCart}`);
 
-            setTimeout(() => {
-                notification.classList.add('hide');
-                setTimeout(() => {
-                    notification.style.display = 'none';
-                }, 300);
-            }, 3000);
+        cartBtn.style.transform = 'scale(1.1)';
+        setTimeout(() => {
+            cartBtn.style.transform = 'scale(1)';
+        }, 200);
+    }
+
+    // عرض نافذة الاستفسار
+    function showEnquiryModal(product) {
+        const message = `Hi, I'm interested in "${product.title}" ($${product.price.toFixed(2)}). Could you provide more details?`;
+        const whatsappUrl = `https://wa.me/447470631885?text=${encodeURIComponent(message)}`;
+        
+        showNotification(`Opening WhatsApp to enquire about "${product.title}"`);
+        
+        // افتح WhatsApp في نافذة جديدة بعد تأخير قصير
+        setTimeout(() => {
+            window.open(whatsappUrl, '_blank');
+        }, 500);
+    }
+
+    // إزالة منتج من السلة
+    function removeFromCart(productId) {
+        cart = cart.filter(item => item.id !== productId);
+        localStorage.setItem('cart', JSON.stringify(cart));
+        updateCartCount();
+        updateCartModal();
+
+        const product = products.find(p => p.id === productId);
+        if (product) {
+            const t = translations[currentLang];
+            showNotification(`"${product.title}" ${t.removedFromCart}`);
         }
+    }
 
-        // تحديث حالة الدخول
-        function updateAuthStatus() {
-            const isLoggedIn = localStorage.getItem('currentUser') ? true : false;
-            const authButtonText = isLoggedIn ? 'Logout' : 'Login';
-            
-            if (authText) authText.textContent = authButtonText;
-            if (mobileAuthText) mobileAuthText.textContent = authButtonText;
-        }
-
-        // تبديل الدخول/الخروج
-        function toggleAuth() {
-            if (localStorage.getItem('currentUser')) {
-                localStorage.removeItem('currentUser');
-                showNotification('Logged out successfully');
-                setTimeout(() => location.reload(), 500);
+    // تحديث كمية المنتج
+    function updateCartQuantity(productId, newQuantity) {
+        const item = cart.find(item => item.id === productId);
+        if (item) {
+            if (newQuantity < 1) {
+                removeFromCart(productId);
             } else {
-                window.location.href = 'registar.html';
-            }
-        }
-
-        // تأثيرات الظهور عند التمرير
-        function initScrollAnimations() {
-            const productCards = document.querySelectorAll('.product-card');
-
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach((entry, index) => {
-                    if (entry.isIntersecting) {
-                        setTimeout(() => {
-                            entry.target.classList.add('visible');
-                        }, index * 100);
-                    }
-                });
-            }, {
-                threshold: 0.1,
-                rootMargin: '0px 0px -100px 0px'
-            });
-
-            productCards.forEach(card => {
-                observer.observe(card);
-            });
-        }
-
-        // إعداد جميع الأحداث
-        function setupEventListeners() {
-            // Mobile Menu
-            mobileMenuBtn.addEventListener('click', function () {
-                mobileMenu.classList.toggle('active');
-            });
-
-            // Close mobile menu when clicking outside
-            document.addEventListener('click', function (e) {
-                if (!e.target.closest('.mobile-menu') && !e.target.closest('#mobileMenuBtn') && mobileMenu.classList.contains('active')) {
-                    mobileMenu.classList.remove('active');
-                }
-            });
-
-            // Modal close events
-            closeModalBtn.addEventListener('click', closeProductModal);
-            modalCloseBtn.addEventListener('click', closeProductModal);
-
-            // Add to cart from modal
-            modalAddCartBtn.addEventListener('click', function () {
-                if (currentProduct) {
-                    addToCart(currentProduct.id);
-                    closeProductModal();
-                }
-            });
-
-            // Close modals when clicking outside
-            window.addEventListener('click', function (e) {
-                if (e.target === productModal) closeProductModal();
-                if (e.target === cartModal) closeCartModal();
-            });
-
-            // Cart buttons
-            cartBtn.addEventListener('click', openCartModal);
-            if (mobileCartBtn) {
-                mobileCartBtn.addEventListener('click', function () {
-                    openCartModal();
-                    mobileMenu.classList.remove('active');
-                });
-            }
-
-            // Close cart modal
-            closeCartModalBtn.addEventListener('click', closeCartModal);
-
-            // Checkout button
-            checkoutBtn.addEventListener('click', function () {
-                if (cart.length === 0) {
-                    showNotification('Your cart is empty');
-                    return;
-                }
-                showNotification('Proceeding to checkout...');
-                setTimeout(() => {
-                    showNotification('Checkout functionality coming soon!');
-                }, 1000);
-            });
-
-            // Clear cart button
-            clearCartBtn.addEventListener('click', function () {
-                if (cart.length === 0) {
-                    showNotification('Cart is already empty');
-                    return;
-                }
-                cart = [];
+                item.quantity = newQuantity;
                 localStorage.setItem('cart', JSON.stringify(cart));
                 updateCartCount();
                 updateCartModal();
-                showNotification('Cart cleared successfully');
-            });
+            }
+        }
+    }
 
-            // Hero shop button
-            heroShopBtn.addEventListener('click', function () {
-                productsGrid.scrollIntoView({
-                    behavior: 'smooth'
-                });
-                showNotification('Browsing our collection...');
-            });
+    // تحديث عداد السلة
+    function updateCartCount() {
+        const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+        cartCount.textContent = totalItems;
+        if (mobileCartCount) mobileCartCount.textContent = totalItems;
+    }
 
-            // Mobile menu links
-            document.querySelectorAll('.mobile-nav-link').forEach(link => {
-                if (link.getAttribute('href')) {
-                    link.addEventListener('click', function () {
-                        mobileMenu.classList.remove('active');
-                    });
+    // تحديث نافذة السلة
+    function updateCartModal() {
+        cartItemsContainer.innerHTML = '';
+        let cartTotal = 0;
+        const t = translations[currentLang];
+
+        if (cart.length === 0) {
+            cartItemsContainer.innerHTML = `
+                <div class="cart-empty">
+                    <span class="material-symbols-outlined cart-empty-icon">shopping_cart</span>
+                    <p>${t.cartEmpty}</p>
+                    <p style="font-size: 0.875rem; margin-top: 0.5rem;">${t.cartEmptySub}</p>
+                </div>
+            `;
+            cartTotalAmount.textContent = '$0.00';
+            
+            // تحديث عناوين السلة
+            if (document.querySelector('.cart-modal-title')) {
+                document.querySelector('.cart-modal-title').textContent = t.yourCart;
+            }
+            if (document.querySelector('.total-label')) {
+                document.querySelector('.total-label').textContent = t.total;
+            }
+            if (document.querySelector('.checkout-btn')) {
+                document.querySelector('.checkout-btn').innerHTML = `<span class="material-symbols-outlined">shopping_cart_checkout</span> ${t.proceedCheckout}`;
+            }
+            if (document.querySelector('.clear-cart-btn')) {
+                document.querySelector('.clear-cart-btn').textContent = t.clearCart;
+            }
+            
+            return;
+        }
+
+        cart.forEach(item => {
+            cartTotal += item.price * item.quantity;
+
+            const cartItemDiv = document.createElement('div');
+            cartItemDiv.className = 'cart-item';
+
+            cartItemDiv.innerHTML = `
+                <img src="${item.image}" alt="${item.title}" class="cart-item-image">
+                <div class="cart-item-details">
+                    <div class="cart-item-title">${item.title}</div>
+                    <div class="cart-item-price">$${parseFloat(item.price).toFixed(2)}</div>
+                    <div class="cart-item-quantity">
+                        <button class="quantity-btn decrease-quantity" data-id="${item.id}">-</button>
+                        <input type="number" class="quantity-input" value="${item.quantity}" min="1" data-id="${item.id}">
+                        <button class="quantity-btn increase-quantity" data-id="${item.id}">+</button>
+                    </div>
+                </div>
+                <button class="remove-from-cart" data-id="${item.id}">
+                    <span class="material-symbols-outlined">delete</span>
+                </button>
+            `;
+
+            cartItemsContainer.appendChild(cartItemDiv);
+        });
+
+        cartTotalAmount.textContent = `$${cartTotal.toFixed(2)}`;
+
+        // تحديث عناوين السلة
+        if (document.querySelector('.cart-modal-title')) {
+            document.querySelector('.cart-modal-title').textContent = t.yourCart;
+        }
+        if (document.querySelector('.total-label')) {
+            document.querySelector('.total-label').textContent = t.total;
+        }
+        if (document.querySelector('.checkout-btn')) {
+            document.querySelector('.checkout-btn').innerHTML = `<span class="material-symbols-outlined">shopping_cart_checkout</span> ${t.proceedCheckout}`;
+        }
+        if (document.querySelector('.clear-cart-btn')) {
+            document.querySelector('.clear-cart-btn').textContent = t.clearCart;
+        }
+
+        const removeButtons = document.querySelectorAll('.remove-from-cart');
+        removeButtons.forEach(button => {
+            button.addEventListener('click', function () {
+                const productId = parseInt(this.getAttribute('data-id'));
+                removeFromCart(productId);
+            });
+        });
+
+        const decreaseButtons = document.querySelectorAll('.decrease-quantity');
+        decreaseButtons.forEach(button => {
+            button.addEventListener('click', function () {
+                const productId = parseInt(this.getAttribute('data-id'));
+                const item = cart.find(item => item.id === productId);
+                if (item) {
+                    updateCartQuantity(productId, item.quantity - 1);
                 }
             });
+        });
+
+        const increaseButtons = document.querySelectorAll('.increase-quantity');
+        increaseButtons.forEach(button => {
+            button.addEventListener('click', function () {
+                const productId = parseInt(this.getAttribute('data-id'));
+                const item = cart.find(item => item.id === productId);
+                if (item) {
+                    updateCartQuantity(productId, item.quantity + 1);
+                }
+            });
+        });
+
+        const quantityInputs = document.querySelectorAll('.quantity-input');
+        quantityInputs.forEach(input => {
+            input.addEventListener('change', function () {
+                const productId = parseInt(this.getAttribute('data-id'));
+                const newQuantity = parseInt(this.value);
+                if (!isNaN(newQuantity)) {
+                    updateCartQuantity(productId, newQuantity);
+                }
+            });
+        });
+    }
+
+    // فتح نافذة السلة
+    function openCartModal() {
+        updateCartModal();
+        cartModal.style.display = 'flex';
+        document.body.style.overflow = 'hidden';
+    }
+
+    // إغلاق نافذة السلة
+    function closeCartModal() {
+        cartModal.style.display = 'none';
+        document.body.style.overflow = 'auto';
+    }
+
+    // عرض الإشعار
+    function showNotification(message) {
+        notificationMessage.textContent = message;
+        notification.style.display = 'flex';
+        notification.classList.remove('hide');
+
+        setTimeout(() => {
+            notification.classList.add('hide');
+            setTimeout(() => {
+                notification.style.display = 'none';
+            }, 300);
+        }, 3000);
+    }
+
+    // تحديث حالة الدخول
+    function updateAuthStatus() {
+        const isLoggedIn = localStorage.getItem('currentUser') ? true : false;
+        const t = translations[currentLang];
+        const authButtonText = isLoggedIn ? t.logout : t.login;
+        
+        if (authText) authText.textContent = authButtonText;
+        if (mobileAuthText) mobileAuthText.textContent = authButtonText;
+    }
+
+    // تبديل الدخول/الخروج
+    function toggleAuth() {
+        if (localStorage.getItem('currentUser')) {
+            localStorage.removeItem('currentUser');
+            const t = translations[currentLang];
+            showNotification(t.loggedOut);
+            setTimeout(() => location.reload(), 500);
+        } else {
+            window.location.href = 'registar.html';
         }
-    </script>
+    }
+
+    // تأثيرات الظهور عند التمرير
+    function initScrollAnimations() {
+        const productCards = document.querySelectorAll('.product-card');
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry, index) => {
+                if (entry.isIntersecting) {
+                    setTimeout(() => {
+                        entry.target.classList.add('visible');
+                    }, index * 100);
+                }
+            });
+        }, {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        });
+
+        productCards.forEach(card => {
+            observer.observe(card);
+        });
+    }
+
+    // إعداد جميع الأحداث
+    function setupEventListeners() {
+        // Mobile Menu
+        mobileMenuBtn.addEventListener('click', function () {
+            mobileMenu.classList.toggle('active');
+        });
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', function (e) {
+            if (!e.target.closest('.mobile-menu') && !e.target.closest('#mobileMenuBtn') && mobileMenu.classList.contains('active')) {
+                mobileMenu.classList.remove('active');
+            }
+        });
+
+        // Modal close events
+        closeModalBtn.addEventListener('click', closeProductModal);
+        modalCloseBtn.addEventListener('click', closeProductModal);
+
+        // Add to cart from modal
+        modalAddCartBtn.addEventListener('click', function () {
+            if (currentProduct) {
+                addToCart(currentProduct.id);
+                closeProductModal();
+            }
+        });
+
+        // Close modals when clicking outside
+        window.addEventListener('click', function (e) {
+            if (e.target === productModal) closeProductModal();
+            if (e.target === cartModal) closeCartModal();
+        });
+
+        // Cart buttons
+        cartBtn.addEventListener('click', openCartModal);
+        if (mobileCartBtn) {
+            mobileCartBtn.addEventListener('click', function () {
+                openCartModal();
+                mobileMenu.classList.remove('active');
+            });
+        }
+
+        // Close cart modal
+        closeCartModalBtn.addEventListener('click', closeCartModal);
+
+        // Checkout button
+        checkoutBtn.addEventListener('click', function () {
+            if (cart.length === 0) {
+                const t = translations[currentLang];
+                showNotification(t.cartEmpty);
+                return;
+            }
+            showNotification('Proceeding to checkout...');
+            setTimeout(() => {
+                const t = translations[currentLang];
+                showNotification(t.checkoutComing);
+            }, 1000);
+        });
+
+        // Clear cart button
+        clearCartBtn.addEventListener('click', function () {
+            if (cart.length === 0) {
+                const t = translations[currentLang];
+                showNotification(t.cartEmpty);
+                return;
+            }
+            cart = [];
+            localStorage.setItem('cart', JSON.stringify(cart));
+            updateCartCount();
+            updateCartModal();
+            const t = translations[currentLang];
+            showNotification(t.cartCleared);
+        });
+
+        // Hero shop button
+        heroShopBtn.addEventListener('click', function () {
+            productsGrid.scrollIntoView({
+                behavior: 'smooth'
+            });
+            const t = translations[currentLang];
+            showNotification(t.browsingCollection);
+        });
+
+        // Mobile menu links
+        document.querySelectorAll('.mobile-nav-link').forEach(link => {
+            if (link.getAttribute('href')) {
+                link.addEventListener('click', function () {
+                    mobileMenu.classList.remove('active');
+                });
+            }
+        });
+
+        // Language toggle
+        if (langToggle) {
+            langToggle.addEventListener('click', toggleLanguage);
+        }
+
+        // Mobile language toggle
+        if (mobileLangToggle) {
+            mobileLangToggle.addEventListener('click', function() {
+                toggleLanguage();
+                mobileMenu.classList.remove('active');
+            });
+        }
+    }
+</script>
 </body>
 </html>

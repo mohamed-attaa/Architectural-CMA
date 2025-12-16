@@ -1569,6 +1569,146 @@ footer {
     font-family: 'Roboto', sans-serif; /* خط للنصوص الصغيرة */
 }    
  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ /* ========== LANGUAGE TOGGLE STYLES ========== */
+.lang-btn {
+    background: #FFD600;
+    color: #000;
+    font-weight: 700;
+    border: none;
+    border-radius: 8px;
+    padding: 8px 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    min-width: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+}
+
+.lang-btn:hover {
+    background: #E6C100;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(255, 214, 0, 0.3);
+}
+
+.lang-btn.active {
+    background: #000;
+    color: #FFD600;
+    border: 2px solid #FFD600;
+}
+
+.lang-btn .material-symbols-outlined {
+    font-size: 18px;
+}
+
+/* Mobile language button */
+#mobileLangToggle {
+    text-align: left !important;
+    justify-content: flex-start !important;
+    cursor: pointer !important;
+}
+
+#mobileLangToggle:hover {
+    background-color: rgba(212, 175, 55, 0.15) !important;
+    color: #D4AF37 !important;
+    transform: translateX(5px) translateY(-2px) !important;
+}
+
+/* RTL Support for language toggle */
+body[dir="rtl"] .lang-btn {
+    margin-left: 0;
+    margin-right: 0.5rem;
+}
+
+/* Font for Arabic text */
+body[dir="rtl"] {
+    font-family: 'Inter', sans-serif;
+}
+
+body[dir="rtl"] .logo-text,
+body[dir="rtl"] .nav-link,
+body[dir="rtl"] .section-title,
+body[dir="rtl"] .section-text,
+body[dir="rtl"] .hero-title,
+body[dir="rtl"] .card-title,
+body[dir="rtl"] .card-text,
+body[dir="rtl"] .footer-logo-text,
+body[dir="rtl"] .footer-title,
+body[dir="rtl"] .footer-link,
+body[dir="rtl"] .faq-question,
+body[dir="rtl"] .faq-answer {
+    font-family: 'Inter', sans-serif;
+}
+
+body[dir="rtl"] .logo {
+    flex-direction: row-reverse;
+}
+
+body[dir="rtl"] .nav-links {
+    gap: 1.5rem;
+}
+
+body[dir="rtl"] .mobile-nav-link {
+    text-align: right;
+}
+
+body[dir="rtl"] .mobile-nav-link .material-symbols-outlined {
+    margin-right: 0;
+    margin-left: 10px;
+}
+
+body[dir="rtl"] .footer-grid {
+    direction: rtl;
+}
+
+body[dir="rtl"] .footer-column {
+    text-align: right;
+}
+
+body[dir="rtl"] .footer-links {
+    align-items: flex-end;
+}
+
+body[dir="rtl"] .footer-link {
+    direction: rtl;
+}
+
+body[dir="rtl"] .social-links {
+    direction: ltr;
+}
+
+body[dir="rtl"] .cards-container {
+    direction: rtl;
+}
+
+body[dir="rtl"] .faq-question {
+    text-align: right;
+    padding: 18px 25px 18px 50px;
+}
+
+body[dir="rtl"] .faq-question i {
+    order: -1;
+    margin-right: 0;
+    margin-left: 10px;
+}
 </style>
 </head>
 <body class="dark">
@@ -1646,6 +1786,17 @@ architecture diagram service,
                     <a class="nav-link" href="About.html" id="aboutLink">About Us</a>
                     <a class="nav-link" href="Contact.html" id="contactLink">Contact</a>
                     <!-- زر السلة الوحيد للديسكتوب -->
+<!-- زر السلة الوحيد للديسكتوب -->
+<!-- زر تبديل اللغة -->
+<button id="langToggle" class="lang-btn">
+    <span class="material-symbols-outlined">language</span>
+    <span id="langText">EN</span>
+</button>
+
+
+
+
+
                     <button class="nav-cart" id="cartBtn">
                         <span class="material-symbols-outlined">shopping_cart</span>
                         <span class="cart-badge" id="cartCount">0</span>
@@ -1694,6 +1845,15 @@ architecture diagram service,
             <span class="material-symbols-outlined" style="margin-right: 10px;">mail</span>
             Contact
         </a>
+<button class="mobile-nav-link" id="mobileLangToggle" style="cursor: pointer; text-align: left; background: none; border: none; width: 100%;">
+    <span class="material-symbols-outlined" style="margin-right: 10px;">language</span>
+    <span id="mobileLangText">English / عربي</span>
+</button>
+
+
+
+
+
         <!-- زر السلة للموبايل -->
         <button class="mobile-nav-link nav-cart" id="mobileCartBtn">
             <span class="material-symbols-outlined">shopping_cart</span>
@@ -2646,6 +2806,648 @@ initMobileMenuStyles();
 
 
 
+
+
+
+
+
+// ========== LANGUAGE TOGGLE FUNCTIONALITY ==========
+
+// تعريف المتغيرات والدوال بشكل صحيح
+let currentLang = localStorage.getItem('siteLanguage') || 'en';
+let langToggleBtn = null;
+let langText = null;
+
+// الترجمة الإنجليزية
+const englishTexts = {
+    // Navigation
+    home: "Home",
+    services: "Services",
+    shop: "Shop",
+    portfolio: "Portfolio",
+    about: "About Us",
+    contact: "Contact",
+    login: "Login",
+    logout: "Logout",
+    cart: "Cart",
+    
+    // Hero Section
+    ourServices: "Our Services",
+    heroDescription: "We offer a range of specialized architectural services to bring your vision to life, from initial concept to final execution. Professional quality with student-friendly pricing.",
+    exploreServices: "Explore Services",
+    contactUs: "Contact Us",
+    
+    // Stats
+    projectsCompleted: "Projects Completed",
+    fastDeliveryTime: "Fast Delivery Time",
+    clientSatisfaction: "Client Satisfaction",
+    
+    // Service Cards
+    renderingStorytelling: "Rendering & Storytelling",
+    renderingDescription: "Transform your architectural concepts into compelling visual narratives. We create photorealistic renders that tell the story of your design, perfect for presentations and portfolio enhancement.",
+    renderingFeature1: "Photorealistic quality renders",
+    renderingFeature2: "Visual storytelling & narratives",
+    renderingFeature3: "Multiple angle options",
+    renderingFeature4: "48h Delivery Label",
+    
+    modeling3D: "3D Modelling",
+    modelingDescription: "Professional 3D modeling services using industry-standard software like Revit, Rhino, and AutoCAD. We deliver clean, organized models with export-ready files for your architectural projects.",
+    modelingFeature1: "Revit, Rhino, AutoCAD",
+    modelingFeature2: "Clean layer organization",
+    modelingFeature3: "48h Delivery Label",
+    modelingFeature4: "Academic standard quality",
+    
+    fullProjectAssistance: "Full Project Assistance",
+    projectDescription: "End-to-end project support from initial concept through design development to final presentation. We provide comprehensive assistance including diagrams, narrative development, and presentation layouts.",
+    projectFeature1: "End-to-end project support",
+    projectFeature2: "Concept to completion",
+    projectFeature3: "Diagrams & narrative",
+    projectFeature4: "48h Delivery Label",
+    
+    tutoringCoaching: "Tutoring & Coaching",
+    tutoringDescription: "Personalized one-on-one tutoring and coaching sessions for architecture students and professionals. We help with portfolio reviews, interview preparation, and skill development in design software.",
+    tutoringFeature1: "Portfolio reviews & feedback",
+    tutoringFeature2: "Interview preparation",
+    tutoringFeature3: "Software skill-building",
+    tutoringFeature4: "48h Delivery Label",
+    
+    buildYourOwn: "Build‑Your‑Own Order",
+    buildDescription: "Customize your architectural service package with our intuitive shop interface. Select exactly what you need from our modular service offerings to create a personalized solution for your project.",
+    buildFeature1: "Modular service selection",
+    buildFeature2: "Customized package building",
+    buildFeature3: "Flexible pricing options",
+    buildFeature4: "48h Delivery Label",
+    
+    portfolioDesign: "Poster Design & Portfolio",
+    portfolioDescription: "Create a stunning professional portfolio that showcases your architectural work effectively. We design visually compelling portfolios tailored for job applications, university admissions, or client presentations.",
+    portfolioFeature1: "Custom portfolio layout design",
+    portfolioFeature2: "Content organization & sequencing",
+    portfolioFeature3: "Print-ready & digital formats",
+    portfolioFeature4: "48h Delivery Label",
+    
+    // Buttons
+    addToCart: "Add to Cart",
+    buildYourOrder: "Build Your Order",
+    enquire: "Enquire",
+    
+    // Testimonials
+    clientTestimonials: "CLIENT TESTIMONIALS",
+    voicesOfExcellence: "Voices of",
+    excellence: "Excellence",
+    testimonialDesc: "Real experiences from clients who achieved remarkable results through our premium architectural services.",
+    
+    testimonial1Name: "Ahmed Rashed",
+    testimonial1Role: "Architecture Student",
+    testimonial1University: "Cairo University",
+    testimonial1Text: "The team's exceptional attention to detail transformed my university project into a masterpiece. Their photorealistic renders and architectural insight resulted in top grades and professional recognition.",
+    finalGrade: "Final Grade",
+    deliveryTime: "Delivery Time",
+    satisfaction: "Satisfaction",
+    
+    testimonial2Name: "Sarah Al-Mansoori",
+    testimonial2Role: "Lead Architect",
+    testimonial2Location: "Dubai, UAE",
+    testimonial2Text: "Professional expertise that exceeded all expectations. Their Revit modeling for our luxury residential complex was flawless, leading to client acquisition and multiple follow-up projects.",
+    projects: "Projects",
+    squareMeters: "Square Meters",
+    
+    // Stats
+    projectsCount: "Projects",
+    avgRating: "Avg Rating",
+    avgDelivery: "Avg Delivery",
+    
+    // Footer
+    sitemap: "Sitemap",
+    contactUsFooter: "Contact Us",
+    address: "Address: 10 Downing Street, London, UK",
+    copyright: "© 2024 Architectural → CMA. All Rights Reserved.",
+    aboutText: "Crafting spaces that inspire. We are an award-winning architectural firm dedicated to innovative and sustainable design."
+};
+
+// الترجمة العربية
+const arabicTexts = {
+    // Navigation
+    home: "الرئيسية",
+    services: "الخدمات",
+    shop: "المتجر",
+    portfolio: "الأعمال",
+    about: "من نحن",
+    contact: "اتصل بنا",
+    login: "تسجيل الدخول",
+    logout: "تسجيل الخروج",
+    cart: "السلة",
+    
+    // Hero Section
+    ourServices: "خدماتنا",
+    heroDescription: "نقدم مجموعة من الخدمات المعمارية المتخصصة لتحويل رؤيتك إلى حقيقة، من المفهوم الأولي إلى التنفيذ النهائي. جودة احترافية بأسعار مناسبة للطلاب.",
+    exploreServices: "استكشف الخدمات",
+    contactUs: "اتصل بنا",
+    
+    // Stats
+    projectsCompleted: "المشاريع المكتملة",
+    fastDeliveryTime: "وقت التسليم السريع",
+    clientSatisfaction: "رضا العملاء",
+    
+    // Service Cards
+    renderingStorytelling: "التصيير وسرد القصص",
+    renderingDescription: "حول مفاهيمك المعمارية إلى سرد مرئي مقنع. ننشئ عروض فوتوغرافية تحكي قصة تصميمك، مثالية للعروض التقديمية وتحسين المحفظة.",
+    renderingFeature1: "عروض بجودة فوتوغرافية",
+    renderingFeature2: "سرد القصص المرئية",
+    renderingFeature3: "خيارات متعددة للزوايا",
+    renderingFeature4: "تسليم خلال 48 ساعة",
+    
+    modeling3D: "النمذجة ثلاثية الأبعاد",
+    modelingDescription: "خدمات النمذجة ثلاثية الأبعاد الاحترافية باستخدام برمجيات معيارية في الصناعة مثل ريفيت، رينو، وأوتوكاد. نقدم نماذج نظيفة ومنظمة مع ملفات جاهزة للتصدير لمشاريعك المعمارية.",
+    modelingFeature1: "ريفيت، رينو، أوتوكاد",
+    modelingFeature2: "تنظيم طبقات نظيف",
+    modelingFeature3: "تسليم خلال 48 ساعة",
+    modelingFeature4: "جودة قياسية أكاديمية",
+    
+    fullProjectAssistance: "مساعدة المشروع الكاملة",
+    projectDescription: "دعم المشروع من البداية إلى النهاية من المفهوم الأولي من خلال تطوير التصميم إلى العرض النهائي. نقدم مساعدة شاملة بما في ذلك المخططات، تطوير السرد، وتخطيطات العرض.",
+    projectFeature1: "دعم المشروع من البداية إلى النهاية",
+    projectFeature2: "من المفهوم إلى الإكمال",
+    projectFeature3: "المخططات والسرد",
+    projectFeature4: "تسليم خلال 48 ساعة",
+    
+    tutoringCoaching: "الدروس التعليمية والإرشاد",
+    tutoringDescription: "جلسات دروس وإرشاد شخصية فردية لطلاب الهندسة المعمارية والمحترفين. نساعد في مراجعة المحافظ، التحضير للمقابلات، وتطوير المهارات في برمجيات التصميم.",
+    tutoringFeature1: "مراجعات المحافظ والتعليقات",
+    tutoringFeature2: "التحضير للمقابلات",
+    tutoringFeature3: "بناء مهارات البرمجيات",
+    tutoringFeature4: "تسليم خلال 48 ساعة",
+    
+    buildYourOwn: "بناء طلبك الخاص",
+    buildDescription: "خصص حزمة الخدمات المعمارية الخاصة بك مع واجهة المتجر البديهية لدينا. اختر بالضبط ما تحتاجه من عروض الخدمات المعيارية الخاصة بنا لإنشاء حل مخصص لمشروعك.",
+    buildFeature1: "اختيار الخدمات المعيارية",
+    buildFeature2: "بناء الحزمة المخصصة",
+    buildFeature3: "خيارات الأسعار المرنة",
+    buildFeature4: "تسليم خلال 48 ساعة",
+    
+    portfolioDesign: "تصميم الملصق والمحفظة",
+    portfolioDescription: "أنشئ محفظة احترافية مذهلة تعرض عملك المعماري بشكل فعال. نصمم محافظًا مرئية مقنعة مصممة خصيصًا لطلبات الوظائف، قبول الجامعات، أو عروض العملاء.",
+    portfolioFeature1: "تصميم تخطيط المحفظة المخصص",
+    portfolioFeature2: "تنظيم المحتوى والتسلسل",
+    portfolioFeature3: "تنسيقات جاهزة للطباعة والرقمية",
+    portfolioFeature4: "تسليم خلال 48 ساعة",
+    
+    // Buttons
+    addToCart: "أضف إلى السلة",
+    buildYourOrder: "ابن طلبك",
+    enquire: "استفسر",
+    
+    // Testimonials
+    clientTestimonials: "شهادات العملاء",
+    voicesOfExcellence: "أصوات",
+    excellence: "التميز",
+    testimonialDesc: "تجارب حقيقية من عملاء حققوا نتائج ملحوظة من خلال خدماتنا المعمارية المتميزة.",
+    
+    testimonial1Name: "أحمد راشد",
+    testimonial1Role: "طالب هندسة معمارية",
+    testimonial1University: "جامعة القاهرة",
+    testimonial1Text: "حول الاهتمام الاستثنائي للفريق بمشروعي الجامعي إلى تحفة فنية. أدت عروضهم الفوتوغرافية ورؤيتهم المعمارية إلى الحصول على أعلى الدرجات والاعتراف المهني.",
+    finalGrade: "الدرجة النهائية",
+    deliveryTime: "وقت التسليم",
+    satisfaction: "الرضا",
+    
+    testimonial2Name: "سارة المنصوري",
+    testimonial2Role: "المهندسة المعمارية الرئيسية",
+    testimonial2Location: "دبي، الإمارات",
+    testimonial2Text: "خبرة احترافية تجاوزت كل التوقعات. كانت نمذجة ريفيت لمجمعنا السكني الفاخر لا تشوبها شائبة، مما أدى إلى اكتساب العملاء ومشاريع متابعة متعددة.",
+    projects: "المشاريع",
+    squareMeters: "المتر المربع",
+    
+    // Stats
+    projectsCount: "المشاريع",
+    avgRating: "متوسط التقييم",
+    avgDelivery: "متوسط التسليم",
+    
+    // Footer
+    sitemap: "خريطة الموقع",
+    contactUsFooter: "اتصل بنا",
+    address: "العنوان: 10 داونينج ستريت، لندن، المملكة المتحدة",
+    copyright: "© 2024 الهندسة المعمارية → CMA. جميع الحقوق محفوظة.",
+    aboutText: "صنع مساحات تلهم. نحن شركة هندسة معمارية حائزة على جوائز مكرسة للتصميم المبتكر والمستدام."
+};
+
+// وظيفة مساعدة لتحديث نص العنصر
+function updateElementText(selector, text, keepHTML = false) {
+    const element = document.querySelector(selector);
+    if (element) {
+        if (keepHTML) {
+            const icon = element.querySelector('.material-symbols-outlined');
+            if (icon) {
+                element.innerHTML = icon.outerHTML + ' ' + text;
+            } else {
+                element.textContent = text;
+            }
+        } else {
+            element.textContent = text;
+        }
+        return true;
+    }
+    return false;
+}
+
+// وظيفة مساعدة لتحديث نص داخل بطاقة
+function updateElementTextInCard(card, selector, text, keepHTML = false) {
+    try {
+        const element = card.querySelector(selector);
+        if (element) {
+            if (keepHTML) {
+                const icon = element.querySelector('.material-symbols-outlined');
+                if (icon) {
+                    element.innerHTML = icon.outerHTML + ' ' + text;
+                } else {
+                    element.textContent = text;
+                }
+            } else {
+                element.textContent = text;
+            }
+            return true;
+        }
+        return false;
+    } catch (error) {
+        console.error('Error updating element in card:', error);
+        return false;
+    }
+}
+
+// تحديث نصوص التنقل
+function updateNavigationTexts(texts) {
+    // روابط التنقل الرئيسية
+    updateElementText('#homeLink', texts.home);
+    updateElementText('#servicesLink', texts.services);
+    updateElementText('#shopLink', texts.shop);
+    updateElementText('#walletLink', texts.portfolio);
+    updateElementText('#aboutLink', texts.about);
+    updateElementText('#contactLink', texts.contact);
+    
+    // روابط التنقل الموبايل
+    updateElementText('#mobileHomeLink', texts.home);
+    updateElementText('#mobileServicesLink', texts.services);
+    updateElementText('#mobileShopLink', texts.shop);
+    updateElementText('#mobilePortfolioLink', texts.portfolio);
+    updateElementText('#mobileAboutLink', texts.about);
+    updateElementText('#mobileContactLink', texts.contact);
+    
+    // زر تسجيل الدخول
+    const authTextElement = document.getElementById('authText');
+    const mobileAuthTextElement = document.getElementById('mobileAuthText');
+    const isLoggedIn = localStorage.getItem('currentUser');
+    
+    if (authTextElement) {
+        authTextElement.textContent = isLoggedIn ? texts.logout : texts.login;
+    }
+    if (mobileAuthTextElement) {
+        mobileAuthTextElement.textContent = isLoggedIn ? texts.logout : texts.login;
+    }
+    
+    // زر السلة
+    updateElementText('#cartBtn', texts.cart, true);
+    updateElementText('#mobileCartBtn', texts.cart, true);
+}
+
+// تحديث نصوص الـ Hero
+function updateHeroTexts(texts) {
+    updateElementText('.page-title', texts.ourServices);
+    updateElementText('.page-description', texts.heroDescription);
+    updateElementText('#exploreServicesBtn', texts.exploreServices, true);
+    updateElementText('#contactUsBtn', texts.contactUs, true);
+    
+    // الإحصائيات
+    const statLabels = document.querySelectorAll('.stat-label');
+    if (statLabels[0]) statLabels[0].textContent = texts.projectsCompleted;
+    if (statLabels[1]) statLabels[1].textContent = texts.fastDeliveryTime;
+    if (statLabels[2]) statLabels[2].textContent = texts.clientSatisfaction;
+}
+
+// تحديث بطاقات الخدمات
+function updateServiceCardsTexts(texts) {
+    for (let i = 1; i <= 6; i++) {
+        const card = document.querySelector(`[data-service-id="${i}"]`);
+        if (!card) continue;
+        
+        switch(i) {
+            case 1:
+                updateElementTextInCard(card, '.service-title', texts.renderingStorytelling);
+                updateElementTextInCard(card, '.service-description', texts.renderingDescription);
+                updateElementTextInCard(card, '.service-features li:nth-child(1)', texts.renderingFeature1);
+                updateElementTextInCard(card, '.service-features li:nth-child(2)', texts.renderingFeature2);
+                updateElementTextInCard(card, '.service-features li:nth-child(3)', texts.renderingFeature3);
+                updateElementTextInCard(card, '.service-features li:nth-child(4)', texts.renderingFeature4);
+                updateElementTextInCard(card, '.add-to-cart-btn', texts.addToCart, true);
+                updateElementTextInCard(card, '.learn-more-btn', texts.enquire);
+                break;
+            case 2:
+                updateElementTextInCard(card, '.service-title', texts.modeling3D);
+                updateElementTextInCard(card, '.service-description', texts.modelingDescription);
+                updateElementTextInCard(card, '.service-features li:nth-child(1)', texts.modelingFeature1);
+                updateElementTextInCard(card, '.service-features li:nth-child(2)', texts.modelingFeature2);
+                updateElementTextInCard(card, '.service-features li:nth-child(3)', texts.modelingFeature3);
+                updateElementTextInCard(card, '.service-features li:nth-child(4)', texts.modelingFeature4);
+                updateElementTextInCard(card, '.add-to-cart-btn', texts.addToCart, true);
+                updateElementTextInCard(card, '.learn-more-btn', texts.enquire);
+                break;
+            case 3:
+                updateElementTextInCard(card, '.service-title', texts.fullProjectAssistance);
+                updateElementTextInCard(card, '.service-description', texts.projectDescription);
+                updateElementTextInCard(card, '.service-features li:nth-child(1)', texts.projectFeature1);
+                updateElementTextInCard(card, '.service-features li:nth-child(2)', texts.projectFeature2);
+                updateElementTextInCard(card, '.service-features li:nth-child(3)', texts.projectFeature3);
+                updateElementTextInCard(card, '.service-features li:nth-child(4)', texts.projectFeature4);
+                updateElementTextInCard(card, '.add-to-cart-btn', texts.addToCart, true);
+                updateElementTextInCard(card, '.learn-more-btn', texts.enquire);
+                break;
+            case 4:
+                updateElementTextInCard(card, '.service-title', texts.tutoringCoaching);
+                updateElementTextInCard(card, '.service-description', texts.tutoringDescription);
+                updateElementTextInCard(card, '.service-features li:nth-child(1)', texts.tutoringFeature1);
+                updateElementTextInCard(card, '.service-features li:nth-child(2)', texts.tutoringFeature2);
+                updateElementTextInCard(card, '.service-features li:nth-child(3)', texts.tutoringFeature3);
+                updateElementTextInCard(card, '.service-features li:nth-child(4)', texts.tutoringFeature4);
+                updateElementTextInCard(card, '.add-to-cart-btn', texts.addToCart, true);
+                updateElementTextInCard(card, '.learn-more-btn', texts.enquire);
+                break;
+            case 5:
+                updateElementTextInCard(card, '.service-title', texts.buildYourOwn);
+                updateElementTextInCard(card, '.service-description', texts.buildDescription);
+                updateElementTextInCard(card, '.service-features li:nth-child(1)', texts.buildFeature1);
+                updateElementTextInCard(card, '.service-features li:nth-child(2)', texts.buildFeature2);
+                updateElementTextInCard(card, '.service-features li:nth-child(3)', texts.buildFeature3);
+                updateElementTextInCard(card, '.service-features li:nth-child(4)', texts.buildFeature4);
+                updateElementTextInCard(card, '.add-to-cart-btn', texts.buildYourOrder, true);
+                updateElementTextInCard(card, '.learn-more-btn', texts.enquire);
+                break;
+            case 6:
+                updateElementTextInCard(card, '.service-title', texts.portfolioDesign);
+                updateElementTextInCard(card, '.service-description', texts.portfolioDescription);
+                updateElementTextInCard(card, '.service-features li:nth-child(1)', texts.portfolioFeature1);
+                updateElementTextInCard(card, '.service-features li:nth-child(2)', texts.portfolioFeature2);
+                updateElementTextInCard(card, '.service-features li:nth-child(3)', texts.portfolioFeature3);
+                updateElementTextInCard(card, '.service-features li:nth-child(4)', texts.portfolioFeature4);
+                updateElementTextInCard(card, '.add-to-cart-btn', texts.addToCart, true);
+                updateElementTextInCard(card, '.learn-more-btn', texts.enquire);
+                break;
+        }
+    }
+}
+
+// تحديث نصوص الشهادات
+function updateTestimonialsTexts(texts) {
+    // العثور على عناصر الشهادات بطريقة مباشرة
+    const testimonialCards = document.querySelectorAll('.testimonial-card');
+    
+    if (testimonialCards.length > 0) {
+        // البطاقة الأولى
+        const card1 = testimonialCards[0];
+        
+        // العنوان
+        const title1 = card1.querySelector('h2');
+        if (title1) title1.textContent = texts.voicesOfExcellence;
+        
+        // البحث عن اسم العميل الأول
+        const name1 = card1.querySelector('h3');
+        if (name1 && name1.textContent.includes('Ahmed') || name1.textContent.includes('أحمد')) {
+            name1.textContent = texts.testimonial1Name;
+        }
+        
+        // البحث عن النص
+        const text1 = card1.querySelector('p');
+        if (text1) text1.textContent = texts.testimonial1Text;
+        
+        // العناصر في grid
+        const statDivs1 = card1.querySelectorAll('.stat-label');
+        if (statDivs1.length >= 3) {
+            statDivs1[0].textContent = texts.finalGrade;
+            statDivs1[1].textContent = texts.deliveryTime;
+            statDivs1[2].textContent = texts.satisfaction;
+        }
+    }
+    
+    if (testimonialCards.length > 1) {
+        // البطاقة الثانية
+        const card2 = testimonialCards[1];
+        
+        // البحث عن اسم العميل الثاني
+        const name2 = card2.querySelector('h3');
+        if (name2 && (name2.textContent.includes('Sarah') || name2.textContent.includes('سارة'))) {
+            name2.textContent = texts.testimonial2Name;
+        }
+        
+        // البحث عن النص
+        const text2 = card2.querySelector('p');
+        if (text2) text2.textContent = texts.testimonial2Text;
+        
+        // العناصر في grid
+        const statDivs2 = card2.querySelectorAll('.stat-label');
+        if (statDivs2.length >= 3) {
+            statDivs2[0].textContent = texts.projects;
+            statDivs2[1].textContent = texts.squareMeters;
+            statDivs2[2].textContent = texts.satisfaction;
+        }
+    }
+    
+    // عناصر البادج والعنوان الرئيسي
+    const badge = document.querySelector('.testimonials-section .badge span');
+    if (badge) badge.textContent = texts.clientTestimonials;
+    
+    const title = document.querySelector('.testimonials-section h2');
+    if (title) {
+        title.innerHTML = `${texts.voicesOfExcellence} <span style="color: #D4AF37;">${texts.excellence}</span>`;
+    }
+    
+    const desc = document.querySelector('.testimonials-section p');
+    if (desc) desc.textContent = texts.testimonialDesc;
+}
+
+// تحديث نصوص الفوتر
+function updateFooterTexts(texts) {
+    // خريطة الموقع
+    updateElementText('.footer-column:nth-child(2) .footer-title', texts.sitemap);
+    
+    // اتصل بنا
+    updateElementText('.footer-column:nth-child(3) .footer-title', texts.contactUsFooter);
+    
+    const footerLinks = document.querySelectorAll('.footer-contact p');
+    if (footerLinks[0]) footerLinks[0].textContent = texts.address;
+    
+    const copyright = document.querySelector('.copyright');
+    if (copyright) copyright.textContent = texts.copyright;
+    
+    const aboutText = document.querySelector('.footer-about-text');
+    if (aboutText) aboutText.textContent = texts.aboutText;
+}
+
+// تطبيق الترجمة
+function applyLanguage(lang) {
+    const texts = lang === 'ar' ? arabicTexts : englishTexts;
+    
+    // تغيير اتجاه الصفحة
+    document.body.dir = lang === 'ar' ? 'rtl' : 'ltr';
+    
+    // تحديث النصوص
+    updateNavigationTexts(texts);
+    updateHeroTexts(texts);
+    updateServiceCardsTexts(texts);
+    updateTestimonialsTexts(texts);
+    updateFooterTexts(texts);
+    
+    // حفظ اللغة
+    localStorage.setItem('siteLanguage', lang);
+    currentLang = lang;
+}
+
+// تحديث أزرار اللغة
+function updateLangButtons() {
+    // زر الديسكتوب
+    if (langText) {
+        langText.textContent = currentLang === 'en' ? 'EN' : 'AR';
+        if (currentLang === 'ar') {
+            langToggleBtn?.classList.add('active');
+        } else {
+            langToggleBtn?.classList.remove('active');
+        }
+    }
+    
+    // زر الموبايل
+    const mobileLangText = document.getElementById('mobileLangText');
+    const mobileLangBtn = document.getElementById('mobileLangToggle');
+    
+    if (mobileLangText) {
+        mobileLangText.textContent = currentLang === 'en' ? 'EN' : 'AR';
+    }
+    
+    if (mobileLangBtn) {
+        if (currentLang === 'ar') {
+            mobileLangBtn.classList.add('active');
+        } else {
+            mobileLangBtn.classList.remove('active');
+        }
+    }
+}
+
+// تبديل اللغة
+function toggleLanguage() {
+    const newLang = currentLang === 'en' ? 'ar' : 'en';
+    applyLanguage(newLang);
+    updateLangButtons();
+    
+    // إظهار إشعار
+    showNotification(newLang === 'ar' ? 'تم التبديل إلى العربية' : 'Switched to English');
+}
+
+// دالة عرض الإشعارات
+function showNotification(message) {
+    // إنشاء عنصر الإشعار إذا لم يكن موجوداً
+    let notification = document.getElementById('customNotification');
+    if (!notification) {
+        notification = document.createElement('div');
+        notification.id = 'customNotification';
+        notification.style.cssText = `
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: rgba(212, 175, 55, 0.9);
+            color: #000;
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-family: 'Inter', sans-serif;
+            font-weight: 600;
+            z-index: 10000;
+            transform: translateX(150%);
+            transition: transform 0.3s ease;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+            max-width: 300px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(212, 175, 55, 0.3);
+        `;
+        document.body.appendChild(notification);
+    }
+    
+    notification.textContent = message;
+    
+    // إظهار الإشعار
+    setTimeout(() => {
+        notification.style.transform = 'translateX(0)';
+    }, 10);
+    
+    // إخفاء الإشعار بعد 3 ثوان
+    setTimeout(() => {
+        notification.style.transform = 'translateX(150%)';
+        setTimeout(() => {
+            notification.remove();
+        }, 300);
+    }, 3000);
+}
+
+// تهيئة الصفحة مع اللغة المناسبة
+function initializeLanguage() {
+    console.log('Initializing language...');
+    console.log('Current lang:', currentLang);
+    
+    // تهيئة المتغيرات
+    langToggleBtn = document.getElementById('langToggle');
+    langText = document.getElementById('langText');
+    
+    // تطبيق اللغة
+    applyLanguage(currentLang);
+    updateLangButtons();
+    
+    // إعداد حدث الزر
+    if (langToggleBtn) {
+        langToggleBtn.addEventListener('click', toggleLanguage);
+    }
+    
+    // إعداد حدث زر الموبايل
+    const mobileLangToggleBtn = document.getElementById('mobileLangToggle');
+    if (mobileLangToggleBtn) {
+        mobileLangToggleBtn.addEventListener('click', toggleLanguage);
+    }
+}
+
+// ========== MOBILE MENU FUNCTIONALITY ==========
+
+function initMobileMenu() {
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const mobileNav = document.getElementById('mobileNav');
+    
+    if (mobileMenuBtn && mobileNav) {
+        mobileMenuBtn.addEventListener('click', function() {
+            mobileNav.classList.toggle('active');
+        });
+    }
+    
+    // إغلاق القائمة عند النقر على رابط
+    document.querySelectorAll('.mobile-nav .nav-link').forEach(link => {
+        link.addEventListener('click', function() {
+            mobileNav.classList.remove('active');
+        });
+    });
+    
+    // تحديث زر السلة في الموبايل
+    const mobileCartBtn = document.getElementById('mobileCartBtn');
+    if (mobileCartBtn) {
+        mobileCartBtn.addEventListener('click', function() {
+            document.getElementById('cartModal').style.display = 'flex';
+            mobileNav.classList.remove('active');
+        });
+    }
+}
+
+// ========== INITIALIZATION ==========
+
+document.addEventListener('DOMContentLoaded', function() {
+    console.log('DOM fully loaded');
+    
+    // تهيئة النظام
+    initializeLanguage();
+    initMobileMenu();
+    
+    console.log('Language initialization complete');
+    console.log('Body direction:', document.body.dir);
+});
+// ========== END LANGUAGE TOGGLE FUNCTIONALITY ==========
     </script>
 </body>
 </html>

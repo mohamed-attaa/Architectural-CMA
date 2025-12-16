@@ -206,7 +206,7 @@ header {
 
 
 /* Mobile Menu */
-.mobile-cart-btn:hover {
+/* .mobile-cart-btn:hover {
     background-color: rgba(216, 195, 165, 0.2);
     transform: scale(1.1);
     color: var(--primary);
@@ -216,35 +216,25 @@ header {
 .mobile-menu-btn:hover {
     background-color: rgba(216, 195, 165, 0.2);
     transform: rotate(90deg);
-}
+} */
 
 /* Mobile Navigation */
+/* Mobile Navigation - إصلاح */
 .mobile-nav {
     display: none;
     position: fixed;
-    top: 80px;
+    top: 70px;
     left: 0;
     right: 0;
-    background-color: var(--background-dark);
-    border-top: 1px solid var(--border-dark);
-    padding: 30px;
+    background-color: #0A0A0A;
+    border-top: 1px solid rgba(212, 175, 55, 0.3);
+    padding: 20px;
     z-index: 999;
     flex-direction: column;
     gap: 15px;
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
-    animation: slideDown 0.3s ease-out;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
     backdrop-filter: blur(20px);
-}
-
-@keyframes slideDown {
-    from {
-        opacity: 0;
-        transform: translateY(-20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+    border-bottom: 1px solid rgba(212, 175, 55, 0.2);
 }
 
 .mobile-nav.active {
@@ -252,20 +242,109 @@ header {
 }
 
 .mobile-nav .nav-link {
-    padding: 18px 25px;
-    border-radius: 12px;
+    padding: 15px 20px;
+    border-radius: 10px;
     transition: all 0.3s ease;
-    background-color: rgba(216, 195, 165, 0.05);
-    border: 1px solid rgba(216, 195, 165, 0.1);
+    background-color: rgba(212, 175, 55, 0.05);
+    border: 1px solid rgba(212, 175, 55, 0.1);
     text-align: center;
     font-size: 16px;
     font-family: 'Open Sans', 'Roboto', sans-serif;
+    color: #FFFFFF;
+    text-decoration: none;
+    display: block;
 }
 
 .mobile-nav .nav-link:hover {
-    background-color: rgba(216, 195, 165, 0.15);
-    transform: translateX(10px);
-    border-color: var(--primary);
+    background-color: rgba(212, 175, 55, 0.15);
+    transform: translateX(5px);
+    border-color: #D4AF37;
+}
+
+.mobile-nav .nav-link.active {
+    background-color: rgba(212, 175, 55, 0.2);
+    border-color: #D4AF37;
+    color: #D4AF37;
+}
+
+/* زر السلة داخل القائمة المتنقلة */
+.mobile-nav .nav-cart {
+    width: 100%;
+    justify-content: center;
+    margin-bottom: 10px;
+    padding: 15px;
+    background-color: rgba(212, 175, 55, 0.1);
+    border: 1px solid rgba(212, 175, 55, 0.2);
+    border-radius: 10px;
+}
+
+.mobile-nav .nav-cart:hover {
+    background-color: rgba(212, 175, 55, 0.2);
+}
+
+/* زر الترجمة في الموبايل */
+.mobile-nav .lang-btn {
+    width: 100%;
+    justify-content: center;
+    margin-top: 10px;
+    padding: 15px;
+    background-color: rgba(212, 175, 55, 0.1);
+    border: 1px solid rgba(212, 175, 55, 0.2);
+    border-radius: 10px;
+    color: #D4AF37;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    font-family: 'Inter', sans-serif;
+}
+
+.mobile-nav .lang-btn:hover {
+    background-color: rgba(212, 175, 55, 0.2);
+}
+
+.mobile-nav .lang-btn .material-symbols-outlined {
+    font-size: 20px;
+}
+
+/* RTL Support */
+body[dir="rtl"] .logo {
+    flex-direction: row-reverse;
+}
+
+body[dir="rtl"] .nav-links {
+    gap: 1.5rem;
+}
+
+body[dir="rtl"] .footer-grid {
+    direction: rtl;
+}
+
+body[dir="rtl"] .footer-column {
+    text-align: right;
+}
+
+body[dir="rtl"] .footer-links {
+    align-items: flex-end;
+}
+
+body[dir="rtl"] .footer-link {
+    direction: rtl;
+}
+
+body[dir="rtl"] .mobile-nav .nav-link {
+    text-align: right;
+    padding-right: 30px;
+}
+
+body[dir="rtl"] .mobile-nav .nav-link:hover {
+    transform: translateX(-5px);
+}
+
+body[dir="rtl"] .mobile-nav .lang-btn {
+    direction: ltr;
 }
         /* CSS Variables */
         :root {
@@ -1609,6 +1688,40 @@ footer {
 
 
 
+
+
+
+.lang-btn {
+    background: #FFD600;
+    color: #000;
+    font-weight: 700;
+    border: none;
+    border-radius: 8px;
+    padding: 8px 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    min-width: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+}
+
+.lang-btn:hover {
+    background: #E6C100;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(255, 214, 0, 0.3);
+}
+
+.lang-btn.active {
+    background: #000;
+    color: #FFD600;
+    border: 2px solid #FFD600;
+}
+
+.lang-btn .material-symbols-outlined {
+    font-size: 18px;
+}
     </style>
 </head>
 
@@ -1681,6 +1794,16 @@ footer {
                     <a class="nav-link" href="About.html" id="aboutLink">About Us</a>
                     <a class="nav-link" href="Contact.html" id="contactLink">Contact</a>
                     <!-- زر السلة الوحيد للديسكتوب -->
+    
+<button id="langToggle" class="lang-btn">
+    <span class="material-symbols-outlined">language</span>
+    <span id="langText">EN</span>
+</button>
+
+
+
+
+
                     <button class="nav-cart" id="cartBtn">
                         <span class="material-symbols-outlined">shopping_cart</span>
                         <span class="cart-badge" id="cartCount">0</span>
@@ -1712,25 +1835,47 @@ footer {
                 <a class="mobile-nav-link" href="portofolio.html" id="mobileWalletLink">Portfolio</a>
                 <a class="mobile-nav-link" href="About.html" id="mobileAboutLink">About Us</a>
                 <a class="mobile-nav-link" href="Contact.html" id="mobileContactLink">Contact</a>
+                       <button class="mobile-nav-link" id="mobileLangToggle">
+                        <button id="langToggle" class="lang-btn">
+    <span class="material-symbols-outlined">language</span>
+    <span id="langText">EN</span>
+</button>
+   
             </div>
         </div>
 
     
    <!-- Mobile Menu -->
+<!-- Mobile Menu Container - إزالة القديم كله -->
+<!-- Mobile Navigation - الكود الصحيح -->
 <div class="mobile-nav" id="mobileNav">
-
     <!-- زر السلة للموبايل -->
     <button class="nav-cart" id="mobileCartBtn">
         <span class="material-symbols-outlined">shopping_cart</span>
-        <span class="cart-badge" id="cartCount">0</span>
+        <span class="cart-badge" id="mobileCartCount">0</span>
     </button>
 
-    <a class="nav-link" href="Home.html">Home</a>
-    <a class="nav-link active" href="Services.html">Services</a>
-    <a class="nav-link" href="Shop.html">Shop</a>
-    <a class="nav-link" href="portofolio.html">Portfolio</a>
-    <a class="nav-link" href="About.html">About Us</a>
-    <a class="nav-link" href="Contact.html">Contact</a>
+    <a class="nav-link" href="Home.html" id="mobileHomeLink">Home</a>
+    <a class="nav-link active" href="Services.html" id="mobileServicesLink">Services</a>
+    <a class="nav-link" href="Shop.html" id="mobileShopLink">Shop</a>
+    <a class="nav-link" href="portofolio.html" id="mobilePortfolioLink">Portfolio</a>
+    <a class="nav-link" href="About.html" id="mobileAboutLink">About Us</a>
+    <a class="nav-link" href="Contact.html" id="mobileContactLink">Contact</a>
+
+    <!-- زر الترجمة للموبايل -->
+    <button id="mobileLangToggle" class="lang-btn">
+        <span class="material-symbols-outlined">language</span>
+        <span id="mobileLangText">EN</span>
+    </button>
+    
+    <!-- زر تسجيل الدخول للموبايل -->
+    <a class="nav-link" onclick="toggleAuth()" id="mobileAuthLink">
+        <span id="mobileAuthText">
+            <script>
+                document.write(localStorage.getItem('currentUser') ? 'Logout' : 'Login');
+            </script>
+        </span>
+    </a>
 </div>
 
    
@@ -1946,6 +2091,701 @@ footer {
 
   <script src="./js/portofolio.js"></script>
  
+  <script>
+    // ========== LANGUAGE TOGGLE FUNCTIONALITY ==========
+
+// تعريف المتغيرات والدوال بشكل صحيح
+let currentLang = localStorage.getItem('siteLanguage') || 'en';
+
+// الترجمة الإنجليزية
+const englishTexts = {
+    // Navigation
+    home: "Home",
+    services: "Services",
+    shop: "Shop",
+    portfolio: "Portfolio",
+    about: "About Us",
+    contact: "Contact",
+    login: "Login",
+    logout: "Logout",
+    cart: "Cart",
+    
+    // Hero Section
+    heroTitle: "Architectural Excellence",
+    heroSubtitle: "Crafting timeless spaces that inspire, innovate, and elevate the human experience through visionary design and technical mastery.",
+    explorePortfolio: "Explore Our Portfolio",
+    
+    // Page Heading
+    selectedWorks: "Selected Works",
+    portfolioDescription: "A collection of our selected works, showcasing our design philosophy and technical precision. Each project represents our commitment to excellence and innovation in architectural design.",
+    
+    // Project Cards
+    project1Title: "The Hillside Residence",
+    project1Category: "Built Project",
+    
+    project2Title: "Urban Renewal Concept",
+    project2Category: "Photorealistic Render",
+    
+    project3Title: "Lakeside Pavilion",
+    project3Category: "CGI",
+    
+    project4Title: "Commercial Tower Study",
+    project4Category: "Hand-drawn",
+    
+    project5Title: "Residential Complex",
+    project5Category: "AutoCAD Drawing",
+    
+    project6Title: "3D Printed Cityscape",
+    project6Category: "Scale Model Photography",
+    
+    // Modal Buttons
+    viewDetails: "View Details",
+    addToCart: "Add to Cart",
+    close: "Close",
+    
+    // Modal Content
+    builtProject: "Built Project",
+    photorealisticRender: "Photorealistic Render",
+    cgi: "CGI",
+    handDrawn: "Hand-drawn",
+    autocadDrawing: "AutoCAD Drawing",
+    scaleModel: "Scale Model Photography",
+    
+    // Footer
+    sitemap: "Sitemap",
+    contactUsFooter: "Contact Us",
+    address: "Address: 10 Downing Street, London, UK",
+    copyright: "© 2024 Architectural → CMA. All Rights Reserved.",
+    aboutText: "Crafting spaces that inspire. We are an award-winning architectural firm dedicated to innovative and sustainable design."
+};
+
+// الترجمة العربية
+const arabicTexts = {
+    // Navigation
+    home: "الرئيسية",
+    services: "الخدمات",
+    shop: "المتجر",
+    portfolio: "الأعمال",
+    about: "من نحن",
+    contact: "اتصل بنا",
+    login: "تسجيل الدخول",
+    logout: "تسجيل الخروج",
+    cart: "السلة",
+    
+    // Hero Section
+    heroTitle: "التميز المعماري",
+    heroSubtitle: "صنع مساحات خالدة تلهم وتبتكر وترتقي بالتجربة الإنسانية من خلال التصميم الرؤيوي والإتقان التقني.",
+    explorePortfolio: "استكشف أعمالنا",
+    
+    // Page Heading
+    selectedWorks: "الأعمال المختارة",
+    portfolioDescription: "مجموعة من أعمالنا المختارة، تعرض فلسفة التصميم والدقة التقنية لدينا. كل مشروع يمثل التزامنا بالتميز والابتكار في التصميم المعماري.",
+    
+    // Project Cards
+    project1Title: "منزل التل",
+    project1Category: "مشروع منفذ",
+    
+    project2Title: "مفهوم التجديد الحضري",
+    project2Category: "عرض فوتوغرافي",
+    
+    project3Title: "جناح البحيرة",
+    project3Category: "رسومات حاسوبية",
+    
+    project4Title: "دراسة البرج التجاري",
+    project4Category: "مرسوم يدوياً",
+    
+    project5Title: "مجمع سكني",
+    project5Category: "رسم أوتوكاد",
+    
+    project6Title: "منظر المدينة ثلاثي الأبعاد",
+    project6Category: "تصوير نموذج مصغر",
+    
+    // Modal Buttons
+    viewDetails: "عرض التفاصيل",
+    addToCart: "أضف إلى السلة",
+    close: "إغلاق",
+    
+    // Modal Content
+    builtProject: "مشروع منفذ",
+    photorealisticRender: "عرض فوتوغرافي",
+    cgi: "رسومات حاسوبية",
+    handDrawn: "مرسوم يدوياً",
+    autocadDrawing: "رسم أوتوكاد",
+    scaleModel: "تصوير نموذج مصغر",
+    
+    // Footer
+    sitemap: "خريطة الموقع",
+    contactUsFooter: "اتصل بنا",
+    address: "العنوان: 10 داونينج ستريت، لندن، المملكة المتحدة",
+    copyright: "© 2024 الهندسة المعمارية → CMA. جميع الحقوق محفوظة.",
+    aboutText: "صنع مساحات تلهم. نحن شركة هندسة معمارية حائزة على جوائز مكرسة للتصميم المبتكر والمستدام."
+};
+
+// وظيفة مساعدة لتحديث نص العنصر
+function updateElementText(selector, text, keepHTML = false) {
+    const element = document.querySelector(selector);
+    if (element) {
+        if (keepHTML) {
+            const icon = element.querySelector('.material-symbols-outlined');
+            if (icon) {
+                element.innerHTML = icon.outerHTML + ' ' + text;
+            } else {
+                element.textContent = text;
+            }
+        } else {
+            element.textContent = text;
+        }
+        return true;
+    }
+    return false;
+}
+
+// تحديث نصوص التنقل
+function updateNavigationTexts(texts) {
+    // روابط التنقل الرئيسية (الديسكتوب)
+    updateElementText('#homeLink', texts.home);
+    updateElementText('#servicesLink', texts.services);
+    updateElementText('#shopLink', texts.shop);
+    updateElementText('#walletLink', texts.portfolio);
+    updateElementText('#aboutLink', texts.about);
+    updateElementText('#contactLink', texts.contact);
+    
+    // روابط التنقل الموبايل
+    updateElementText('#mobileHomeLink', texts.home);
+    updateElementText('#mobileServicesLink', texts.services);
+    updateElementText('#mobileShopLink', texts.shop);
+    updateElementText('#mobilePortfolioLink', texts.portfolio);
+    updateElementText('#mobileAboutLink', texts.about);
+    updateElementText('#mobileContactLink', texts.contact);
+    
+    // زر تسجيل الدخول
+    const authTextElement = document.getElementById('authText');
+    const mobileAuthTextElement = document.getElementById('mobileAuthText');
+    const isLoggedIn = localStorage.getItem('currentUser');
+    
+    if (authTextElement) {
+        authTextElement.textContent = isLoggedIn ? texts.logout : texts.login;
+    }
+    if (mobileAuthTextElement) {
+        mobileAuthTextElement.textContent = isLoggedIn ? texts.logout : texts.login;
+    }
+    
+    // زر السلة
+    updateElementText('#cartBtn', texts.cart, true);
+    updateElementText('#mobileCartBtn', texts.cart, true);
+}
+
+// تحديث نصوص الـ Hero
+function updateHeroTexts(texts) {
+    updateElementText('.hero-title', texts.heroTitle);
+    updateElementText('.hero-subtitle', texts.heroSubtitle);
+    updateElementText('.hero-cta span', texts.explorePortfolio);
+}
+
+// تحديث نصوص الصفحة الرئيسية
+function updatePageTexts(texts) {
+    updateElementText('.page-title', texts.selectedWorks);
+    updateElementText('.page-description', texts.portfolioDescription);
+}
+
+// تحديث بطاقات المشاريع
+function updateProjectCardsTexts(texts) {
+    // المشروع 1
+    const card1 = document.querySelector('[data-project-id="1"]');
+    if (card1) {
+        updateElementTextInCard(card1, '.overlay-title', texts.project1Title);
+        updateElementTextInCard(card1, '.portfolio-title', texts.project1Title);
+        updateElementTextInCard(card1, '.portfolio-category', texts.project1Category);
+        updateElementTextInCard(card1, '.view-project-btn', texts.viewDetails);
+    }
+    
+    // المشروع 2
+    const card2 = document.querySelector('[data-project-id="2"]');
+    if (card2) {
+        updateElementTextInCard(card2, '.overlay-title', texts.project2Title);
+        updateElementTextInCard(card2, '.portfolio-title', texts.project2Title);
+        updateElementTextInCard(card2, '.portfolio-category', texts.project2Category);
+        updateElementTextInCard(card2, '.view-project-btn', texts.viewDetails);
+    }
+    
+    // المشروع 3
+    const card3 = document.querySelector('[data-project-id="3"]');
+    if (card3) {
+        updateElementTextInCard(card3, '.overlay-title', texts.project3Title);
+        updateElementTextInCard(card3, '.portfolio-title', texts.project3Title);
+        updateElementTextInCard(card3, '.portfolio-category', texts.project3Category);
+        updateElementTextInCard(card3, '.view-project-btn', texts.viewDetails);
+    }
+    
+    // المشروع 4
+    const card4 = document.querySelector('[data-project-id="4"]');
+    if (card4) {
+        updateElementTextInCard(card4, '.overlay-title', texts.project4Title);
+        updateElementTextInCard(card4, '.portfolio-title', texts.project4Title);
+        updateElementTextInCard(card4, '.portfolio-category', texts.project4Category);
+        updateElementTextInCard(card4, '.view-project-btn', texts.viewDetails);
+    }
+    
+    // المشروع 5
+    const card5 = document.querySelector('[data-project-id="5"]');
+    if (card5) {
+        updateElementTextInCard(card5, '.overlay-title', texts.project5Title);
+        updateElementTextInCard(card5, '.portfolio-title', texts.project5Title);
+        updateElementTextInCard(card5, '.portfolio-category', texts.project5Category);
+        updateElementTextInCard(card5, '.view-project-btn', texts.viewDetails);
+    }
+    
+    // المشروع 6
+    const card6 = document.querySelector('[data-project-id="6"]');
+    if (card6) {
+        updateElementTextInCard(card6, '.overlay-title', texts.project6Title);
+        updateElementTextInCard(card6, '.portfolio-title', texts.project6Title);
+        updateElementTextInCard(card6, '.portfolio-category', texts.project6Category);
+        updateElementTextInCard(card6, '.view-project-btn', texts.viewDetails);
+    }
+}
+
+// تحديث نصوص المودال
+function updateModalTexts(texts) {
+    updateElementText('#modalAddCartBtn', texts.addToCart, true);
+    updateElementText('#modalCloseBtn', texts.close);
+}
+
+// تحديث نصوص الفوتر
+function updateFooterTexts(texts) {
+    // خريطة الموقع
+    updateElementText('.footer-column:nth-child(2) .footer-title', texts.sitemap);
+    
+    // اتصل بنا
+    updateElementText('.footer-column:nth-child(3) .footer-title', texts.contactUsFooter);
+    
+    const footerLinks = document.querySelectorAll('.footer-contact p');
+    if (footerLinks[0]) footerLinks[0].textContent = texts.address;
+    
+    const copyright = document.querySelector('.copyright');
+    if (copyright) copyright.textContent = texts.copyright;
+    
+    const aboutText = document.querySelector('.footer-about-text');
+    if (aboutText) aboutText.textContent = texts.aboutText;
+}
+
+// وظيفة مساعدة لتحديث نص داخل بطاقة
+function updateElementTextInCard(card, selector, text, keepHTML = false) {
+    try {
+        const element = card.querySelector(selector);
+        if (element) {
+            if (keepHTML) {
+                const icon = element.querySelector('.material-symbols-outlined');
+                if (icon) {
+                    element.innerHTML = icon.outerHTML + ' ' + text;
+                } else {
+                    element.textContent = text;
+                }
+            } else {
+                element.textContent = text;
+            }
+            return true;
+        }
+        return false;
+    } catch (error) {
+        console.error('Error updating element in card:', error);
+        return false;
+    }
+}
+
+// تطبيق الترجمة
+function applyLanguage(lang) {
+    const texts = lang === 'ar' ? arabicTexts : englishTexts;
+    
+    // تغيير اتجاه الصفحة
+    document.body.dir = lang === 'ar' ? 'rtl' : 'ltr';
+    
+    // تحديث النصوص
+    updateNavigationTexts(texts);
+    updateHeroTexts(texts);
+    updatePageTexts(texts);
+    updateProjectCardsTexts(texts);
+    updateModalTexts(texts);
+    updateFooterTexts(texts);
+    
+    // حفظ اللغة
+    localStorage.setItem('siteLanguage', lang);
+    currentLang = lang;
+}
+
+// تحديث أزرار اللغة
+function updateLangButtons() {
+    // زر الديسكتوب
+    const langText = document.getElementById('langText');
+    const langToggleBtn = document.getElementById('langToggle');
+    
+    if (langText) {
+        langText.textContent = currentLang === 'en' ? 'EN' : 'AR';
+        if (currentLang === 'ar') {
+            langToggleBtn?.classList.add('active');
+        } else {
+            langToggleBtn?.classList.remove('active');
+        }
+    }
+    
+    // زر الموبايل
+    const mobileLangText = document.getElementById('mobileLangText');
+    const mobileLangBtn = document.getElementById('mobileLangToggle');
+    
+    if (mobileLangText) {
+        mobileLangText.textContent = currentLang === 'en' ? 'EN' : 'AR';
+    }
+    
+    if (mobileLangBtn) {
+        if (currentLang === 'ar') {
+            mobileLangBtn.classList.add('active');
+        } else {
+            mobileLangBtn.classList.remove('active');
+        }
+    }
+}
+
+// تبديل اللغة
+function toggleLanguage() {
+    const newLang = currentLang === 'en' ? 'ar' : 'en';
+    applyLanguage(newLang);
+    updateLangButtons();
+    
+    // إظهار إشعار
+    showNotification(newLang === 'ar' ? 'تم التبديل إلى العربية' : 'Switched to English');
+}
+
+// ========== MOBILE MENU FUNCTIONALITY ==========
+
+function initMobileMenu() {
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const mobileNav = document.getElementById('mobileNav');
+    
+    if (mobileMenuBtn && mobileNav) {
+        mobileMenuBtn.addEventListener('click', function() {
+            mobileNav.classList.toggle('active');
+            this.classList.toggle('active');
+        });
+    }
+    
+    // إغلاق القائمة عند النقر على رابط
+    document.querySelectorAll('.mobile-nav .nav-link').forEach(link => {
+        link.addEventListener('click', function() {
+            mobileNav.classList.remove('active');
+            mobileMenuBtn.classList.remove('active');
+        });
+    });
+    
+    // تحديث زر السلة في الموبايل
+    const mobileCartBtn = document.getElementById('mobileCartBtn');
+    if (mobileCartBtn) {
+        mobileCartBtn.addEventListener('click', function() {
+            document.getElementById('cartModal').style.display = 'flex';
+            mobileNav.classList.remove('active');
+            mobileMenuBtn.classList.remove('active');
+        });
+    }
+    
+    // إغلاق القائمة عند النقر خارجها
+    document.addEventListener('click', function(event) {
+        const mobileNav = document.getElementById('mobileNav');
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        
+        if (mobileNav && mobileNav.classList.contains('active')) {
+            if (!mobileNav.contains(event.target) && !mobileMenuBtn.contains(event.target)) {
+                mobileNav.classList.remove('active');
+                mobileMenuBtn.classList.remove('active');
+            }
+        }
+    });
+}
+
+// ========== NOTIFICATION FUNCTION ==========
+
+function showNotification(message) {
+    // إنشاء عنصر الإشعار إذا لم يكن موجوداً
+    let notification = document.getElementById('customNotification');
+    if (!notification) {
+        notification = document.createElement('div');
+        notification.id = 'customNotification';
+        notification.style.cssText = `
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: rgba(212, 175, 55, 0.9);
+            color: #000;
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-family: 'Inter', sans-serif;
+            font-weight: 600;
+            z-index: 10000;
+            transform: translateX(150%);
+            transition: transform 0.3s ease;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+            max-width: 300px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(212, 175, 55, 0.3);
+        `;
+        document.body.appendChild(notification);
+    }
+    
+    notification.textContent = message;
+    
+    // إظهار الإشعار
+    setTimeout(() => {
+        notification.style.transform = 'translateX(0)';
+    }, 10);
+    
+    // إخفاء الإشعار بعد 3 ثوان
+    setTimeout(() => {
+        notification.style.transform = 'translateX(150%)';
+        setTimeout(() => {
+            notification.remove();
+        }, 300);
+    }, 3000);
+}
+
+// ========== SCROLL TO PORTFOLIO ==========
+
+function scrollToPortfolio() {
+    const portfolioSection = document.getElementById('portfolio');
+    if (portfolioSection) {
+        portfolioSection.scrollIntoView({ behavior: 'smooth' });
+    }
+}
+
+// ========== CART FUNCTIONALITY ==========
+
+function updateCartCount() {
+    const cart = JSON.parse(localStorage.getItem('portfolioCart')) || [];
+    const totalItems = cart.reduce((total, item) => total + item.quantity, 0);
+    
+    // تحديث العداد في الديسكتوب
+    const cartCountElements = document.querySelectorAll('.cart-badge');
+    cartCountElements.forEach(element => {
+        element.textContent = totalItems;
+        element.style.display = totalItems > 0 ? 'flex' : 'none';
+    });
+}
+
+// ========== INITIALIZATION ==========
+
+function initializeLanguage() {
+    console.log('Initializing language...');
+    console.log('Current lang:', currentLang);
+    
+    // تطبيق اللغة
+    applyLanguage(currentLang);
+    updateLangButtons();
+    
+    // إعداد حدث الزر للديسكتوب
+    const langToggleBtn = document.getElementById('langToggle');
+    if (langToggleBtn) {
+        langToggleBtn.addEventListener('click', toggleLanguage);
+    }
+    
+    // إعداد حدث زر الموبايل
+    const mobileLangToggleBtn = document.getElementById('mobileLangToggle');
+    if (mobileLangToggleBtn) {
+        mobileLangToggleBtn.addEventListener('click', toggleLanguage);
+    }
+}
+
+// ========== PORTFOLIO MODAL FUNCTIONALITY ==========
+
+// بيانات المشاريع
+const projects = {
+    1: {
+        title: "The Hillside Residence",
+        type: "Built Project",
+        price: "$899.00",
+        description: "A stunning contemporary residence seamlessly integrated into its hillside environment. Featuring panoramic views, sustainable materials, and innovative passive design strategies.",
+        features: [
+            "Sustainable materials & construction",
+            "Panoramic mountain views",
+            "Passive solar design",
+            "Smart home integration",
+            "Indoor-outdoor living spaces",
+            "Custom interior finishes"
+        ]
+    },
+    2: {
+        title: "Urban Renewal Concept",
+        type: "Photorealistic Render",
+        price: "$299.00",
+        description: "Visionary concept for urban revitalization, transforming neglected spaces into vibrant community hubs through innovative architectural interventions.",
+        features: [
+            "Photorealistic quality",
+            "Multiple lighting scenarios",
+            "Material studies & options",
+            "Context integration",
+            "Human scale elements",
+            "Presentation-ready format"
+        ]
+    },
+    3: {
+        title: "Lakeside Pavilion",
+        type: "CGI",
+        price: "$499.00",
+        description: "Digital visualization of a serene lakeside pavilion, showcasing the interplay of light, water, and architecture in a tranquil natural setting.",
+        features: [
+            "High-resolution CGI",
+            "Realistic water reflections",
+            "Dynamic lighting simulation",
+            "Material texture studies",
+            "360-degree views",
+            "Animation capability"
+        ]
+    },
+    4: {
+        title: "Commercial Tower Study",
+        type: "Hand-drawn",
+        price: "$199.00",
+        description: "Traditional architectural study exploring form, proportion, and detail through the art of hand drawing and technical illustration.",
+        features: [
+            "Hand-drawn perspectives",
+            "Technical details",
+            "Material annotations",
+            "Scale studies",
+            "Presentation sketches",
+            "Concept development"
+        ]
+    },
+    5: {
+        title: "Residential Complex",
+        type: "AutoCAD Drawing",
+        price: "$399.00",
+        description: "Comprehensive architectural documentation for a mixed-use residential complex, featuring detailed plans, sections, and construction details.",
+        features: [
+            "Complete drawing set",
+            "Layer organization",
+            "Construction details",
+            "Material schedules",
+            "Export-ready files",
+            "Professional standards"
+        ]
+    },
+    6: {
+        title: "3D Printed Cityscape",
+        type: "Scale Model Photography",
+        price: "$599.00",
+        description: "Photographic documentation of a detailed scale model created through advanced 3D printing technologies and traditional model-making techniques.",
+        features: [
+            "Professional photography",
+            "Multiple angles",
+            "Lighting studies",
+            "Context presentation",
+            "Digital retouching",
+            "Print-ready images"
+        ]
+    }
+};
+
+function openProjectModal(projectId) {
+    const project = projects[projectId];
+    if (!project) return;
+    
+    // تحديث محتوى المودال
+    document.getElementById('modalProjectTitle').textContent = project.title;
+    document.getElementById('modalProjectType').textContent = project.type;
+    document.getElementById('modalProjectPrice').textContent = project.price;
+    document.getElementById('modalProjectDescription').textContent = project.description;
+    
+    // تحديث الصورة
+    const imageElement = document.getElementById('modalProjectImage');
+    const card = document.querySelector(`[data-project-id="${projectId}"]`);
+    if (card) {
+        const cardImage = card.querySelector('.portfolio-image');
+        if (cardImage) {
+            imageElement.src = cardImage.src;
+            imageElement.alt = cardImage.alt;
+        }
+    }
+    
+    // تحديث القائمة
+    const featuresList = document.getElementById('modalFeaturesList');
+    featuresList.innerHTML = '';
+    project.features.forEach(feature => {
+        const li = document.createElement('li');
+        li.textContent = feature;
+        featuresList.appendChild(li);
+    });
+    
+    // تحديث زر الإضافة للسلة
+    const addToCartBtn = document.getElementById('modalAddCartBtn');
+    addToCartBtn.onclick = function() {
+        addToCart(projectId, project.title, project.price, imageElement.src);
+    };
+    
+    // إظهار المودال
+    document.getElementById('projectModal').style.display = 'flex';
+}
+
+function addToCart(projectId, title, price, image) {
+    let cart = JSON.parse(localStorage.getItem('portfolioCart')) || [];
+    
+    const existingItem = cart.find(item => item.id === projectId);
+    if (existingItem) {
+        existingItem.quantity += 1;
+    } else {
+        cart.push({
+            id: projectId,
+            title: title,
+            price: price,
+            image: image,
+            quantity: 1
+        });
+    }
+    
+    localStorage.setItem('portfolioCart', JSON.stringify(cart));
+    updateCartCount();
+    
+    // إظهار إشعار
+    showNotification('Added to cart!');
+}
+
+function closeModal() {
+    document.getElementById('projectModal').style.display = 'none';
+}
+
+// ========== EVENT LISTENERS ==========
+
+document.addEventListener('DOMContentLoaded', function() {
+    console.log('DOM fully loaded');
+    
+    // تهيئة النظام
+    initializeLanguage();
+    initMobileMenu();
+    updateCartCount();
+    
+    // إعداد أحداث المودال
+    document.getElementById('closeModalBtn').addEventListener('click', closeModal);
+    document.getElementById('modalCloseBtn').addEventListener('click', closeModal);
+    
+    // إغلاق المودال عند النقر خارجها
+    document.getElementById('projectModal').addEventListener('click', function(e) {
+        if (e.target === this) {
+            closeModal();
+        }
+    });
+    
+    // زر استكشاف البورتفوليو في الهيرو
+    document.querySelector('.hero-cta').addEventListener('click', function(e) {
+        e.preventDefault();
+        scrollToPortfolio();
+    });
+    
+    // زر العودة للأعلى (إذا أضفته)
+    const scrollTopBtn = document.querySelector('.scroll-top-btn');
+    if (scrollTopBtn) {
+        scrollTopBtn.addEventListener('click', function() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+    }
+    
+    console.log('Language initialization complete');
+    console.log('Body direction:', document.body.dir);
+});
   </script>
 </body>
 

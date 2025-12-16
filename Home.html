@@ -7,6 +7,8 @@
     <title>Studio - Home Page</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Add this to the head section after Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com" rel="preconnect" />
@@ -2325,6 +2327,190 @@ footer {
     transform: translateY(-8px);
     box-shadow: 0 20px 40px rgba(226, 147, 0, 0.3);
 }
+
+
+
+
+
+
+
+
+
+
+
+/* ========== LANGUAGE TOGGLE STYLES ========== */
+.lang-btn {
+    background: #FFD600;
+    color: #000;
+    font-weight: 700;
+    border: none;
+    border-radius: 8px;
+    padding: 8px 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    min-width: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+}
+
+.lang-btn:hover {
+    background: #E6C100;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(255, 214, 0, 0.3);
+}
+
+.lang-btn.active {
+    background: #000;
+    color: #FFD600;
+    border: 2px solid #FFD600;
+}
+
+.lang-btn .material-symbols-outlined {
+    font-size: 18px;
+}
+
+
+        /* إضافة styles للترجمة */
+        body[dir="rtl"] {
+            font-family: 'Tajawal', 'Inter', sans-serif;
+            text-align: right;
+        }
+        
+        body[dir="rtl"] .logo-text,
+        body[dir="rtl"] .nav-link,
+        body[dir="rtl"] .slide-title,
+        body[dir="rtl"] .slide-desc,
+        body[dir="rtl"] .section-title,
+        body[dir="rtl"] .section-description,
+        body[dir="rtl"] .feature-title,
+        body[dir="rtl"] .feature-description,
+        body[dir="rtl"] .card-title,
+        body[dir="rtl"] .card-description,
+        body[dir="rtl"] .footer-logo-text,
+        body[dir="rtl"] .footer-title,
+        body[dir="rtl"] .footer-link,
+        body[dir="rtl"] .footer-about-text,
+        body[dir="rtl"] .cart-modal-title,
+        body[dir="rtl"] .cart-item-title {
+            font-family: 'Tajawal', 'Inter', sans-serif;
+        }
+        
+        body[dir="rtl"] .logo {
+            flex-direction: row-reverse;
+        }
+        
+        body[dir="rtl"] .nav-links {
+            gap: 1.5rem;
+        }
+        
+        body[dir="rtl"] .mobile-nav-link {
+            text-align: right;
+        }
+        
+        body[dir="rtl"] .specializations-grid {
+            direction: rtl;
+        }
+        
+        body[dir="rtl"] .card-features li {
+            padding-left: 0;
+            padding-right: 25px;
+        }
+        
+        body[dir="rtl"] .card-features li:before {
+            left: auto;
+            right: 0;
+        }
+        
+        body[dir="rtl"] .card-number {
+            right: auto;
+            left: 20px;
+        }
+        
+        body[dir="rtl"] .cta-buttons {
+            direction: rtl;
+        }
+        
+        body[dir="rtl"] .footer-grid {
+            direction: rtl;
+        }
+        
+        body[dir="rtl"] .footer-column {
+            text-align: right;
+        }
+        
+        body[dir="rtl"] .footer-links {
+            align-items: flex-end;
+        }
+        
+        body[dir="rtl"] .footer-link {
+            direction: rtl;
+        }
+        
+        body[dir="rtl"] .social-links {
+            direction: ltr;
+        }
+   
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        /* إصلاحات للسلايدر مع RTL */
+body[dir="rtl"] .hero-track {
+    direction: ltr; /* إبقاء اتجاه السلايدر LTR حتى في RTL */
+}
+
+body[dir="rtl"] .slider-buttons {
+    transform: translateY(-50%) scaleX(-1); /* عكس اتجاه الأزرار */
+}
+
+body[dir="rtl"] .slide-btn {
+    transform: scaleX(-1); /* إصلاح اتجاه الأيقونات في الأزرار */
+}
+
+body[dir="rtl"] .slide-info {
+    text-align: right;
+    left: auto;
+    right: 0;
+}
+
+/* إصلاح تحميل الصور */
+.slide-card {
+    background-size: cover !important;
+    background-position: center !important;
+    background-repeat: no-repeat !important;
+    transition: background-image 0.3s ease;
+}
+
+/* إضافة تأثير تحميل للصور */
+.slide-card::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(10, 10, 10, 0.3);
+    z-index: 1;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.slide-card.loading::after {
+    opacity: 1;
+    background: rgba(10, 10, 10, 0.7);
+}
     </style>
 </head>
 
@@ -2417,6 +2603,15 @@ footer {
                     <a class="nav-link" href="About.html" id="aboutLink">About Us</a>
                     <a class="nav-link" href="Contact.html" id="contactLink">Contact</a>
                     <!-- زر السلة الوحيد للديسكتوب -->
+<button id="langToggle" class="lang-btn">
+    <span class="material-symbols-outlined">language</span>
+    <span id="langText">EN</span>
+</button>
+
+
+
+
+
                     <button class="nav-cart" id="cartBtn">
                         <span class="material-symbols-outlined">shopping_cart</span>
                         <span class="cart-badge" id="cartCount">0</span>
@@ -2448,6 +2643,11 @@ footer {
                 <a class="mobile-nav-link" href="portofolio.html" id="mobileWalletLink">Portfolio</a>
                 <a class="mobile-nav-link" href="About.html" id="mobileAboutLink">About Us</a>
                 <a class="mobile-nav-link" href="Contact.html" id="mobileContactLink">Contact</a>
+                <button class="mobile-nav-link" id="mobileLangToggle">
+   <button class="mobile-nav-link" id="mobileLangToggle">
+    <span class="material-symbols-outlined">language</span>
+    <span id="mobileLangText">English / عربي</span>
+</button>
             </div>
         </div>
 
@@ -3053,7 +3253,15 @@ footer {
         <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
     </a>
 
-    <script>
+ 
+
+
+
+
+
+
+
+ <script>
        // بيانات الخدمات والمنتجات
         const services = [
             {
@@ -3734,16 +3942,7 @@ footer {
             updateCartCount();
         });
 
-
-
-
-
-
-
-
-
-
-   // Simple hover effects
+        // Simple hover effects
         document.addEventListener('DOMContentLoaded', function() {
             const cards = document.querySelectorAll('.specialization-card');
             
@@ -3774,87 +3973,47 @@ footer {
             }, 300);
         });
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// تحديث عدادات السلة على الموبايل
-function updateMobileCartCount() {
-    const cart = JSON.parse(localStorage.getItem('cart')) || [];
-    const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
-    document.getElementById('mobileCartCount').textContent = totalItems;
-    document.getElementById('cartCount').textContent = totalItems;
-}
-
-// إضافة حدث لزر السلة للموبايل
-document.getElementById('mobileCartBtn')?.addEventListener('click', () => {
-    document.getElementById('cartModal').style.display = 'flex';
-});
-
-// تحديث عند تحميل الصفحة
-document.addEventListener('DOMContentLoaded', updateMobileCartCount);
-
-
-
-
- function toggleAuth() {
-        if (localStorage.getItem('currentUser')) {
-            // تسجيل الخروج
-            localStorage.removeItem('currentUser');
-            showNotification('تم تسجيل الخروج بنجاح');
-            setTimeout(() => location.reload(), 500);
-        } else {
-            // الذهاب لصفحة تسجيل الدخول
-            window.location.href = 'registar.html';
+        // تحديث عدادات السلة على الموبايل
+        function updateMobileCartCount() {
+            const cart = JSON.parse(localStorage.getItem('cart')) || [];
+            const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+            document.getElementById('mobileCartCount').textContent = totalItems;
+            document.getElementById('cartCount').textContent = totalItems;
         }
-    }
 
-    // تحديث نص الزر عند تحميل الصفحة
-    function updateAuthButton() {
-        const authText = document.getElementById('authText');
-        if (authText) {
-            authText.textContent = localStorage.getItem('currentUser') ? 'Logout' : 'Login';
+        // إضافة حدث لزر السلة للموبايل
+        document.getElementById('mobileCartBtn')?.addEventListener('click', () => {
+            document.getElementById('cartModal').style.display = 'flex';
+        });
+
+        // تحديث عند تحميل الصفحة
+        document.addEventListener('DOMContentLoaded', updateMobileCartCount);
+
+        function toggleAuth() {
+            if (localStorage.getItem('currentUser')) {
+                // تسجيل الخروج
+                localStorage.removeItem('currentUser');
+                showNotification('تم تسجيل الخروج بنجاح');
+                setTimeout(() => location.reload(), 500);
+            } else {
+                // الذهاب لصفحة تسجيل الدخول
+                window.location.href = 'registar.html';
+            }
         }
-    }
 
-    // استدعاء عند تحميل الصفحة
-    document.addEventListener('DOMContentLoaded', updateAuthButton);
+        // تحديث نص الزر عند تحميل الصفحة
+        function updateAuthButton() {
+            const authText = document.getElementById('authText');
+            if (authText) {
+                authText.textContent = localStorage.getItem('currentUser') ? 'Logout' : 'Login';
+            }
+        }
 
+        // استدعاء عند تحميل الصفحة
+        document.addEventListener('DOMContentLoaded', updateAuthButton);
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    
-
-
- document.addEventListener('DOMContentLoaded', function() {
+        // Testimonials animations
+        document.addEventListener('DOMContentLoaded', function() {
             // Initialize section
             const testimonialsSection = document.querySelector('.premium-testimonials');
             const cards = document.querySelectorAll('.testimonial-card');
@@ -3978,7 +4137,7 @@ document.addEventListener('DOMContentLoaded', updateMobileCartCount);
             });
             
             // CTA Button click
-            ctaButton.addEventListener('click', () => {
+            ctaButton.addEventListener('click', (e) => {
                 // Add ripple effect
                 const ripple = document.createElement('span');
                 const rect = ctaButton.getBoundingClientRect();
@@ -4017,7 +4176,638 @@ document.addEventListener('DOMContentLoaded', updateMobileCartCount);
             `;
             document.head.appendChild(style);
         });
- 
-    </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// ========== LANGUAGE TOGGLE FUNCTIONALITY ==========
+document.addEventListener('DOMContentLoaded', function() {
+    // تعريف متغيرات اللغة
+    const langToggleBtn = document.getElementById('langToggle');
+    const mobileLangToggleBtn = document.getElementById('mobileLangToggle');
+    const langText = document.getElementById('langText');
+    const mobileLangText = document.getElementById('mobileLangText');
+    
+    // التحقق من وجود عناصر DOM
+    if (!langToggleBtn || !mobileLangToggleBtn) {
+        console.error('Language toggle buttons not found!');
+        return;
+    }
+    
+    // الترجمة الإنجليزية
+    const englishTexts = {
+        // Navigation
+        home: "Home",
+        services: "Services",
+        shop: "Shop",
+        portfolio: "Portfolio",
+        about: "About Us",
+        contact: "Contact",
+        login: "Login",
+        logout: "Logout",
+        cart: "Cart",
+        
+        // Hero Slider
+        welcome1: "Welcome to our website.",
+        welcome2: "Welcome to our online space.",
+        welcome3: "We're glad you're here—welcome!",
+        desc1: "Led by a London architect with over a decade of international experience.",
+        desc2: "Led by a London architect with over a decade of international experience.",
+        desc3: "Built by a London-based architect skilled in narrative design and mentoring.",
+        contactMe: "Contact me",
+        
+        // Features Section
+        coreServices: "Our Core Services",
+        coreDesc: "From initial concept to final construction, we provide a comprehensive suite of architectural services tailored to bring your vision to life.",
+        archDrafting: "Architectural Drafting & Floor Plans",
+        archDraftingDesc: "Professional CAD drawings with accurate details and clean layouts.",
+        softwareTutoring: "Software Tutoring",
+        softwareTutoringDesc: "Learn AutoCAD, Revit, Rhino, V-Ray and more with personalized sessions.",
+        modelingRendering: "3D Modelling & Rendering (Revit / Rhino)",
+        modelingRenderingDesc: "High-quality 3D modeling for academic and professional work.",
+        presentationBoards: "Board & Presentation Storyboards",
+        presentationBoardsDesc: "Clean and impactful presentation boards for juries & submissions.",
+        addToCart: "Add to Cart",
+        
+        // Specializations Section
+        expertise: "OUR EXPERTISE",
+        archSpecializations: "Architectural Specializations",
+        specializationDesc: "With precision, innovation, and global experience, we deliver exceptional architectural solutions that bridge cultures and exceed expectations.",
+        archVisualization: "Architectural Visualization",
+        archVizDesc: "High-quality 3D renderings, animations, and technical drawings that bring architectural concepts to life with photorealistic precision.",
+        intlCollaboration: "International Collaboration",
+        intlCollabDesc: "Proven experience working with top architecture firms across Europe and the UK, bringing global perspectives to every project.",
+        
+        // Testimonials
+        clientVoices: "Client Voices",
+        exceedsExpectations: "Exceeds Expectations",
+        testimonialDesc: "Don't just take our word for it. Hear from architects, students, and professionals who transformed their projects with our services.",
+        ahmedSamir: "Ahmed Samir",
+        architectureStudent: "Architecture Student",
+        cairoUniversity: "Cairo University",
+        testimonial1: "\"As an architecture student struggling with Revit, their tutoring sessions were a game-changer. The instructor's deep understanding of both software and design principles helped me not just learn the tools, but understand how to think architecturally. My grades improved dramatically.\"",
+        projectGrade: "Project Grade: A+",
+        emmaRichardson: "Emma Richardson",
+        professionalArchitect: "Professional Architect",
+        londonUK: "London, UK",
+        testimonial2: "\"The architectural visualization service saved our pitch to a major client. The photorealistic renders and walkthrough animation communicated our design intent perfectly. The team understood our vision immediately and delivered beyond expectations. Truly professional.\"",
+        projectSecured: "Project Secured: £2.5M Contract",
+        satisfiedClients: "Satisfied Clients",
+        averageRating: "Average Rating",
+        projectSuccess: "Project Success",
+        shareExperience: "Share Your Experience",
+        
+        // CTA Section
+        readyToBuild: "Ready to Build Your Vision?",
+        ctaDesc: "Let's discuss how we can bring your architectural dreams to life. Contact us for a consultation or explore our shop for design packages.",
+        browseServices: "Browse Services",
+        contactWhatsApp: "Contact via WhatsApp",
+        
+        // Footer
+        sitemap: "Sitemap",
+        contactUs: "Contact Us",
+        address: "Address: 10 Downing Street, London, UK",
+        copyright: "© 2024 Architectural → CMA. All Rights Reserved."
+    };
+    
+    // الترجمة العربية
+    const arabicTexts = {
+        // Navigation
+        home: "الرئيسية",
+        services: "الخدمات",
+        shop: "المتجر",
+        portfolio: "الأعمال",
+        about: "من نحن",
+        contact: "اتصل بنا",
+        login: "تسجيل الدخول",
+        logout: "تسجيل الخروج",
+        cart: "السلة",
+        
+        // Hero Slider
+        welcome1: "مرحبًا بكم في موقعنا.",
+        welcome2: "مرحبًا بكم في مساحتنا الإلكترونية.",
+        welcome3: "سعداء بوجودكم هنا - أهلاً وسهلاً!",
+        desc1: "بقيادة مهندس معماري من لندن يمتلك أكثر من عقد من الخبرة الدولية.",
+        desc2: "بقيادة مهندس معماري من لندن يمتلك أكثر من عقد من الخبرة الدولية.",
+        desc3: "تم بناؤه بواسطة مهندس معماري مقيم في لندن متخصص في تصميم السرد والإرشاد.",
+        contactMe: "اتصل بي",
+        
+        // Features Section
+        coreServices: "خدماتنا الأساسية",
+        coreDesc: "من المفهوم الأولي إلى البناء النهائي، نقدم مجموعة شاملة من الخدمات المعمارية المصممة خصيصًا لتحويل رؤيتك إلى حقيقة.",
+        archDrafting: "الرسومات المعمارية ومخططات الأرضية",
+        archDraftingDesc: "رسومات CAD احترافية بتفاصيل دقيقة وتخطيطات نظيفة.",
+        softwareTutoring: "الدروس التعليمية للبرمجيات",
+        softwareTutoringDesc: "تعلم أوتوكاد، ريفيت، رينو، في-راي والمزيد مع جلسات مخصصة.",
+        modelingRendering: "النمذجة ثلاثية الأبعاد والتجسيد (ريفيت / رينو)",
+        modelingRenderingDesc: "نمذجة ثلاثية الأبعاد عالية الجودة للعمل الأكاديمي والمهني.",
+        presentationBoards: "لوحات العرض والقصص المصورة",
+        presentationBoardsDesc: "لوحات عرض نظيفة ومؤثرة للجنة التحكيم والتسليمات.",
+        addToCart: "أضف إلى السلة",
+        
+        // Specializations Section
+        expertise: "تخصصاتنا",
+        archSpecializations: "التخصصات المعمارية",
+        specializationDesc: "بدقة وابتكار وخبرة عالمية، نقدم حلولًا معمارية استثنائية تربط بين الثقافات وتتجاوز التوقعات.",
+        archVisualization: "التصور المعماري",
+        archVizDesc: "عروض ثلاثية الأبعاد عالية الجودة، رسوم متحركة، ورسومات تقنية تجعل المفاهيم المعمارية حية بدقة فوتوغرافية.",
+        intlCollaboration: "التعاون الدولي",
+        intlCollabDesc: "خبرة مثبتة في العمل مع كبرى شركات الهندسة المعمارية في جميع أنحاء أوروبا والمملكة المتحدة، مما يجلب منظورات عالمية لكل مشروع.",
+        
+        // Testimonials
+        clientVoices: "أصوات العملاء",
+        exceedsExpectations: "يتجاوز التوقعات",
+        testimonialDesc: "لا تأخذ كلمتنا فقط. استمع من المهندسين المعماريين والطلاب والمحترفين الذين غيروا مشاريعهم بخدماتنا.",
+        ahmedSamir: "أحمد سمير",
+        architectureStudent: "طالب هندسة معمارية",
+        cairoUniversity: "جامعة القاهرة",
+        testimonial1: "\"كطالب هندسة معمارية يعاني من صعوبة في ريفيت، كانت دروسهم التعليمية تغييرًا جذريًا. ساعدني الفهم العميق للمدرس لكل من البرمجيات ومبادئ التصميم ليس فقط في تعلم الأدوات، ولكن في فهم كيفية التفكير معماريًا. تحسنت درجاتي بشكل كبير.\"",
+        projectGrade: "درجة المشروع: A+",
+        emmaRichardson: "إيما ريتشاردسون",
+        professionalArchitect: "مهندسة معمارية محترفة",
+        londonUK: "لندن، المملكة المتحدة",
+        testimonial2: "\"أنقذت خدمة التصور المعماري عرضنا لعملاء رئيسيين. نقلت العروض الفوتوغرافية والرسوم المتحركة بنية التصميم لدينا بشكل مثالي. فهم الفريق رؤيتنا على الفور وقدم ما هو أبعد من التوقعات. احترافية بحق.\"",
+        projectSecured: "تم تأمين المشروع: عقد بقيمة 2.5 مليون جنيه إسترليني",
+        satisfiedClients: "عملاء راضون",
+        averageRating: "متوسط التقييم",
+        projectSuccess: "نجاح المشروع",
+        shareExperience: "شارك تجربتك",
+        
+        // CTA Section
+        readyToBuild: "مستعد لبناء رؤيتك؟",
+        ctaDesc: "دعونا نناقش كيف يمكننا تحقيق أحلامك المعمارية. اتصل بنا للحصول على استشارة أو استكشف متجرنا للحصول على حزم التصميم.",
+        browseServices: "تصفح الخدمات",
+        contactWhatsApp: "اتصل عبر واتساب",
+        
+        // Footer
+        sitemap: "خريطة الموقع",
+        contactUs: "اتصل بنا",
+        address: "العنوان: 10 داونينج ستريت، لندن، المملكة المتحدة",
+        copyright: "© 2024 الهندسة المعمارية → CMA. جميع الحقوق محفوظة."
+    };
+    
+    // تحديد اللغة الحالية
+    let currentLang = localStorage.getItem('siteLanguage') || 'en';
+    
+    // تهيئة الصفحة مع اللغة المناسبة
+    function initializeLanguage() {
+        applyLanguage(currentLang);
+        updateLangButtons();
+    }
+    
+    // تطبيق الترجمة
+    function applyLanguage(lang) {
+        const texts = lang === 'ar' ? arabicTexts : englishTexts;
+        
+        // تغيير اتجاه الصفحة
+        document.body.dir = lang === 'ar' ? 'rtl' : 'ltr';
+        
+        // تحديث النصوص
+        updateNavigationTexts(texts);
+        updateHeroSliderTexts(texts);
+        updateFeaturesTexts(texts);
+        updateSpecializationsTexts(texts);
+        updateTestimonialsTexts(texts);
+        updateCTATexts(texts);
+        updateFooterTexts(texts);
+        
+        // حفظ اللغة
+        localStorage.setItem('siteLanguage', lang);
+        currentLang = lang;
+        
+        // إعادة تحميل الأحداث
+        setupTestimonialAnimations();
+    }
+    
+    // تحديث نصوص التنقل
+    function updateNavigationTexts(texts) {
+        // روابط التنقل الرئيسية
+        updateElementText('homeLink', texts.home);
+        updateElementText('servicesLink', texts.services);
+        updateElementText('shopLink', texts.shop);
+        updateElementText('walletLink', texts.portfolio);
+        updateElementText('aboutLink', texts.about);
+        updateElementText('contactLink', texts.contact);
+        
+        // روابط التنقل للموبايل
+        updateElementText('mobileHomeLink', texts.home);
+        updateElementText('mobileServicesLink', texts.services);
+        updateElementText('mobileShopLink', texts.shop);
+        updateElementText('mobileWalletLink', texts.portfolio);
+        updateElementText('mobileAboutLink', texts.about);
+        updateElementText('mobileContactLink', texts.contact);
+        
+        // زر السلة
+        updateElementText('cartBtn', texts.cart, true);
+        
+        // زر تسجيل الدخول
+        const authTextElement = document.getElementById('authText');
+        if (authTextElement) {
+            const isLoggedIn = localStorage.getItem('currentUser');
+            authTextElement.textContent = isLoggedIn ? texts.logout : texts.login;
+        }
+    }
+    
+    // تحديث نصوص الـ Hero Slider
+    function updateHeroSliderTexts(texts) {
+        // العناصر حسب المؤشر
+        const slideTitles = document.querySelectorAll('.slide-title');
+        const slideDescs = document.querySelectorAll('.slide-desc');
+        const slideButtons = document.querySelectorAll('.slide-info button');
+        
+        // الشريحة الأولى
+        if (slideTitles[0]) slideTitles[0].textContent = texts.welcome1;
+        if (slideDescs[0]) slideDescs[0].textContent = texts.desc1;
+        if (slideButtons[0]) slideButtons[0].textContent = texts.contactMe;
+        
+        // الشريحة الثانية
+        if (slideTitles[1]) slideTitles[1].textContent = texts.welcome2;
+        if (slideDescs[1]) slideDescs[1].textContent = texts.desc2;
+        if (slideButtons[1]) slideButtons[1].textContent = texts.contactMe;
+        
+        // الشريحة الثالثة والرابعة (نفس النص)
+        if (slideTitles[2]) slideTitles[2].textContent = texts.welcome3;
+        if (slideDescs[2]) slideDescs[2].textContent = texts.desc3;
+        if (slideButtons[2]) slideButtons[2].textContent = texts.contactMe;
+        
+        if (slideTitles[3]) slideTitles[3].textContent = texts.welcome3;
+        if (slideDescs[3]) slideDescs[3].textContent = texts.desc3;
+        if (slideButtons[3]) slideButtons[3].textContent = texts.contactMe;
+    }
+    
+    // تحديث نصوص الخدمات
+    function updateFeaturesTexts(texts) {
+        // العنوان الرئيسي
+        updateElementText('.section-title', texts.coreServices);
+        updateElementText('.section-description', texts.coreDesc);
+        
+        // بطاقات الخدمات
+        const featureCards = document.querySelectorAll('.feature-card');
+        
+        // بطاقة 1
+        if (featureCards[0]) {
+            updateElementTextInCard(featureCards[0], '.feature-title', texts.archDrafting);
+            updateElementTextInCard(featureCards[0], '.feature-description', texts.archDraftingDesc);
+            updateElementTextInCard(featureCards[0], '.add-to-cart-btn', texts.addToCart, true);
+        }
+        
+        // بطاقة 2
+        if (featureCards[1]) {
+            updateElementTextInCard(featureCards[1], '.feature-title', texts.softwareTutoring);
+            updateElementTextInCard(featureCards[1], '.feature-description', texts.softwareTutoringDesc);
+            updateElementTextInCard(featureCards[1], '.add-to-cart-btn', texts.addToCart, true);
+        }
+        
+        // بطاقة 3
+        if (featureCards[2]) {
+            updateElementTextInCard(featureCards[2], '.feature-title', texts.modelingRendering);
+            updateElementTextInCard(featureCards[2], '.feature-description', texts.modelingRenderingDesc);
+            updateElementTextInCard(featureCards[2], '.add-to-cart-btn', texts.addToCart, true);
+        }
+        
+        // بطاقة 4
+        if (featureCards[3]) {
+            updateElementTextInCard(featureCards[3], '.feature-title', texts.presentationBoards);
+            updateElementTextInCard(featureCards[3], '.feature-description', texts.presentationBoardsDesc);
+            updateElementTextInCard(featureCards[3], '.add-to-cart-btn', texts.addToCart, true);
+        }
+    }
+    
+    // تحديث نصوص التخصصات
+    function updateSpecializationsTexts(texts) {
+        // العناوين
+        updateElementText('.section-subtitle', texts.expertise);
+        updateElementText('.section-title', texts.archSpecializations);
+        updateElementText('.section-description', texts.specializationDesc);
+        
+        // بطاقات التخصصات
+        const specializationCards = document.querySelectorAll('.specialization-card');
+        
+        // بطاقة 1
+        if (specializationCards[0]) {
+            updateElementTextInCard(specializationCards[0], '.card-title', texts.archVisualization);
+            updateElementTextInCard(specializationCards[0], '.card-description', texts.archVizDesc);
+        }
+        
+        // بطاقة 2
+        if (specializationCards[1]) {
+            updateElementTextInCard(specializationCards[1], '.card-title', texts.softwareTutoring);
+        }
+        
+        // بطاقة 3
+        if (specializationCards[2]) {
+            updateElementTextInCard(specializationCards[2], '.card-title', texts.intlCollaboration);
+            updateElementTextInCard(specializationCards[2], '.card-description', texts.intlCollabDesc);
+        }
+    }
+    
+    // تحديث نصوص الشهادات
+    function updateTestimonialsTexts(texts) {
+        // العنوان
+        const subtitleElement = document.querySelector('.premium-testimonials .section-subtitle');
+        if (subtitleElement) {
+            subtitleElement.textContent = texts.clientVoices;
+        }
+        
+        // النص الرئيسي
+        const titleElement = document.querySelector('.premium-testimonials .section-title');
+        if (titleElement) {
+            titleElement.innerHTML = `<span class="word">E</span><span class="word gold">${texts.exceedsExpectations}</span>`;
+        }
+        
+        const descElement = document.querySelector('.premium-testimonials .fade-in-text');
+        if (descElement) {
+            descElement.textContent = texts.testimonialDesc;
+        }
+        
+        // بطاقة الشهادة الأولى
+        const card1 = document.querySelector('.card-1');
+        if (card1) {
+            updateElementTextInCard(card1, 'h3', texts.ahmedSamir);
+            updateElementTextInCard(card1, '.client-info > div > div:nth-child(1) span', texts.architectureStudent);
+            updateElementTextInCard(card1, '.client-info > div > div:nth-child(3) span', texts.cairoUniversity);
+            updateElementTextInCard(card1, '.testimonial-text p', texts.testimonial1);
+            updateElementTextInCard(card1, '.project-highlight span:nth-child(2)', texts.projectGrade);
+        }
+        
+        // بطاقة الشهادة الثانية
+        const card2 = document.querySelector('.card-2');
+        if (card2) {
+            updateElementTextInCard(card2, 'h3', texts.emmaRichardson);
+            updateElementTextInCard(card2, '.client-info > div > div:nth-child(1) span', texts.professionalArchitect);
+            updateElementTextInCard(card2, '.client-info > div > div:nth-child(3) span', texts.londonUK);
+            updateElementTextInCard(card2, '.testimonial-text p', texts.testimonial2);
+            updateElementTextInCard(card2, '.project-highlight span:nth-child(2)', texts.projectSecured);
+        }
+        
+        // الإحصائيات
+        const statItems = document.querySelectorAll('.stat-item');
+        if (statItems[0]) {
+            updateElementTextInCard(statItems[0], '.stat-label', texts.satisfiedClients);
+        }
+        if (statItems[1]) {
+            updateElementTextInCard(statItems[1], '.stat-label', texts.averageRating);
+        }
+        if (statItems[2]) {
+            updateElementTextInCard(statItems[2], '.stat-label', texts.projectSuccess);
+        }
+        
+        // زر المشاركة
+        const ctaButton = document.querySelector('.floating-cta .cta-button');
+        if (ctaButton) {
+            ctaButton.innerHTML = `<span class="material-symbols-outlined">chat</span> ${texts.shareExperience}`;
+        }
+    }
+    
+    // تحديث نصوص CTA
+    function updateCTATexts(texts) {
+        updateElementText('.cta-title', texts.readyToBuild);
+        updateElementText('.cta-description', texts.ctaDesc);
+        
+        const orderNowBtn = document.getElementById('orderNowBtn');
+        if (orderNowBtn) orderNowBtn.textContent = texts.browseServices;
+        
+        const whatsappBtn = document.getElementById('whatsappBtn');
+        if (whatsappBtn) whatsappBtn.innerHTML = `<svg fill="none" height="20" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="20" xmlns="http://www.w3.org/2000/svg"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path><path d="M14.05 2.95A16 16 0 0 1 21.05 9.95"></path><path d="M14.05 6.45A12 12 0 0 1 17.55 9.95"></path></svg> ${texts.contactWhatsApp}`;
+    }
+    
+    // تحديث نصوص الفوتر
+    function updateFooterTexts(texts) {
+        // خريطة الموقع
+        updateElementText('.footer-column:nth-child(2) .footer-title', texts.sitemap);
+        
+        // اتصل بنا
+        updateElementText('.footer-column:nth-child(3) .footer-title', texts.contactUs);
+        
+        const footerLinks = document.querySelectorAll('.footer-contact p');
+        if (footerLinks[0]) footerLinks[0].textContent = texts.address;
+        
+        const copyright = document.querySelector('.copyright');
+        if (copyright) copyright.textContent = texts.copyright;
+    }
+    
+    // وظيفة مساعدة لتحديث نص العنصر
+    function updateElementText(selector, text, keepHTML = false) {
+        const element = typeof selector === 'string' ? document.querySelector(selector) : selector;
+        if (element) {
+            if (keepHTML) {
+                const icon = element.querySelector('.material-symbols-outlined');
+                if (icon) {
+                    element.innerHTML = icon.outerHTML + ' ' + text;
+                } else {
+                    element.textContent = text;
+                }
+            } else {
+                element.textContent = text;
+            }
+        }
+    }
+    
+    // وظيفة مساعدة لتحديث نص داخل بطاقة
+    function updateElementTextInCard(card, selector, text, keepHTML = false) {
+        const element = card.querySelector(selector);
+        if (element) {
+            if (keepHTML) {
+                const icon = element.querySelector('.material-symbols-outlined');
+                if (icon) {
+                    element.innerHTML = icon.outerHTML + ' ' + text;
+                } else {
+                    element.textContent = text;
+                }
+            } else {
+                element.textContent = text;
+            }
+        }
+    }
+    
+    // تحديث أزرار اللغة
+    function updateLangButtons() {
+        if (langText) {
+            langText.textContent = currentLang === 'en' ? 'EN' : 'AR';
+        }
+        if (mobileLangText) {
+            mobileLangText.textContent = currentLang === 'en' ? 'English / عربي' : 'عربي / English';
+        }
+        
+        // إضافة/إزالة class active
+        if (currentLang === 'ar') {
+            langToggleBtn?.classList.add('active');
+            mobileLangToggleBtn?.classList.add('active');
+        } else {
+            langToggleBtn?.classList.remove('active');
+            mobileLangToggleBtn?.classList.remove('active');
+        }
+    }
+    
+    // تبديل اللغة
+    function toggleLanguage() {
+        const newLang = currentLang === 'en' ? 'ar' : 'en';
+        applyLanguage(newLang);
+        updateLangButtons();
+        
+        // إظهار إشعار
+        showNotification(newLang === 'ar' ? 'تم التبديل إلى العربية' : 'Switched to English');
+    }
+    
+    // إعداد أحداث الأزرار
+    if (langToggleBtn) {
+        langToggleBtn.addEventListener('click', toggleLanguage);
+    }
+    
+    if (mobileLangToggleBtn) {
+        mobileLangToggleBtn.addEventListener('click', toggleLanguage);
+    }
+    
+    // إعادة إعداد الرسوم المتحركة للشهادات
+    function setupTestimonialAnimations() {
+        const testimonialsSection = document.querySelector('.premium-testimonials');
+        const cards = document.querySelectorAll('.testimonial-card');
+        const statsBar = document.querySelector('.stats-bar');
+        
+        // إعادة تعيين الرسوم المتحركة
+        testimonialsSection?.classList.remove('animated');
+        cards.forEach(card => card.classList.remove('animated'));
+        statsBar?.classList.remove('animated');
+        
+        // إعادة تطبيق الرسوم المتحركة بعد الترجمة
+        setTimeout(() => {
+            if (isElementInViewport(testimonialsSection)) {
+                testimonialsSection?.classList.add('animated');
+                
+                setTimeout(() => {
+                    cards.forEach(card => card.classList.add('animated'));
+                }, 300);
+                
+                setTimeout(() => {
+                    statsBar?.classList.add('animated');
+                }, 800);
+            }
+        }, 100);
+    }
+    
+    // التحقق مما إذا كان العنصر في نطاق العرض
+    function isElementInViewport(el) {
+        if (!el) return false;
+        const rect = el.getBoundingClientRect();
+        return (
+            rect.top <= (window.innerHeight || document.documentElement.clientHeight) &&
+            rect.bottom >= 0
+        );
+    }
+    
+    // تهيئة اللغة عند تحميل الصفحة
+    initializeLanguage();
+});
+
+// ========== END LANGUAGE TOGGLE FUNCTIONALITY ==========
+
+
+
+
+
+
+
+
+
+
+
+
+// تطبيق الترجمة
+function applyLanguage(lang) {
+    const texts = lang === 'ar' ? arabicTexts : englishTexts;
+    
+    // تغيير اتجاه الصفحة
+    document.body.dir = lang === 'ar' ? 'rtl' : 'ltr';
+    
+    // إصلاح خاص للسلايدر - إعادة ضبط الأنماط عند الترجمة
+    fixSliderForRTL(lang);
+    
+    // تحديث النصوص
+    updateNavigationTexts(texts);
+    updateHeroSliderTexts(texts);
+    updateFeaturesTexts(texts);
+    updateSpecializationsTexts(texts);
+    updateTestimonialsTexts(texts);
+    updateCTATexts(texts);
+    updateFooterTexts(texts);
+    
+    // حفظ اللغة
+    localStorage.setItem('siteLanguage', lang);
+    currentLang = lang;
+    
+    // إعادة تحميل الأحداث
+    setupTestimonialAnimations();
+}
+
+// دالة لإصلاح السلايدر مع RTL
+function fixSliderForRTL(lang) {
+    const heroTrack = document.getElementById('heroTrack');
+    const slideCards = document.querySelectorAll('.slide-card');
+    
+    if (!heroTrack) return;
+    
+    // إعادة ضبط تحويل السلايدر
+    heroTrack.style.transform = `translateX(-${currentSlide * 25}%)`;
+    
+    // إعادة تطبيق خلفيات الصور
+    if (slideCards.length >= 4) {
+        // الشريحة الأولى
+        slideCards[0].style.backgroundImage = "url('./img/01_nmq2_2002_do_020.png')";
+        // الشريحة الثانية
+        slideCards[1].style.backgroundImage = "url('./img/Orla-by-OMNIYAT-Amenities-1024x569 (1).jpg')";
+        // الشريحة الثالثة
+        slideCards[2].style.backgroundImage = "url('./img/getCroppedImage(23).jpg')";
+        // الشريحة الرابعة
+        slideCards[3].style.backgroundImage = "url('./img/getCroppedImage (7).jpg')";
+        
+        // تأكد من تحميل الصور
+        setTimeout(() => {
+            slideCards.forEach(card => {
+                const img = new Image();
+                const bg = card.style.backgroundImage.replace(/url\(['"]?(.*?)['"]?\)/i, '$1');
+                img.src = bg;
+                img.onload = () => {
+                    card.style.opacity = '1';
+                };
+                img.onerror = () => {
+                    console.error('Failed to load image:', bg);
+                    // استخدام صورة افتراضية إذا فشل التحميل
+                    card.style.backgroundImage = "url('https://images.unsplash.com/photo-1518780664697-55e3ad937233?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80')";
+                };
+            });
+        }, 100);
+    }
+}
+</script>
 </body>
 </html>
